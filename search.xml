@@ -300,7 +300,7 @@ custom<span class="token operator">:</span>
   <entry>
     <title>WIN10+docker+VMware安装MySQL8.0</title>
     <url>/post/47162/</url>
-    <content><![CDATA[<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>docker对windows真的很不友好，所以早日脱坑，linux大法好<br>如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual box，那么推荐阅读我的<a href="https://wbink.github.io/2019/09/13/WIN10%E5%AE%B6%E5%BA%AD%E7%89%88docker-vmware%E5%AE%89%E8%A3%85/#more">这篇博文</a></p>
+    <content><![CDATA[<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>docker对windows真的很不友好，所以早日脱坑，linux大法好<br>如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual box，那么推荐阅读我的<a href="https://nidwbin.xyz/post/5013/">这篇博文</a></p>
 <h2 id="建立MySQL数据文件夹"><a href="#建立MySQL数据文件夹" class="headerlink" title="建立MySQL数据文件夹"></a>建立MySQL数据文件夹</h2><p>在电脑里选一块风水宝地，建立一个文件夹用于保存MySQL的数据，名字最好是英文的，我建立了MySQL文件夹 </p>
 <img src="/post/47162/2.png" class="">
 
