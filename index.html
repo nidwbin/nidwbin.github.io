@@ -255,7 +255,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-07 12:14:07" itemprop="dateModified" datetime="2022-04-07T12:14:07+08:00">2022-04-07</time>
+      <time title="修改时间：2022-04-07 13:17:17" itemprop="dateModified" datetime="2022-04-07T13:17:17+08:00">2022-04-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -296,51 +296,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>引用Bibtex</p>
-<pre class="line-numbers language-bibtex" data-language="bibtex"><code class="language-bibtex">@inproceedings&#123;xia2021self,
-  title&#x3D;&#123;Self-supervised text-independent speaker verification using prototypical momentum contrastive learning&#125;,
-  author&#x3D;&#123;Xia, Wei and Zhang, Chunlei and Weng, Chao and Yu, Meng and Yu, Dong&#125;,
-  booktitle&#x3D;&#123;ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)&#125;,
-  pages&#x3D;&#123;6723--6727&#125;,
-  year&#x3D;&#123;2021&#125;,
-  organization&#x3D;&#123;IEEE&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>发表时间：2021<br>发表期刊：ICASSP</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>SimCLR的框架和MoCo的框架。MoCo的框架是修改后的，使用队列让K值达到1000。</p>
-<img src="/post/61813/2022-04-06-21-51-14.png" class="">
-<p>论文框架，用到了原型记忆库，在每个epoch都对整个数据集做M聚类，把样本中心（原型）加入记忆库。</p>
-<img src="/post/61813/2022-04-06-22-09-58.png" class="">
-<p>把MoCo的loss推广到半监督学习，使用到所有有标签数据。</p>
-<img src="/post/61813/2022-04-06-22-15-40.png" class="">
-<img src="/post/61813/2022-04-06-22-16-42.png" class="">
-<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>标准的TDNN</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><table>
-<thead>
-<tr>
-<th>项目</th>
-<th>设置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据集</td>
-<td>VoxCeleb2训练，VoxCeleb1测试</td>
-</tr>
-<tr>
-<td>测试标准</td>
-<td>EER和minDCF</td>
-</tr>
-<tr>
-<td>特征</td>
-<td>30MFCC，25ms&#x2F;10ms，VAD</td>
-</tr>
-<tr>
-<td>数据增强</td>
-<td>WavAug的progressive对自监督有效：reverb-augmentation+MUSAN上再增强。SpecAug用时间扭曲和频率masking。</td>
-</tr>
-</tbody></table>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="/post/61813/2022-04-06-22-40-59.png" class="">
-<img src="/post/61813/2022-04-06-22-41-19.png" class="">
-<img src="/post/61813/2022-04-06-22-41-36.png" class="">
+          <p>阅读论文SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING的简单记录</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/post/61813/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
