@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#49b1f5"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#49b1f5">
+  <meta name="google-site-verification" content="8wDUkuvY7acNrSFiPrbHrvdPFd5KaUkrO56DDYXqiBM">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nidwbin.xyz","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="使用VMware上docker安装MySQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WIN10+docker+VMware安装MySQL8.0">
+<meta property="og:url" content="https://nidwbin.xyz/post/47162/index.html">
+<meta property="og:site_name" content="霖的博客">
+<meta property="og:description" content="使用VMware上docker安装MySQL">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://nidwbin.xyz/2.png">
+<meta property="og:image" content="https://nidwbin.xyz/3.png">
+<meta property="og:image" content="https://nidwbin.xyz/1.png">
+<meta property="og:image" content="https://nidwbin.xyz/4.png">
+<meta property="og:image" content="https://nidwbin.xyz/5.png">
+<meta property="article:published_time" content="2019-09-14T07:09:34.000Z">
+<meta property="article:modified_time" content="2022-04-07T03:59:23.147Z">
+<meta property="article:author" content="霖">
+<meta property="article:tag" content="docker">
+<meta property="article:tag" content="VMware">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nidwbin.xyz/2.png">
+
+
+<link rel="canonical" href="https://nidwbin.xyz/post/47162/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nidwbin.xyz/post/47162/","path":"post/47162/","title":"WIN10+docker+VMware安装MySQL8.0"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>WIN10+docker+VMware安装MySQL8.0 | 霖的博客</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=8wDUkuvY7acNrSFiPrbHrvdPFd5KaUkrO56DDYXqiBM"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"8wDUkuvY7acNrSFiPrbHrvdPFd5KaUkrO56DDYXqiBM","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">霖的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">写在前面的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BMySQL%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">2.</span> <span class="nav-text">建立MySQL数据文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Vmware%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">Vmware的设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8BMySQL%E5%AE%9E%E4%BE%8B"><span class="nav-number">4.</span> <span class="nav-text">建立MySQL实例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ssh%E7%99%BB%E5%BD%95%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">ssh登录使用</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="霖"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">霖</p>
+  <div class="site-description" itemprop="description">生命不息，折腾不止！</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/nidwbin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;nidwbin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nidwbin@gmail.com" title="E-Mail → mailto:nidwbin@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nidwbin.xyz/post/47162/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="霖的博客">
+      <meta itemprop="description" content="生命不息，折腾不止！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="WIN10+docker+VMware安装MySQL8.0 | 霖的博客">
+      <meta itemprop="description" content="使用VMware上docker安装MySQL">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          WIN10+docker+VMware安装MySQL8.0
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-09-14 15:09:34" itemprop="dateCreated datePublished" datetime="2019-09-14T15:09:34+08:00">2019-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-07 11:59:23" itemprop="dateModified" datetime="2022-04-07T11:59:23+08:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">使用VMware上docker安装MySQL</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>docker对windows真的很不友好，所以早日脱坑，linux大法好<br>如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual box，那么推荐阅读我的<a target="_blank" rel="noopener" href="https://wbink.github.io/2019/09/13/WIN10%E5%AE%B6%E5%BA%AD%E7%89%88docker-vmware%E5%AE%89%E8%A3%85/#more">这篇博文</a></p>
+<h2 id="建立MySQL数据文件夹"><a href="#建立MySQL数据文件夹" class="headerlink" title="建立MySQL数据文件夹"></a>建立MySQL数据文件夹</h2><p>在电脑里选一块风水宝地，建立一个文件夹用于保存MySQL的数据，名字最好是英文的，我建立了MySQL文件夹<br><img src="/2.png" title="MySQL文件夹"></p>
+<p>然后在文件夹里建立三个文件夹如下，如果你自己命名，请注意之后的bash命令也要做相应修改<br><img src="/3.png" title="MySQL文件夹内容"></p>
+<p>文件夹作用如下</p>
+<table>
+<thead>
+<tr>
+<th>文件夹名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>conf</td>
+<td>保存自己的一些设置，比如加密规则</td>
+</tr>
+<tr>
+<td>data</td>
+<td>保存数据库数据</td>
+</tr>
+<tr>
+<td>logs</td>
+<td>保存数据库日志(好像有点问题)</td>
+</tr>
+</tbody></table>
+<p>然后在conf文件夹里建立my.cnf文件，内容如下(MySQL8的默认加密方式改变了，所以要修改下)</p>
+<pre class="line-numbers language-none"><code class="language-none">[mysqld]  
+lower_case_table_names&#x3D;1  
+default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Vmware的设置"><a href="#Vmware的设置" class="headerlink" title="Vmware的设置"></a>Vmware的设置</h2><p>打开VMware&gt;打开docker虚拟机&gt;编辑虚拟机设置&gt;选项&gt;共享文件夹&gt;添加<br><img src="/1.png" title="开启共享文件夹"><br>将MySQL数据希望保存的位置添加进去共享给虚拟机(即之前的MySQL文件夹)</p>
+<h2 id="建立MySQL实例"><a href="#建立MySQL实例" class="headerlink" title="建立MySQL实例"></a>建立MySQL实例</h2><p>打开git bash(<strong>不要用powershell和cmd！不要用powershell和cmd！不要用powershell和cmd！</strong>)，输入如下命令运行docker</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine start *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/4.png" title="开启docker"></p>
+<p>激活</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">env</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/5.png" title="激活docker"><br>这时，系统会提示你用另一个命令来激活，copy后输入回车即可，我这里是</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">    <span class="token variable">$eval</span> <span class="token variable"><span class="token variable">$(</span>"D:<span class="token punctuation">\</span>Program Files<span class="token punctuation">\</span>Docker Toolbox<span class="token punctuation">\</span>docker-machine.exe" <span class="token function">env</span> dev<span class="token variable">)</span></span>``<span class="token variable"><span class="token variable">`</span>
+
+下载MySQL<span class="token punctuation">(</span>*下载慢的宝宝请先换源*<span class="token punctuation">)</span>
+<span class="token variable">`</span></span>``bash
+    <span class="token function">docker</span> pull mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我这里已经下载好了，不演示了</p>
+<p>建立实例</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token punctuation">\</span>
+-p <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>*你的root密码* <span class="token punctuation">\</span>
+-v //mnt/hgfs/ProgramData/MySQL/data:/var/lib/mysql:rw <span class="token punctuation">\</span>
+-v //mnt/hgfs/ProgramData/MySQL/logs:/var/log/mysql:rw <span class="token punctuation">\</span>
+-v //mnt/hgfs/ProgramData/MySQL/conf/my.cnf:/etc/mysql/conf.d/my.cnf:rw <span class="token punctuation">\</span>
+--name mysql <span class="token punctuation">\</span>
+--restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
+-d mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>重点来了</strong>，这些命令的冒号左边是你电脑的实际接口和路径，右边是docker虚拟机的接口和路径，你电脑的共享文件夹被挂载到了虚拟机的&#x2F;&#x2F;mnt&#x2F;hgfs&#x2F;下(双斜杠不能丢，不然git bash会将路径转译导致虚拟机不识别)，所以你只要修改&#x2F;&#x2F;mnt&#x2F;hgfs到MySQL(如果你没改名)之间的内容为你的电脑上MySQL文件夹的绝对路径即可(<strong>去掉盘符和MySQL</strong>)，比如，我的MySQL文件夹的绝对路径是D:\ProgramData\MySQL，将盘符和MySQL去掉是\ProgramData\，然后将\改为&#x2F;填进去就可以了。<br>如果你很不幸，共享文件夹没有挂载到&#x2F;&#x2F;mnt&#x2F;hgfs&#x2F;下，那么请ssh登录虚拟机，用whereis命令找出来即可了。<br>如果你的MySQL启动不了，请将my.cnf的文件映射去掉，可能是我的配置文件的锅，请自己写一下。</p>
+<h2 id="ssh登录使用"><a href="#ssh登录使用" class="headerlink" title="ssh登录使用"></a>ssh登录使用</h2><p>输入命令登录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ssh</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>输入命令进入MySQL环境</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysql <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>修改加密方式和root密码</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="token string">'*你的root密码*'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>退出ctrl+d，输入</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">logout</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>到这里，你的mysql8.0就可以愉快的使用了。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>霖
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://nidwbin.xyz/post/47162/" title="WIN10+docker+VMware安装MySQL8.0">https://nidwbin.xyz/post/47162/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/docker/" rel="tag"># docker</a>
+              <a href="/tags/VMware/" rel="tag"># VMware</a>
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/5013/" rel="prev" title="WIN10家庭版docker+VMware安装">
+                  <i class="fa fa-chevron-left"></i> WIN10家庭版docker+VMware安装
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/38257/" rel="next" title="Hexo+NexT个人博客升级遇到的坑">
+                  Hexo+NexT个人博客升级遇到的坑 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">霖</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">9k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8 分钟</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script>
+function background(){
+    document.body.style.backgroundImage = "url(/images/background/" + (Math.ceil(Math.random() * 10)) % 8 + ".png)";
+};
+(function () {
+    background();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#49b1f5"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#49b1f5">
+  <meta name="google-site-verification" content="8wDUkuvY7acNrSFiPrbHrvdPFd5KaUkrO56DDYXqiBM">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"nidwbin.xyz","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="记录本小站在一次版本升级中遇到的坑和解决方案">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo+NexT个人博客升级遇到的坑">
+<meta property="og:url" content="https://nidwbin.xyz/post/38257/index.html">
+<meta property="og:site_name" content="霖的博客">
+<meta property="og:description" content="记录本小站在一次版本升级中遇到的坑和解决方案">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://nidwbin.xyz/1.png">
+<meta property="og:image" content="https://nidwbin.xyz/2.png">
+<meta property="og:image" content="https://nidwbin.xyz/3.png">
+<meta property="og:image" content="https://nidwbin.xyz/4.png">
+<meta property="og:image" content="https://nidwbin.xyz/5.png">
+<meta property="og:image" content="https://nidwbin.xyz/6.png">
+<meta property="og:image" content="https://nidwbin.xyz/7.png">
+<meta property="article:published_time" content="2020-01-06T13:47:51.000Z">
+<meta property="article:modified_time" content="2022-04-07T03:59:23.144Z">
+<meta property="article:author" content="霖">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="NexT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://nidwbin.xyz/1.png">
+
+
+<link rel="canonical" href="https://nidwbin.xyz/post/38257/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nidwbin.xyz/post/38257/","path":"post/38257/","title":"Hexo+NexT个人博客升级遇到的坑"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo+NexT个人博客升级遇到的坑 | 霖的博客</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=8wDUkuvY7acNrSFiPrbHrvdPFd5KaUkrO56DDYXqiBM"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"8wDUkuvY7acNrSFiPrbHrvdPFd5KaUkrO56DDYXqiBM","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">霖的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">写在前面的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E5%86%85%E5%AE%B9"><span class="nav-number">2.</span> <span class="nav-text">更新内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0%E4%B8%BA%E6%9C%80%E6%96%B0%E7%89%88"><span class="nav-number">3.</span> <span class="nav-text">Hexo版本更新为最新版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT%E4%B8%BB%E9%A2%98%E6%9B%B4%E6%96%B0%E4%B8%BA%E6%9C%80%E6%96%B0%E7%89%88"><span class="nav-number">4.</span> <span class="nav-text">NexT主题更新为最新版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E5%A4%B4%E5%83%8F%E6%97%8B%E8%BD%AC"><span class="nav-number">5.</span> <span class="nav-text">添加头像旋转</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0Valine%E8%AF%84%E8%AE%BA"><span class="nav-number">6.</span> <span class="nav-text">添加Valine评论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E8%87%AA%E5%AE%9A%E4%B9%89%EF%BC%88%E6%8A%84%E8%A2%AD%EF%BC%89%E7%9A%84%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF%E4%BF%AE%E6%94%B9%E4%B8%BA%E5%AE%98%E6%96%B9%E7%9A%84%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF"><span class="nav-number">7.</span> <span class="nav-text">将自定义（抄袭）的版权信息修改为官方的版权信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E5%AE%98%E6%96%B9%E7%9A%84%E7%89%88%E6%9D%83%E4%BF%A1%E6%81%AF%E6%B7%BB%E5%8A%A0%E5%9C%B0%E5%9D%80%E5%A4%8D%E5%88%B6%E6%8C%89%E9%92%AE"><span class="nav-number">8.</span> <span class="nav-text">为官方的版权信息添加地址复制按钮</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E6%96%B0%E5%BB%BA%E6%8C%89%E9%92%AE%E6%A0%B7%E5%BC%8F"><span class="nav-number">8.1.</span> <span class="nav-text">第一步 新建按钮样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%AF%BC%E5%85%A5%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="nav-number">8.2.</span> <span class="nav-text">第二步 导入这个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5-%E7%BC%96%E8%BE%91JS"><span class="nav-number">8.3.</span> <span class="nav-text">第三步 编辑JS</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E5%AF%BC%E5%85%A5JS"><span class="nav-number">8.4.</span> <span class="nav-text">第四步 导入JS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8D%A2%E7%94%A8%E9%9D%A0%E8%B0%B1%E7%9A%84%E9%98%85%E8%AF%BB%E4%BA%BA%E6%95%B0%E7%BB%9F%E8%AE%A1"><span class="nav-number">9.</span> <span class="nav-text">换用靠谱的阅读人数统计</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="霖"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">霖</p>
+  <div class="site-description" itemprop="description">生命不息，折腾不止！</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/nidwbin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;nidwbin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nidwbin@gmail.com" title="E-Mail → mailto:nidwbin@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://nidwbin.xyz/post/38257/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="霖的博客">
+      <meta itemprop="description" content="生命不息，折腾不止！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo+NexT个人博客升级遇到的坑 | 霖的博客">
+      <meta itemprop="description" content="记录本小站在一次版本升级中遇到的坑和解决方案">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo+NexT个人博客升级遇到的坑
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-01-06 21:47:51" itemprop="dateCreated datePublished" datetime="2020-01-06T21:47:51+08:00">2020-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-04-07 11:59:23" itemprop="dateModified" datetime="2022-04-07T11:59:23+08:00">2022-04-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B0%8F%E7%AB%99%E9%A3%8E%E4%BA%91/" itemprop="url" rel="index"><span itemprop="name">小站风云</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">记录本小站在一次版本升级中遇到的坑和解决方案</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>你们可爱的博主大人又回来继续更新博客了，中间才3个月没有更新，在正常不过了，毕竟我可是要成为年更区、与作者比命长分舵的一只鸽子（大误）。好了，言归正传，本次带来的是我的个人博客的更新以及遇到的各种坑，为了防止我以后再次踩坑<del>（虽然这是必定的）</del>，所以特此留念。</p>
+<h2 id="更新内容"><a href="#更新内容" class="headerlink" title="更新内容"></a>更新内容</h2><p>为了让没有经历过本博客黑暗时代的童鞋们对本站有所了解，所以这里将更新或添加的内容列举一下下。</p>
+<ol>
+<li>Hexo版本更新为最新版</li>
+<li>NexT主题更新为最新版</li>
+<li>添加头像旋转</li>
+<li>添加Valine评论</li>
+<li>将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息</li>
+<li>为官方的版权信息添加地址复制按钮</li>
+<li>换用靠谱的阅读人数统计</li>
+<li>踩坑&amp;填坑😭</li>
+</ol>
+<p>好吧，这和从头捣鼓一遍好像差不多。。。  </p>
+<h2 id="Hexo版本更新为最新版"><a href="#Hexo版本更新为最新版" class="headerlink" title="Hexo版本更新为最新版"></a>Hexo版本更新为最新版</h2><p>万恶之源就是这一步，如果不是我想更新Hexo，后面也不会由这么多事，更新很简单,直接到<a target="_blank" rel="noopener" href="https://hexo.io/">Hexo官网</a>找最新版安装教程即可。nodejs安装命令如下：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后坑就来了，Windows10下无法配置Hexo的环境变量，直接敲Hexo会显示如下错误：<br><img src="/1.png" alt="在此系统上禁止运行脚本"><br>神奇Windows禁止运行脚本，网上有解除这个限制的方法，但我懒得弄了，所以每次使用Hexo需要先敲npx，用npx来调用Hexo。Linux和Mac似乎没有这个坑。。。</p>
+<h2 id="NexT主题更新为最新版"><a href="#NexT主题更新为最新版" class="headerlink" title="NexT主题更新为最新版"></a>NexT主题更新为最新版</h2><p>Hexo升级了，主题当然也要升级，我用的NexT，所以区官网找安装方法，如下图：<br><img src="/2.png" alt="安装NexT方法"><br>然后，你会发现NexT依旧是6.0.0版本，为什么呢？去这个github仓库看看就知道了，如下图：<br><img src="/3.png" alt="仓库搬迁公告"><br>对，NexT仓库搬迁了，然而中文官网的地址并没有更新，我之前配了半小时的内容又作废了。。。<br>最新版的安装命令如下（在Hexo的目录下运行）：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="添加头像旋转"><a href="#添加头像旋转" class="headerlink" title="添加头像旋转"></a>添加头像旋转</h2><p>最新版NexT已经支持头像旋转了，直接在<strong>主题配置文件</strong>中搜索<em>avatar</em>即可找到头像设置<br><img src="/4.png" alt="头像设置"><br>当然老版那种自立门户的方法也是可以的，百度一搜都是，这里不粘贴了</p>
+<h2 id="添加Valine评论"><a href="#添加Valine评论" class="headerlink" title="添加Valine评论"></a>添加Valine评论</h2><p>最新版NexT评论的添加方法也有所不同，需要先在<strong>主题配置文件</strong>中搜索<em>comments</em>，在<em>active</em>里填上<em>valine</em>，如下图：<br><img src="/5.png" alt="comments设置"><br>然后再搜索<em>valine</em>把LeanCloud上的app_id和app_key填上，<em>enable</em>设为true，剩下的就是设置了，我的设置如下：<br><img src="/6.png" alt="valine设置"><br><strong>注意：</strong>LeanCloud上的安全域名记得填上自己的博客地址，不然评论只有localhost发的能记到LeadCloud上。。。别问我是怎么知道的</p>
+<h2 id="将自定义（抄袭）的版权信息修改为官方的版权信息"><a href="#将自定义（抄袭）的版权信息修改为官方的版权信息" class="headerlink" title="将自定义（抄袭）的版权信息修改为官方的版权信息"></a>将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息</h2><p>以前的版权信息是从一位大佬那<del>抄</del>借来的，但最新版NexT自带了版权信息，所以现在又改成NexT的版权信息了，毕竟东西不要借（chao)太(tai)久(duo)，现在的版权信息如下：<br><img src="/7.png" alt="版权信息"><br>这个设置简单，直接在<strong>主题配置文件</strong>中搜索<em>creative_commons</em>自己调。<br>你问我那个复制按钮哪来的，当然是<del>抄</del>借鉴官方的源代码自己添的了。  </p>
+<h2 id="为官方的版权信息添加地址复制按钮"><a href="#为官方的版权信息添加地址复制按钮" class="headerlink" title="为官方的版权信息添加地址复制按钮"></a>为官方的版权信息添加地址复制按钮</h2><p>嘿嘿，<del>读书人</del>程序员的事，怎么能叫抄呢，应该叫借鉴~~借鉴~~<br>NexT官方支持代码复制按钮了，所以为了风格统一，需要给我的Copyright也加上复制按钮，这个配置比较麻烦，步骤如下：</p>
+<h3 id="第一步-新建按钮样式"><a href="#第一步-新建按钮样式" class="headerlink" title="第一步 新建按钮样式"></a>第一步 新建按钮样式</h3><p>先在themes\next\source\css下新建_custom文件夹，然后在文件夹里新建custom.styl文件，这个文件里的内容如下：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.copy-link-btn</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> $black-dim<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> $font-weight-bolder<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span>
+    <span class="token property">outline</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 2px 6px<span class="token punctuation">;</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> opacity .3s ease-in-out<span class="token punctuation">;</span>
+    <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+    <span class="token function">disable-user-select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token selector">if (hexo-config('codeblock.copy_button.style') == 'flat')</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> $font-size-smaller<span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token selector">else if (hexo-config('codeblock.copy_button.style') == 'mac')</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token selector">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> $gainsboro<span class="token punctuation">;</span>
+        <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#fcfcfc<span class="token punctuation">,</span> $gainsboro<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #d5d5d5<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> $font-size-smaller<span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>官方CSS里借鉴的~~，当然如果你要自定义主题颜色什么的可以在这个文件里自己加</p>
+<h3 id="第二步-导入这个文件"><a href="#第二步-导入这个文件" class="headerlink" title="第二步 导入这个文件"></a>第二步 导入这个文件</h3><p>在themes\next\source\css\main.styl文件（_custom文件夹那层）最后添加这几行代码让custom.styl导入：</p>
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">// Add Custom Layer
+// --------------------------------------------------
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"_custom/custom.styl"</span> if <span class="token punctuation">(</span><span class="token function">hexo-config</span><span class="token punctuation">(</span><span class="token string">'custom.css'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>喜欢自己起名的宝宝们注意这里的路径要写对哟</p>
+<h3 id="第三步-编辑JS"><a href="#第三步-编辑JS" class="headerlink" title="第三步 编辑JS"></a>第三步 编辑JS</h3><p>先在themes\next\source\js下新建custom.js文件，内容如下：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> link <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'li.post-copyright-link'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    link<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'beforeend'</span><span class="token punctuation">,</span> <span class="token string">'&lt;div class="copy-link-btn">&lt;i class="fa fa-clipboard">&lt;/i>&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> button <span class="token operator">=</span> link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.copy-link-btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    button<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> code <span class="token operator">=</span> link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text<span class="token punctuation">;</span>
+        <span class="token keyword">var</span> ta <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'textarea'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> window<span class="token punctuation">.</span>scrollY <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span> <span class="token comment">// Prevent page scrolling</span>
+        ta<span class="token punctuation">.</span>style<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token string">'absolute'</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token string">'0'</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>readOnly <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>value <span class="token operator">=</span> code<span class="token punctuation">;</span>
+        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>ta<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> selection <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> selected <span class="token operator">=</span> selection<span class="token punctuation">.</span>rangeCount <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">?</span> selection<span class="token punctuation">.</span><span class="token function">getRangeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span><span class="token function">setSelectionRange</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> code<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>readOnly <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> result <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">execCommand</span><span class="token punctuation">(</span><span class="token string">'copy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>className <span class="token operator">=</span> result <span class="token operator">?</span> <span class="token string">'fa fa-check'</span> <span class="token operator">:</span> <span class="token string">'fa fa-times'</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span><span class="token function">blur</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// For iOS</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>selected<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            selection<span class="token punctuation">.</span><span class="token function">removeAllRanges</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            selection<span class="token punctuation">.</span><span class="token function">addRange</span><span class="token punctuation">(</span>selected<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>ta<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    button<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseleave'</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+            event<span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'fa fa-clipboard'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>官方JS里借鉴的~~<br>注意这里插入按钮的CSS样式名字要与之前custom.styl里的CSS样式名字统一</p>
+<h3 id="第四步-导入JS"><a href="#第四步-导入JS" class="headerlink" title="第四步 导入JS"></a>第四步 导入JS</h3><p>我选择的导入方式比较麻烦，不过我喜欢~~~<br>在themes\next\layout下新建custom-scripts.swig文件，内容如下</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/js/custom.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后再在themes\next\layout_layout.swig的最后<strong>body和html结束标记之前</strong>添加代码如下：</p>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>Add<span class="token operator">--</span><span class="token operator">></span>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token keyword">if</span> theme<span class="token punctuation">.</span>custom<span class="token punctuation">.</span>javascript <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#123;</span><span class="token operator">%</span> include <span class="token string">'custom-scripts.swig'</span> <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>最后在<strong>主题配置文件</strong>最后追加代码</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"># Add
+# Add Custom CSS &amp; JavaScript
+custom<span class="token operator">:</span>
+  css<span class="token operator">:</span> <span class="token boolean">true</span> 
+  javascript<span class="token operator">:</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>弄完收工。<br>具体代码功能就是将运行custom-scripts.swig给控制接口暴露出来，然后设置为true，使custom-scripts.swig运行，而custom-scripts.swig的功能就是将custom.js添加到html的body里。</p>
+<p>这样配置的好处是可以自己编辑CSS和Javascript然后导入，可玩性更高，不过要自己注意避免冲突哟~~~</p>
+<h2 id="换用靠谱的阅读人数统计"><a href="#换用靠谱的阅读人数统计" class="headerlink" title="换用靠谱的阅读人数统计"></a>换用靠谱的阅读人数统计</h2><p>这个简单，使用Valine自带的人数统计，然后没了。。。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>霖
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://nidwbin.xyz/post/38257/" title="Hexo+NexT个人博客升级遇到的坑">https://nidwbin.xyz/post/38257/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/NexT/" rel="tag"># NexT</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/47162/" rel="prev" title="WIN10+docker+VMware安装MySQL8.0">
+                  <i class="fa fa-chevron-left"></i> WIN10+docker+VMware安装MySQL8.0
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/post/55364/" rel="next" title="Scoop使用体验">
+                  Scoop使用体验 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">霖</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">9k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">8 分钟</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script>
+function background(){
+    document.body.style.backgroundImage = "url(/images/background/" + (Math.ceil(Math.random() * 10)) % 8 + ".png)";
+};
+(function () {
+    background();
+})();
+</script>
+</body>
+</html>
