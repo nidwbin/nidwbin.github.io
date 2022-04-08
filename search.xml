@@ -12,14 +12,14 @@
   year&#x3D;&#123;2021&#125;,
   organization&#x3D;&#123;IEEE&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>发表时间：2021<br>发表期刊：ICASSP</p>
+<p>发表时间：2021<br>发表期刊：ICASSP<br>被引用数：15</p>
 <h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>SimCLR的框架和MoCo的框架。MoCo的框架是修改后的，使用队列让K值达到1000。</p>
-<img src="/post/61813/2022-04-06-21-51-14.png" class="">
+<img data-src="/post/61813/2022-04-06-21-51-14.png" class="">
 <p>论文框架，用到了原型记忆库，在每个epoch都对整个数据集做M聚类，把样本中心（原型）加入记忆库。</p>
-<img src="/post/61813/2022-04-06-22-09-58.png" class="">
+<img data-src="/post/61813/2022-04-06-22-09-58.png" class="">
 <p>把MoCo的loss推广到半监督学习，使用到所有有标签数据。</p>
-<img src="/post/61813/2022-04-06-22-15-40.png" class="">
-<img src="/post/61813/2022-04-06-22-16-42.png" class="">
+<img data-src="/post/61813/2022-04-06-22-15-40.png" class="">
+<img data-src="/post/61813/2022-04-06-22-16-42.png" class="">
 <h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>标准的TDNN</p>
 <h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><table>
 <thead>
@@ -45,9 +45,9 @@
 <td>WavAug的progressive对自监督有效：reverb-augmentation+MUSAN上再增强。SpecAug用时间扭曲和频率masking。</td>
 </tr>
 </tbody></table>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img src="/post/61813/2022-04-06-22-40-59.png" class="">
-<img src="/post/61813/2022-04-06-22-41-19.png" class="">
-<img src="/post/61813/2022-04-06-22-41-36.png" class="">]]></content>
+<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img data-src="/post/61813/2022-04-06-22-40-59.png" class="">
+<img data-src="/post/61813/2022-04-06-22-41-19.png" class="">
+<img data-src="/post/61813/2022-04-06-22-41-36.png" class="">]]></content>
       <categories>
         <category>论文阅读笔记</category>
         <category>简易笔记</category>
@@ -383,5 +383,22 @@ default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true
         <tag>VMware</tag>
         <tag>MySQL</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification</title>
+    <url>/post/42313/</url>
+    <content><![CDATA[<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>引用Bibtex：</p>
+<pre class="line-numbers language-bibtex" data-language="bibtex"><code class="language-bibtex">@article&#123;desplanques2020ecapa,
+  title&#x3D;&#123;Ecapa-tdnn: Emphasized channel attention, propagation and aggregation in tdnn based speaker verification&#125;,
+  author&#x3D;&#123;Desplanques, Brecht and Thienpondt, Jenthe and Demuynck, Kris&#125;,
+  journal&#x3D;&#123;arXiv preprint arXiv:2005.07143&#125;,
+  year&#x3D;&#123;2020&#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>发表时间: 2020<br>发表期刊：INTERSPEECH<br>被引用数：155</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2>]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+        <category>简易笔记</category>
+      </categories>
   </entry>
 </search>
