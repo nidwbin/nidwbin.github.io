@@ -21,35 +21,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"nidwbin.xyz","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="阅读论文SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING的简单记录">
+    <meta name="description" content="一个自己写的在wsl2上快速配置kali的脚本，包含systemd的设置。[仓库链接](https:&#x2F;&#x2F;github.com&#x2F;nidwbin&#x2F;script-for-kali-wsl2)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING">
-<meta property="og:url" content="https://nidwbin.xyz/post/61813/index.html">
+<meta property="og:title" content="wsl2 kali 一键脚本">
+<meta property="og:url" content="https://nidwbin.xyz/post/48332/index.html">
 <meta property="og:site_name" content="霖的博客">
-<meta property="og:description" content="阅读论文SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING的简单记录">
+<meta property="og:description" content="一个自己写的在wsl2上快速配置kali的脚本，包含systemd的设置。[仓库链接](https:&#x2F;&#x2F;github.com&#x2F;nidwbin&#x2F;script-for-kali-wsl2)">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://nidwbin.xyz/post/61813/2022-04-06-21-51-14.png">
-<meta property="og:image" content="https://nidwbin.xyz/post/61813/2022-04-06-22-09-58.png">
-<meta property="og:image" content="https://nidwbin.xyz/post/61813/2022-04-06-22-15-40.png">
-<meta property="og:image" content="https://nidwbin.xyz/post/61813/2022-04-06-22-16-42.png">
-<meta property="og:image" content="https://nidwbin.xyz/post/61813/2022-04-06-22-40-59.png">
-<meta property="og:image" content="https://nidwbin.xyz/post/61813/2022-04-06-22-41-19.png">
-<meta property="og:image" content="https://nidwbin.xyz/post/61813/2022-04-06-22-41-36.png">
-<meta property="article:published_time" content="2022-04-06T08:58:36.000Z">
-<meta property="article:modified_time" content="2022-04-07T06:22:32.690Z">
+<meta property="article:published_time" content="2022-04-08T13:59:27.000Z">
+<meta property="article:modified_time" content="2022-04-08T14:02:41.629Z">
 <meta property="article:author" content="霖">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://nidwbin.xyz/post/61813/2022-04-06-21-51-14.png">
 
 
-<link rel="canonical" href="https://nidwbin.xyz/post/61813/">
+<link rel="canonical" href="https://nidwbin.xyz/post/48332/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nidwbin.xyz/post/61813/","path":"post/61813/","title":"SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://nidwbin.xyz/post/48332/","path":"post/48332/","title":"wsl2 kali 一键脚本"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING | 霖的博客</title>
+<title>wsl2 kali 一键脚本 | 霖的博客</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-40PZ9N20DE"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-40PZ9N20DE","only_pageview":false}</script>
@@ -155,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">基本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A8%A1%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E9%AA%8C"><span class="nav-number">4.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">5.</span> <span class="nav-text">结果</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Kali-wsl2-%E4%B8%80%E9%94%AE%E8%AE%BE%E7%BD%AE%E8%84%9A%E6%9C%AC"><span class="nav-number">1.</span> <span class="nav-text">Kali wsl2 一键设置脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BD%AF%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">软件说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%B2%E7%9F%A5%E9%97%AE%E9%A2%98"><span class="nav-number">1.3.</span> <span class="nav-text">已知问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%B8%A3%E8%B0%A2"><span class="nav-number">1.4.</span> <span class="nav-text">鸣谢</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -232,7 +224,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://nidwbin.xyz/post/61813/">
+    <link itemprop="mainEntityOfPage" href="https://nidwbin.xyz/post/48332/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.webp">
@@ -245,12 +237,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING | 霖的博客">
-      <meta itemprop="description" content="阅读论文SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING的简单记录">
+      <meta itemprop="name" content="wsl2 kali 一键脚本 | 霖的博客">
+      <meta itemprop="description" content="一个自己写的在wsl2上快速配置kali的脚本，包含systemd的设置。[仓库链接](https://github.com/nidwbin/script-for-kali-wsl2)">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING
+          wsl2 kali 一键脚本
         </h1>
 
         <div class="post-meta-container">
@@ -260,15 +252,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-04-06 16:58:36" itemprop="dateCreated datePublished" datetime="2022-04-06T16:58:36+08:00">2022-04-06</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-07 14:22:32" itemprop="dateModified" datetime="2022-04-07T14:22:32+08:00">2022-04-07</time>
+      <time title="创建时间：2022-04-08 21:59:27 / 修改时间：22:02:41" itemprop="dateCreated datePublished" datetime="2022-04-08T21:59:27+08:00">2022-04-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -276,11 +262,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">简易笔记</span></a>
+          <a href="/categories/%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a>
         </span>
     </span>
 
@@ -291,18 +273,18 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>777</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
-            <div class="post-description">阅读论文SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING的简单记录</div>
+            <div class="post-description">一个自己写的在wsl2上快速配置kali的脚本，包含systemd的设置。[仓库链接](https://github.com/nidwbin/script-for-kali-wsl2)</div>
         </div>
       </header>
 
@@ -310,51 +292,40 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>引用Bibtex</p>
-<pre class="line-numbers language-bibtex" data-language="bibtex"><code class="language-bibtex">@inproceedings&#123;xia2021self,
-  title&#x3D;&#123;Self-supervised text-independent speaker verification using prototypical momentum contrastive learning&#125;,
-  author&#x3D;&#123;Xia, Wei and Zhang, Chunlei and Weng, Chao and Yu, Meng and Yu, Dong&#125;,
-  booktitle&#x3D;&#123;ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)&#125;,
-  pages&#x3D;&#123;6723--6727&#125;,
-  year&#x3D;&#123;2021&#125;,
-  organization&#x3D;&#123;IEEE&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>发表时间：2021<br>发表期刊：ICASSP<br>被引用数：15</p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>SimCLR的框架和MoCo的框架。MoCo的框架是修改后的，使用队列让K值达到1000。</p>
-<img data-src="/post/61813/2022-04-06-21-51-14.png" class="">
-<p>论文框架，用到了原型记忆库，在每个epoch都对整个数据集做M聚类，把样本中心（原型）加入记忆库。</p>
-<img data-src="/post/61813/2022-04-06-22-09-58.png" class="">
-<p>把MoCo的loss推广到半监督学习，使用到所有有标签数据。</p>
-<img data-src="/post/61813/2022-04-06-22-15-40.png" class="">
-<img data-src="/post/61813/2022-04-06-22-16-42.png" class="">
-<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>标准的TDNN</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><table>
-<thead>
-<tr>
-<th>项目</th>
-<th>设置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>数据集</td>
-<td>VoxCeleb2训练，VoxCeleb1测试</td>
-</tr>
-<tr>
-<td>测试标准</td>
-<td>EER和minDCF</td>
-</tr>
-<tr>
-<td>特征</td>
-<td>30MFCC，25ms&#x2F;10ms，VAD</td>
-</tr>
-<tr>
-<td>数据增强</td>
-<td>WavAug的progressive对自监督有效：reverb-augmentation+MUSAN上再增强。SpecAug用时间扭曲和频率masking。</td>
-</tr>
-</tbody></table>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img data-src="/post/61813/2022-04-06-22-40-59.png" class="">
-<img data-src="/post/61813/2022-04-06-22-41-19.png" class="">
-<img data-src="/post/61813/2022-04-06-22-41-36.png" class="">
+        <h1 id="Kali-wsl2-一键设置脚本"><a href="#Kali-wsl2-一键设置脚本" class="headerlink" title="Kali wsl2 一键设置脚本"></a>Kali wsl2 一键设置脚本</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本脚本仅限WSL2，请勿在其他环境中使用。</p>
+<p>这是一个个人的Kali wsl2的一键设置脚本，稳定性和安全性未知，如介意请勿使用。</p>
+<p>理论上本脚本可以简单替换两个sources.list并注释掉install.sh中的“sudo chmod u+s &#x2F;usr&#x2F;bin&#x2F;ping”一行在其他Debian系系统上使用。</p>
+<p>脚本包含内容如下：</p>
+<ol>
+<li>设置vim和zsh样式，zsh使用powerlevel10k主题，并将历史记录保存到~&#x2F;.zsh_history中</li>
+<li>设置apt中国源，已经添加了<a target="_blank" rel="noopener" href="https://mirrors.hit.edu.cn/">哈工大</a>，<a target="_blank" rel="noopener" href="https://mirrors.ustc.edu.cn/">中科大</a>，<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/">清华</a>的源，你也可以自己添加合适的源到sources-http.list和sources-https.list，请注意sources-https.list是最后生效的apt源文件</li>
+<li>安装vim, git, zsh, htop, apt-transport-https, psmisc, genie等软件</li>
+<li>安装antigen来管理zsh的插件</li>
+<li>切换默认shell为zsh</li>
+<li>安装一些启动脚本，包含获取windows的IP和wsl的IP；设置DISPLAY环境变量；设置ALL_PROXY进行代理；设置fcitx输入法的环境变量；开机进入systemd环境</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://github.com/nidwbin/script-for-kali-wsl2">仓库链接</a>:<a target="_blank" rel="noopener" href="https://github.com/nidwbin/script-for-kali-wsl2">https://github.com/nidwbin/script-for-kali-wsl2</a></p>
+<h4 id="软件说明"><a href="#软件说明" class="headerlink" title="软件说明"></a>软件说明</h4><p>vim, git, zsh是本安装脚本主要配置的软件，apt-transport-https是apt使用https源所需的软件，psmisc主要为了安装pstree用于验证是否进入systemd，genie是启动systemd所需的软件，antigen是管理zsh插件所需软件</p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li>下载本仓库的zip文件并解压到windows任意路径（这里以C:&#x2F;script&#x2F;)为例</li>
+<li>进入kali-wsl环境</li>
+<li>在home目录下运行<pre class="line-numbers language-none"><code class="language-none">cp -r &#x2F;mnt&#x2F;c&#x2F;script ~
+cd ~&#x2F;script
+bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li>等脚本完成后退出并重新进入wsl即可</li>
+<li>如果开机脚本出现问题，你可以在用户home目录下新建文件.disable来关闭开机脚本，具体可以在windows资源管理器下新建文本文档并重命名或在wsl用户home目录下运行<pre class="line-numbers language-none"><code class="language-none">touch ~&#x2F;.disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h2>genie会在启动systemd时替换PATH为一个较为安全的PATH，这会导致systemd环境下无法查找到windows的程序，这里提供的解决方法为在脚本运行完后修改&#x2F;etc&#x2F;genie.ini文件，将clone_path设置为true，然后使用&#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;enable-systemd.sh.bak替换&#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;enable-systemd.sh。即在修改完&#x2F;etc&#x2F;genie.ini文件的clone_path后运行如下代码<pre class="line-numbers language-none"><code class="language-none">cd &#x2F;etc&#x2F;profile.d&#x2F;.init.d
+sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+</ol>
+<p>genie可能会出现无限等待情况，请将&#x2F;etc&#x2F;genie.ini中的systemd-timeout设置为较短时间即可解决，此问题只会出现在wsl2开机的时候。</p>
+<p>Ubuntu wsl2在替换zsh后会出现bug，即不会运行&#x2F;etc&#x2F;profile，可以将如下代码添加到.zshrc文件尾来修复</p>
+<pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>DISPLAY变量与xrdp（kex-win的ESM模式）不兼容，使用如下命令修复</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo rm &#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;display.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p><a target="_blank" rel="noopener" href="https://github.com/zsh-users/antigen">antigen</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/arkane-systems/genie">systemd-genie</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zsmumu/p/archlinux-wsl2.html">hyuuko的配置记录</a></p>
+
     </div>
 
     
@@ -371,7 +342,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://nidwbin.xyz/post/61813/" title="SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING">https://nidwbin.xyz/post/61813/</a>
+      <a href="https://nidwbin.xyz/post/48332/" title="wsl2 kali 一键脚本">https://nidwbin.xyz/post/48332/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -384,14 +355,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/post/55364/" rel="prev" title="Scoop使用体验">
-                  <i class="fa fa-chevron-left"></i> Scoop使用体验
+                <a href="/post/42313/" rel="prev" title="ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification">
+                  <i class="fa fa-chevron-left"></i> ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/post/42313/" rel="next" title="ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification">
-                  ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -464,7 +432,7 @@
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"nidwbin","repo":"nidwbin.github.io","client_id":"f9be731bed77f32cd96a","client_secret":"3efd99a00d5ce36d427251eeb75f523821f587bf","admin_user":"nidwbin","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"1003ca6ac7007438d8c465578627ecba"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"nidwbin","repo":"nidwbin.github.io","client_id":"f9be731bed77f32cd96a","client_secret":"3efd99a00d5ce36d427251eeb75f523821f587bf","admin_user":"nidwbin","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"91959944fbd85bd8e1a87cf45082a54b"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 <script>
 function background(){
