@@ -425,10 +425,12 @@ default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true
 cd ~&#x2F;script
 bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li>等脚本完成后退出并重新进入wsl即可</li>
-<li>如果开机脚本出现问题，你可以在用户home目录下新建文件.disable来关闭开机脚本，具体可以在windows资源管理器下新建文本文档并重命名或在wsl用户home目录下运行<pre class="line-numbers language-none"><code class="language-none">touch ~&#x2F;.disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h2>genie会在启动systemd时替换PATH为一个较为安全的PATH，这会导致systemd环境下无法查找到windows的程序，这里提供的解决方法为在脚本运行完后修改&#x2F;etc&#x2F;genie.ini文件，将clone_path设置为true，然后使用&#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;enable-systemd.sh.bak替换&#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;enable-systemd.sh。即在修改完&#x2F;etc&#x2F;genie.ini文件的clone_path后运行如下代码<pre class="line-numbers language-none"><code class="language-none">cd &#x2F;etc&#x2F;profile.d&#x2F;.init.d
-sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></li>
+<li>如果开机脚本出现问题，你可以在用户home目录下新建文件.disable来关闭开机脚本，具体可以在windows资源管理器下新建文本文档并重命名或在wsl用户home目录下运行<pre class="line-numbers language-none"><code class="language-none">touch ~&#x2F;.disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
+<h2 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h2><p>genie会在启动systemd时替换PATH为一个较为安全的PATH，这会导致systemd环境下无法查找到windows的程序，这里提供的解决方法为在脚本运行完后修改&#x2F;etc&#x2F;genie.ini文件，将clone_path设置为true，然后使用&#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;enable-systemd.sh.bak替换&#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;enable-systemd.sh。即在修改完&#x2F;etc&#x2F;genie.ini文件的clone_path后运行如下代码</p>
+<pre class="line-numbers language-none"><code class="language-none">cd &#x2F;etc&#x2F;profile.d&#x2F;.init.d
+sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
 <p>genie可能会出现无限等待情况，请将&#x2F;etc&#x2F;genie.ini中的systemd-timeout设置为较短时间即可解决，此问题只会出现在wsl2开机的时候。</p>
 <p>Ubuntu wsl2在替换zsh后会出现bug，即不会运行&#x2F;etc&#x2F;profile，可以将如下代码添加到.zshrc文件尾来修复</p>
 <pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
