@@ -11,9 +11,10 @@
   year&#x3D;&#123;2020&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 发表时间: 2020<br />
 发表期刊：INTERSPEECH 被引用数：155
-论文链接：https://arxiv.org/abs/2005.07143 ## 模型和方法 ###
-通道上下文相关的统计池化
-统计池化是x-vector引入的一大改进，之后统计池化被注意力统计池化所替代。注意力统计池化又可分为单头注意力、多头注意力等分类。ECAPA-TDNN主要是使用单头注意力且修改为通道相关的注意力模型。
+论文链接：https://arxiv.org/abs/2005.07143</p>
+<h2 id="模型和方法">模型和方法</h2>
+<h3 id="通道上下文相关的统计池化">通道上下文相关的统计池化</h3>
+<p>统计池化是x-vector引入的一大改进，之后统计池化被注意力统计池化所替代。注意力统计池化又可分为单头注意力、多头注意力等分类。ECAPA-TDNN主要是使用单头注意力且修改为通道相关的注意力模型。
 公式如下： <span class="math display">\[
 \begin{equation}
     e_{t,c}=\boldsymbol{v}^T_c
@@ -43,8 +44,10 @@ class="math inline">\(\boldsymbol{W}\in \mathbb{R}^{R\times C},
 这都是自注意力常见的计算均值矢量和标准差矢量的方法，不过针对的是单个通道上做的自注意力。然后，通道上下文相关的统计池化的输出会将<span
 class="math inline">\(\widetilde{\mu}\)</span>和<span
 class="math inline">\(\widetilde{\sigma}\)</span>拼接起来作为输出。最后，该统计池化的输入为上一层的输出及其均值、标准差的拼接。总体的计算流程如图：
-<img data-src="/post/42313/1.png" class=""> ### 1维挤压激励残差2模型 挤压激励模型(Squeeze and
-Excitation Networks, SE)来自于2017年的一篇论文《<a
+<img data-src="/post/42313/1.png" class=""></p>
+<h3 id="维挤压激励残差2模型">1维挤压激励残差2模型</h3>
+<p>挤压激励模型(Squeeze and Excitation Networks,
+SE)来自于2017年的一篇论文《<a
 href="https://openaccess.thecvf.com/content_cvpr_2018/html/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper.html">Squeeze-and-Excitation
 Networks</a>》，单挤压激励层如图。挤压激励模型通过预测每个通道的重要性对每个通道进行修改，使得模型的效果更好。
 <img data-src="/post/42313/2.png" class=""> 在ECAPA-TDNN中直接使用SE模型，没做过多的修改。 <span
@@ -69,11 +72,13 @@ class="math inline">\(x_3\)</span>先和<span
 class="math inline">\(x_2\)</span>是输出求和后做卷积然后传到下一层。
 <img data-src="/post/42313/3.png" class="">
 在ECAPC-TDNN中使用的卷积是1维卷积，而且是空洞卷积，空洞卷积计算过程如下图：
-<img data-src="/post/42313/4.png" class=""> 总体计算流程图如下图： <img data-src="/post/42313/5.png" class=""> ###
-多层特征聚合与求和
-在进行注意力统计池化之前，ECAPA-TDNN会先将前面几层的网络输出聚合起来作为注意力统计池化的输入，可以提高注意力层的表现。而多层特征求和是对于每个SE-Res2Block，将之前每层网络的输出求和作为SE-Res2Block的输入。
-<img data-src="/post/42313/6.png" class=""> ## 实验 实验设置如表。 |选项 | 设置| |-|-| |训练数据集|
-VoxCeleb2的开发部分| |验证数据集| VoxCeleb2开发部分采样2% | |测试数据集|
+<img data-src="/post/42313/4.png" class=""> 总体计算流程图如下图： <img data-src="/post/42313/5.png" class=""></p>
+<h3 id="多层特征聚合与求和">多层特征聚合与求和</h3>
+<p>在进行注意力统计池化之前，ECAPA-TDNN会先将前面几层的网络输出聚合起来作为注意力统计池化的输入，可以提高注意力层的表现。而多层特征求和是对于每个SE-Res2Block，将之前每层网络的输出求和作为SE-Res2Block的输入。
+<img data-src="/post/42313/6.png" class=""></p>
+<h2 id="实验">实验</h2>
+<p>实验设置如表。 |选项 | 设置| |-|-| |训练数据集| VoxCeleb2的开发部分|
+|验证数据集| VoxCeleb2开发部分采样2% | |测试数据集|
 VoxCeleb1，VoxCeleb1-E，VoxCeleb1-H，VoxSRC19| |数据增强|
 MUSAN(噪声)、RIR(混响)、SoX(节奏变化)、FFmpeg、语谱图| |网络输入特征|
 80维MFCC，窗长25ms，窗移10ms，随机裁2秒| |语谱图增强|
@@ -82,8 +87,9 @@ class="math inline">\(10^{-8}\sim 10^{-3}\)</span>| |优化器| Adam|
 |损失函数| AAM-softmax(ARC-Face)| |防止过拟合|
 AAM-softmax权重矩阵减2e-4，其他减2e-5| |Batch大小| 128| |通道大小|
 SE和注意力统计池化中间层为128，总体为512或1024| |Res2Block分割数| 8|
-|输出| 192维| |后端模型|余弦相似度| |度量方式|EER，minDCF| ## 结果
-实验结果。 <img data-src="/post/42313/2022-04-09-19-48-20.png" class=""> 消融实验。 <img data-src="/post/42313/2022-04-09-19-48-46.png" class=""> 大图，来自b站up主<a
+|输出| 192维| |后端模型|余弦相似度| |度量方式|EER，minDCF|</p>
+<h2 id="结果">结果</h2>
+<p>实验结果。 <img data-src="/post/42313/2022-04-09-19-48-20.png" class=""> 消融实验。 <img data-src="/post/42313/2022-04-09-19-48-46.png" class=""> 大图，来自b站up主<a
 href="https://www.bilibili.com/video/BV1fQ4y1Y75w">可能叫做小黑</a>，他的代码复现<a
 href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。
 <img data-src="/post/42313/7.png" class=""></p>
