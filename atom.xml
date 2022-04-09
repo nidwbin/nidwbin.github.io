@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>霖的博客</title>
+  <icon>https://nidwbin.xyz/images/logo-32x32.png</icon>
+  
+  <link href="https://nidwbin.xyz/atom.xml" rel="self"/>
+  
+  <link href="https://nidwbin.xyz/"/>
+  <updated>2022-04-09T11:34:34.498Z</updated>
+  <id>https://nidwbin.xyz/</id>
+  
+  <author>
+    <name>霖</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>wsl2 kali 一键脚本</title>
+    <link href="https://nidwbin.xyz/post/48332/"/>
+    <id>https://nidwbin.xyz/post/48332/</id>
+    <published>2022-04-08T13:59:27.000Z</published>
+    <updated>2022-04-09T11:34:34.498Z</updated>
+    
+    
+    <summary type="html">一个自己写的在wsl2上快速配置kali的脚本，包含systemd的设置。仓库链接：https://github.com/nidwbin/script-for-kali-wsl2</summary>
+    
+    
+    
+    <category term="折腾" scheme="https://nidwbin.xyz/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification</title>
+    <link href="https://nidwbin.xyz/post/42313/"/>
+    <id>https://nidwbin.xyz/post/42313/</id>
+    <published>2022-04-07T06:40:50.000Z</published>
+    <updated>2022-04-09T12:30:03.443Z</updated>
+    
+    
+    <summary type="html">阅读论文&quot;ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification&quot;的简单记录</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://nidwbin.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="简易笔记" scheme="https://nidwbin.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING</title>
+    <link href="https://nidwbin.xyz/post/61813/"/>
+    <id>https://nidwbin.xyz/post/61813/</id>
+    <published>2022-04-06T08:58:36.000Z</published>
+    <updated>2022-04-09T11:32:14.315Z</updated>
+    
+    
+    <summary type="html">阅读论文SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING的简单记录</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://nidwbin.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="简易笔记" scheme="https://nidwbin.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Scoop使用体验</title>
+    <link href="https://nidwbin.xyz/post/55364/"/>
+    <id>https://nidwbin.xyz/post/55364/</id>
+    <published>2020-09-15T13:32:38.000Z</published>
+    <updated>2022-04-07T04:14:07.912Z</updated>
+    
+    
+    <summary type="html">一些关于Windows下的报管理器Scoop的使用感受</summary>
+    
+    
+    
+    <category term="折腾" scheme="https://nidwbin.xyz/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+    <category term="Scoop" scheme="https://nidwbin.xyz/tags/Scoop/"/>
+    
+    <category term="包管理器" scheme="https://nidwbin.xyz/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo+NexT个人博客升级遇到的坑</title>
+    <link href="https://nidwbin.xyz/post/38257/"/>
+    <id>https://nidwbin.xyz/post/38257/</id>
+    <published>2020-01-06T13:47:51.000Z</published>
+    <updated>2022-04-07T05:50:50.651Z</updated>
+    
+    
+    <summary type="html">记录本小站在一次版本升级中遇到的坑和解决方案</summary>
+    
+    
+    
+    <category term="小站风云" scheme="https://nidwbin.xyz/categories/%E5%B0%8F%E7%AB%99%E9%A3%8E%E4%BA%91/"/>
+    
+    
+    <category term="Hexo" scheme="https://nidwbin.xyz/tags/Hexo/"/>
+    
+    <category term="NexT" scheme="https://nidwbin.xyz/tags/NexT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WIN10+docker+VMware安装MySQL8.0</title>
+    <link href="https://nidwbin.xyz/post/47162/"/>
+    <id>https://nidwbin.xyz/post/47162/</id>
+    <published>2019-09-14T07:09:34.000Z</published>
+    <updated>2022-04-07T05:54:59.251Z</updated>
+    
+    
+    <summary type="html">使用VMware上docker安装MySQL</summary>
+    
+    
+    
+    <category term="折腾" scheme="https://nidwbin.xyz/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+    <category term="docker" scheme="https://nidwbin.xyz/tags/docker/"/>
+    
+    <category term="VMware" scheme="https://nidwbin.xyz/tags/VMware/"/>
+    
+    <category term="MySQL" scheme="https://nidwbin.xyz/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>WIN10家庭版docker+VMware安装</title>
+    <link href="https://nidwbin.xyz/post/5013/"/>
+    <id>https://nidwbin.xyz/post/5013/</id>
+    <published>2019-09-13T05:35:24.000Z</published>
+    <updated>2022-04-07T04:14:07.912Z</updated>
+    
+    
+    <summary type="html">使用VMware安装docker的骚操作</summary>
+    
+    
+    
+    <category term="折腾" scheme="https://nidwbin.xyz/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+    <category term="docker" scheme="https://nidwbin.xyz/tags/docker/"/>
+    
+    <category term="VMware" scheme="https://nidwbin.xyz/tags/VMware/"/>
+    
+  </entry>
+  
+</feed>
