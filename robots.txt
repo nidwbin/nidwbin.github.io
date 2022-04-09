@@ -9,4 +9,3 @@ Allow: /css/
 Disallow: /about/
 
 Sitemap: https://w-blink.github.io/sitemap.xml
-Sitemap: http://8mhcky.coding-pages.com/baidusitemap.xml

@@ -309,10 +309,10 @@
     <div class="post-body" itemprop="articleBody">
         <h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>docker对windows真的很不友好，所以早日脱坑，linux大法好<br>如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual box，那么推荐阅读我的<a href="https://nidwbin.xyz/post/5013/">这篇博文</a></p>
 <h2 id="建立MySQL数据文件夹"><a href="#建立MySQL数据文件夹" class="headerlink" title="建立MySQL数据文件夹"></a>建立MySQL数据文件夹</h2><p>在电脑里选一块风水宝地，建立一个文件夹用于保存MySQL的数据，名字最好是英文的，我建立了MySQL文件夹 </p>
-<img src="/post/47162/2.png" class="">
+<img data-src="/post/47162/2.png" class="">
 
 <p>然后在文件夹里建立三个文件夹如下，如果你自己命名，请注意之后的bash命令也要做相应修改</p>
-<img src="/post/47162/3.png" class="">
+<img data-src="/post/47162/3.png" class="">
 
 <p>文件夹作用如下</p>
 <table>
@@ -341,15 +341,15 @@ lower_case_table_names&#x3D;1
 default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="Vmware的设置"><a href="#Vmware的设置" class="headerlink" title="Vmware的设置"></a>Vmware的设置</h2><p>打开VMware&gt;打开docker虚拟机&gt;编辑虚拟机设置&gt;选项&gt;共享文件夹&gt;添加  </p>
-<img src="/post/47162/1.png" class="">
+<img data-src="/post/47162/1.png" class="">
 <p>将MySQL数据希望保存的位置添加进去共享给虚拟机(即之前的MySQL文件夹)</p>
 <h2 id="建立MySQL实例"><a href="#建立MySQL实例" class="headerlink" title="建立MySQL实例"></a>建立MySQL实例</h2><p>打开git bash(<strong>不要用powershell和cmd！不要用powershell和cmd！不要用powershell和cmd！</strong>)，输入如下命令运行docker</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine start *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="/post/47162/4.png" class="" title="开启docker">
+<img data-src="/post/47162/4.png" class="" title="开启docker">
 
 <p>激活</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">env</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img src="/post/47162/5.png" class="">
+<img data-src="/post/47162/5.png" class="">
 <p>这时，系统会提示你用另一个命令来激活，copy后输入回车即可，我这里是</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">    <span class="token variable">$eval</span> <span class="token variable"><span class="token variable">$(</span>"D:<span class="token punctuation">\</span>Program Files<span class="token punctuation">\</span>Docker Toolbox<span class="token punctuation">\</span>docker-machine.exe" <span class="token function">env</span> dev<span class="token variable">)</span></span>``<span class="token variable"><span class="token variable">`</span>
 
@@ -456,13 +456,13 @@ default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">11k</span>
+    <span title="站点总字数">13k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">10 分钟</span>
+    <span title="站点阅读时长">12 分钟</span>
   </span>
 </div>
 
