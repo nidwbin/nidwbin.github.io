@@ -3,105 +3,81 @@
   <entry>
     <title>ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification</title>
     <url>/post/42313/</url>
-    <content><![CDATA[<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>引用Bibtex：</p>
-<pre class="line-numbers language-bibtex" data-language="bibtex"><code class="language-bibtex">@article&#123;desplanques2020ecapa,
+    <content><![CDATA[<h2 id="基本信息">基本信息</h2>
+<p>引用Bibtex： <pre class="line-numbers language-bibtex" data-language="bibtex"><code class="language-bibtex">@article&#123;desplanques2020ecapa,
   title&#x3D;&#123;Ecapa-tdnn: Emphasized channel attention, propagation and aggregation in tdnn based speaker verification&#125;,
   author&#x3D;&#123;Desplanques, Brecht and Thienpondt, Jenthe and Demuynck, Kris&#125;,
   journal&#x3D;&#123;arXiv preprint arXiv:2005.07143&#125;,
   year&#x3D;&#123;2020&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>发表时间: 2020<br>发表期刊：INTERSPEECH<br>被引用数：155<br>论文链接：<a href="https://arxiv.org/abs/2005.07143">https://arxiv.org/abs/2005.07143</a></p>
-<h2 id="模型和方法"><a href="#模型和方法" class="headerlink" title="模型和方法"></a>模型和方法</h2><h3 id="通道上下文相关的统计池化"><a href="#通道上下文相关的统计池化" class="headerlink" title="通道上下文相关的统计池化"></a>通道上下文相关的统计池化</h3><p>统计池化是x-vector引入的一大改进，之后统计池化被注意力统计池化所替代。注意力统计池化又可分为单头注意力、多头注意力等分类。ECAPA-TDNN主要是使用单头注意力且修改为通道相关的注意力模型。<br>公式如下：<br>$$e_{t,c}&#x3D;\bm{v}^T_c f(\bm{W}\bm{h}<em>t+\bm{b})+k_c$$<br>网络骨干$t$时刻的输出$\bm{h}<em>t$先经过线性层和一个非线性层$f(\cdot)$的映射，变成一个维度更小的中间表示。然后再经过线性变换，$\bm{v}^T_c$和$k_c$变成自注意力分数。其中$\bm{W}\in \mathbb{R}^{R\times C}, \bm{b} \in \mathbb{R}^{R\times 1}, \bm{v}^T_c\in \mathbb{R}^{R\times 1}$。<br>接下来是很常见的计算均值矢量和标准差矢量。<br>$$<br>    \alpha</em>{t,c}&#x3D;\frac{\exp(e</em>{t,c})}{\sum^T_\tau{\exp(e_{t,c})}}\<br>    \widetilde{\mu}<em>c&#x3D;\sum^T_t{\alpha</em>{t,c}h_{t,c}}\<br>    \widetilde{\sigma}<em>c&#x3D;\sqrt{\sum^T_t{\alpha</em>{t,c}h^2_{t,c}}-\widetilde{\mu}^2_c}<br>$$<br>这都是自注意力常见的计算均值矢量和标准差矢量的方法，不过针对的是单个通道上做的自注意力。然后，通道上下文相关的统计池化的输出会将$\widetilde{\mu}$和$\widetilde{\sigma}$拼接起来作为输出。最后，该统计池化的输入为上一层的输出及其均值、标准差的拼接。总体的计算流程如图：</p>
-<img data-src="/post/42313/1.png" class="">
-<h3 id="1维挤压激励残差2模型"><a href="#1维挤压激励残差2模型" class="headerlink" title="1维挤压激励残差2模型"></a>1维挤压激励残差2模型</h3><p>挤压激励模型(Squeeze and Excitation Networks, SE)来自于2017年的一篇论文《<a href="https://openaccess.thecvf.com/content_cvpr_2018/html/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper.html">Squeeze-and-Excitation Networks</a>》，单挤压激励层如图。挤压激励模型通过预测每个通道的重要性对每个通道进行修改，使得模型的效果更好。</p>
-<img data-src="/post/42313/2.png" class="">
-<p>在ECAPA-TDNN中直接使用SE模型，没做过多的修改。<br>$$<br>    \bm{z}&#x3D;\frac{1}{T}\sum^T_t{\bm{h}_t}\<br>    \bm{s}&#x3D;\sigma(\bm{W}_2f(\bm{W}_1\bm{z}+\bm{b}_1)+\bm{b}_2)\<br>    \widetilde{\bm{h}}_c&#x3D;s_c\bm{h}_c<br>$$<br>公式如上，目前在残差神经网络中添加SE层一般都能带来效果提升。<br><a href="https://ieeexplore.ieee.org/abstract/document/8821313">原始的残差2</a>模型如下图中的b图。在通道上做均分后对不同的通道做不同的卷积操作，比如通道$x_1$直接传递到下一层，$x_2$做卷积后传到下一层，$x_3$先和$x_2$是输出求和后做卷积然后传到下一层。</p>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 发表时间: 2020<br />
+发表期刊：INTERSPEECH 被引用数：155
+论文链接：https://arxiv.org/abs/2005.07143 ## 模型和方法 ###
+通道上下文相关的统计池化
+统计池化是x-vector引入的一大改进，之后统计池化被注意力统计池化所替代。注意力统计池化又可分为单头注意力、多头注意力等分类。ECAPA-TDNN主要是使用单头注意力且修改为通道相关的注意力模型。
+公式如下： <span class="math display">\[
+\begin{equation}
+    e_{t,c}=\boldsymbol{v}^T_c
+f(\boldsymbol{W}\boldsymbol{h}_t+\boldsymbol{b})+k_c
+\end{equation}
+\]</span> 网络骨干<span class="math inline">\(t\)</span>时刻的输出<span
+class="math inline">\(\boldsymbol{h}_t\)</span>先经过线性层和一个非线性层<span
+class="math inline">\(f(\cdot)\)</span>的映射，变成一个维度更小的中间表示。然后再经过线性变换，<span
+class="math inline">\(\boldsymbol{v}^T_c\)</span>和<span
+class="math inline">\(k_c\)</span>变成自注意力分数。其中<span
+class="math inline">\(\boldsymbol{W}\in \mathbb{R}^{R\times C},
+\boldsymbol{b} \in \mathbb{R}^{R\times 1}, \boldsymbol{v}^T_c\in
+\mathbb{R}^{R\times 1}\)</span>。
+接下来是很常见的计算均值矢量和标准差矢量。 <span class="math display">\[
+\begin{equation}
+    \alpha_{t,c}=\frac{\exp(e_{t,c})}{\sum^T_\tau{\exp(e_{t,c})}}
+\end{equation}
+\begin{equation}
+    \widetilde{\mu}_c=\sum^T_t{\alpha_{t,c}h_{t,c}}
+\end{equation}
+\begin{equation}
+    \widetilde{\sigma}_c=\sqrt{\sum^T_t{\alpha_{t,c}h^2_{t,c}}-\widetilde{\mu}^2_c}
+\end{equation}
+\]</span>
+这都是自注意力常见的计算均值矢量和标准差矢量的方法，不过针对的是单个通道上做的自注意力。然后，通道上下文相关的统计池化的输出会将<span
+class="math inline">\(\widetilde{\mu}\)</span>和<span
+class="math inline">\(\widetilde{\sigma}\)</span>拼接起来作为输出。最后，该统计池化的输入为上一层的输出及其均值、标准差的拼接。总体的计算流程如图：
+<img data-src="/post/42313/1.png" class=""> ### 1维挤压激励残差2模型 挤压激励模型(Squeeze and
+Excitation Networks, SE)来自于2017年的一篇论文《<a
+href="https://openaccess.thecvf.com/content_cvpr_2018/html/Hu_Squeeze-and-Excitation_Networks_CVPR_2018_paper.html">Squeeze-and-Excitation
+Networks</a>》，单挤压激励层如图。挤压激励模型通过预测每个通道的重要性对每个通道进行修改，使得模型的效果更好。
+<img data-src="/post/42313/2.png" class=""> 在ECAPA-TDNN中直接使用SE模型，没做过多的修改。 <span
+class="math display">\[
+    \boldsymbol{z}=\frac{1}{T}\sum^T_t{\boldsymbol{h}_t}\\
+    \boldsymbol{s}=\sigma(\boldsymbol{W}_2f(\boldsymbol{W}_1\boldsymbol{z}+\boldsymbol{b}_1)+\boldsymbol{b}_2)\\
+    \widetilde{\boldsymbol{h}}_c=s_c\boldsymbol{h}_c
+\]</span> 公式如上，目前在残差神经网络中添加SE层一般都能带来效果提升。
+<a
+href="https://ieeexplore.ieee.org/abstract/document/8821313">原始的残差2</a>模型如下图中的b图。在通道上做均分后对不同的通道做不同的卷积操作，比如通道<span
+class="math inline">\(x_1\)</span>直接传递到下一层，<span
+class="math inline">\(x_2\)</span>做卷积后传到下一层，<span
+class="math inline">\(x_3\)</span>先和<span
+class="math inline">\(x_2\)</span>是输出求和后做卷积然后传到下一层。
 <img data-src="/post/42313/3.png" class="">
-<p>在ECAPC-TDNN中使用的卷积是1维卷积，而且是空洞卷积，空洞卷积计算过程如下图：</p>
-<img data-src="/post/42313/4.png" class="">
-<p>总体计算流程图如下图：</p>
-<img data-src="/post/42313/5.png" class="">
-<h3 id="多层特征聚合与求和"><a href="#多层特征聚合与求和" class="headerlink" title="多层特征聚合与求和"></a>多层特征聚合与求和</h3><p>在进行注意力统计池化之前，ECAPA-TDNN会先将前面几层的网络输出聚合起来作为注意力统计池化的输入，可以提高注意力层的表现。而多层特征求和是对于每个SE-Res2Block，将之前每层网络的输出求和作为SE-Res2Block的输入。</p>
-<img data-src="/post/42313/6.png" class="">
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p>实验设置如表。</p>
-<table>
-<thead>
-<tr>
-<th>选项</th>
-<th>设置</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>训练数据集</td>
-<td>VoxCeleb2的开发部分</td>
-</tr>
-<tr>
-<td>验证数据集</td>
-<td>VoxCeleb2开发部分采样2%</td>
-</tr>
-<tr>
-<td>测试数据集</td>
-<td>VoxCeleb1，VoxCeleb1-E，VoxCeleb1-H，VoxSRC19</td>
-</tr>
-<tr>
-<td>数据增强</td>
-<td>MUSAN(噪声)、RIR(混响)、SoX(节奏变化)、FFmpeg、语谱图</td>
-</tr>
-<tr>
-<td>网络输入特征</td>
-<td>80维MFCC，窗长25ms，窗移10ms，随机裁2秒</td>
-</tr>
-<tr>
-<td>语谱图增强</td>
-<td>随机遮蔽0～5帧，0～10通道</td>
-</tr>
-<tr>
-<td>学习率</td>
-<td>triangular2循环调度$10^{-8}\sim 10^{-3}$</td>
-</tr>
-<tr>
-<td>优化器</td>
-<td>Adam</td>
-</tr>
-<tr>
-<td>损失函数</td>
-<td>AAM-softmax(ARC-Face)</td>
-</tr>
-<tr>
-<td>防止过拟合</td>
-<td>AAM-softmax权重矩阵减2e-4，其他减2e-5</td>
-</tr>
-<tr>
-<td>Batch大小</td>
-<td>128</td>
-</tr>
-<tr>
-<td>通道大小</td>
-<td>SE和注意力统计池化中间层为128，总体为512或1024</td>
-</tr>
-<tr>
-<td>Res2Block分割数</td>
-<td>8</td>
-</tr>
-<tr>
-<td>输出</td>
-<td>192维</td>
-</tr>
-<tr>
-<td>后端模型</td>
-<td>余弦相似度</td>
-</tr>
-<tr>
-<td>度量方式</td>
-<td>EER，minDCF</td>
-</tr>
-</tbody></table>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><p>实验结果。</p>
-<img data-src="/post/42313/2022-04-09-19-48-20.png" class="">
-<p>消融实验。</p>
-<img data-src="/post/42313/2022-04-09-19-48-46.png" class="">
-<p>大图，来自b站up主<a href="https://www.bilibili.com/video/BV1fQ4y1Y75w">可能叫做小黑</a>，他的代码复现<a href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。</p>
-<img data-src="/post/42313/7.png" class="">]]></content>
+在ECAPC-TDNN中使用的卷积是1维卷积，而且是空洞卷积，空洞卷积计算过程如下图：
+<img data-src="/post/42313/4.png" class=""> 总体计算流程图如下图： <img data-src="/post/42313/5.png" class=""> ###
+多层特征聚合与求和
+在进行注意力统计池化之前，ECAPA-TDNN会先将前面几层的网络输出聚合起来作为注意力统计池化的输入，可以提高注意力层的表现。而多层特征求和是对于每个SE-Res2Block，将之前每层网络的输出求和作为SE-Res2Block的输入。
+<img data-src="/post/42313/6.png" class=""> ## 实验 实验设置如表。 |选项 | 设置| |-|-| |训练数据集|
+VoxCeleb2的开发部分| |验证数据集| VoxCeleb2开发部分采样2% | |测试数据集|
+VoxCeleb1，VoxCeleb1-E，VoxCeleb1-H，VoxSRC19| |数据增强|
+MUSAN(噪声)、RIR(混响)、SoX(节奏变化)、FFmpeg、语谱图| |网络输入特征|
+80维MFCC，窗长25ms，窗移10ms，随机裁2秒| |语谱图增强|
+随机遮蔽0～5帧，0～10通道| |学习率| triangular2循环调度<span
+class="math inline">\(10^{-8}\sim 10^{-3}\)</span>| |优化器| Adam|
+|损失函数| AAM-softmax(ARC-Face)| |防止过拟合|
+AAM-softmax权重矩阵减2e-4，其他减2e-5| |Batch大小| 128| |通道大小|
+SE和注意力统计池化中间层为128，总体为512或1024| |Res2Block分割数| 8|
+|输出| 192维| |后端模型|余弦相似度| |度量方式|EER，minDCF| ## 结果
+实验结果。 <img data-src="/post/42313/2022-04-09-19-48-20.png" class=""> 消融实验。 <img data-src="/post/42313/2022-04-09-19-48-46.png" class=""> 大图，来自b站up主<a
+href="https://www.bilibili.com/video/BV1fQ4y1Y75w">可能叫做小黑</a>，他的代码复现<a
+href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。
+<img data-src="/post/42313/7.png" class=""></p>
+]]></content>
       <categories>
         <category>论文阅读笔记</category>
         <category>简易笔记</category>
