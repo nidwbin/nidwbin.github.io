@@ -31,9 +31,11 @@ class="math inline">\(\boldsymbol{W}\in \mathbb{R}^{R\times C},
 \begin{equation}
     \alpha_{t,c}=\frac{\exp(e_{t,c})}{\sum^T_\tau{\exp(e_{t,c})}}
 \end{equation}
+\]</span> <span class="math display">\[
 \begin{equation}
     \widetilde{\mu}_c=\sum^T_t{\alpha_{t,c}h_{t,c}}
 \end{equation}
+\]</span> <span class="math display">\[
 \begin{equation}
     \widetilde{\sigma}_c=\sqrt{\sum^T_t{\alpha_{t,c}h^2_{t,c}}-\widetilde{\mu}^2_c}
 \end{equation}
@@ -47,9 +49,17 @@ href="https://openaccess.thecvf.com/content_cvpr_2018/html/Hu_Squeeze-and-Excita
 Networks</a>》，单挤压激励层如图。挤压激励模型通过预测每个通道的重要性对每个通道进行修改，使得模型的效果更好。
 <img data-src="/post/42313/2.png" class=""> 在ECAPA-TDNN中直接使用SE模型，没做过多的修改。 <span
 class="math display">\[
-    \boldsymbol{z}=\frac{1}{T}\sum^T_t{\boldsymbol{h}_t}\\
-    \boldsymbol{s}=\sigma(\boldsymbol{W}_2f(\boldsymbol{W}_1\boldsymbol{z}+\boldsymbol{b}_1)+\boldsymbol{b}_2)\\
+\begin{equation}
+    \boldsymbol{z}=\frac{1}{T}\sum^T_t{\boldsymbol{h}_t}
+\end{equation}
+\]</span> <span class="math display">\[
+\begin{equation}
+    \boldsymbol{s}=\sigma(\boldsymbol{W}_2f(\boldsymbol{W}_1\boldsymbol{z}+\boldsymbol{b}_1)+\boldsymbol{b}_2)
+\end{equation}
+\]</span> <span class="math display">\[
+\begin{equation}
     \widetilde{\boldsymbol{h}}_c=s_c\boldsymbol{h}_c
+\end{equation}
 \]</span> 公式如上，目前在残差神经网络中添加SE层一般都能带来效果提升。
 <a
 href="https://ieeexplore.ieee.org/abstract/document/8821313">原始的残差2</a>模型如下图中的b图。在通道上做均分后对不同的通道做不同的卷积操作，比如通道<span
