@@ -8,4 +8,4 @@ Allow: /js/
 Allow: /css/
 Disallow: /about/
 
-Sitemap: https://w-blink.github.io/sitemap.xml
+Sitemap: https://blog.nidwbin.xyz/sitemap.xml
