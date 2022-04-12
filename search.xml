@@ -182,9 +182,10 @@ href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。
     <url>/post/5013/</url>
     <content><![CDATA[<h2 id="年更新">2022年更新</h2>
 <p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了
-<del>(申遗)</del>。 wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！
-## 写在前面
-由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
+<del>(申遗)</del>。
+wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！</p>
+<h2 id="写在前面">写在前面</h2>
+<p>由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
 <h3 id="一些操作">一些操作</h3>
 <ul>
 <li>购买windows10专业版，<del>土豪请出门右转，谢谢</del></li>
@@ -401,8 +402,9 @@ custom<span class="token operator">:</span>
     <title>WIN10+docker+VMware安装MySQL8.0</title>
     <url>/post/47162/</url>
     <content><![CDATA[<h2 id="更新">2022更新</h2>
-<p>wsl2来了，大人，时代变了！以下教程只能参考，可靠性未知。 ##
-写在前面的 docker对windows真的很不友好，所以早日脱坑，linux大法好
+<p>wsl2来了，大人，时代变了！以下教程只能参考，可靠性未知。</p>
+<h2 id="写在前面的">写在前面的</h2>
+<p>docker对windows真的很不友好，所以早日脱坑，linux大法好
 如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual
 box，那么推荐阅读我的<a
 href="https://nidwbin.xyz/post/5013/">这篇博文</a></p>
@@ -465,41 +467,50 @@ bash会将路径转译导致虚拟机不识别)，所以你只要修改//mnt/hgf
   <entry>
     <title>wsl2 kali 一键脚本</title>
     <url>/post/48332/</url>
-    <content><![CDATA[<h1 id="Kali-wsl2-一键设置脚本"><a href="#Kali-wsl2-一键设置脚本" class="headerlink" title="Kali wsl2 一键设置脚本"></a>Kali wsl2 一键设置脚本</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本脚本仅限WSL2，请勿在其他环境中使用。</p>
-<p>这是一个个人的Kali wsl2的一键设置脚本，稳定性和安全性未知，如介意请勿使用。</p>
-<p>理论上本脚本可以简单替换两个sources.list并注释掉install.sh中的“sudo chmod u+s &#x2F;usr&#x2F;bin&#x2F;ping”一行在其他Debian系系统上使用。</p>
-<p>脚本包含内容如下：</p>
-<ol>
-<li>设置vim和zsh样式，zsh使用powerlevel10k主题，并将历史记录保存到~&#x2F;.zsh_history中</li>
-<li>设置apt中国源，已经添加了<a href="https://mirrors.hit.edu.cn/">哈工大</a>，<a href="https://mirrors.ustc.edu.cn/">中科大</a>，<a href="https://mirrors.tuna.tsinghua.edu.cn/">清华</a>的源，你也可以自己添加合适的源到sources-http.list和sources-https.list，请注意sources-https.list是最后生效的apt源文件</li>
-<li>安装vim, git, zsh, htop, apt-transport-https, psmisc, genie等软件</li>
-<li>安装antigen来管理zsh的插件</li>
-<li>切换默认shell为zsh</li>
-<li>安装一些启动脚本，包含获取windows的IP和wsl的IP；设置DISPLAY环境变量；设置ALL_PROXY进行代理；设置fcitx输入法的环境变量；开机进入systemd环境</li>
-</ol>
-<p><a href="https://github.com/nidwbin/script-for-kali-wsl2">仓库链接</a>:<a href="https://github.com/nidwbin/script-for-kali-wsl2">https://github.com/nidwbin/script-for-kali-wsl2</a></p>
-<h4 id="软件说明"><a href="#软件说明" class="headerlink" title="软件说明"></a>软件说明</h4><p>vim, git, zsh是本安装脚本主要配置的软件，apt-transport-https是apt使用https源所需的软件，psmisc主要为了安装pstree用于验证是否进入systemd，genie是启动systemd所需的软件，antigen是管理zsh插件所需软件</p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
-<li>下载本仓库的zip文件并解压到windows任意路径（这里以C:&#x2F;script&#x2F;)为例</li>
-<li>进入kali-wsl环境</li>
-<li>在home目录下运行<pre class="line-numbers language-none"><code class="language-none">cp -r &#x2F;mnt&#x2F;c&#x2F;script ~
+    <content><![CDATA[<h1 id="kali-wsl2-一键设置脚本">Kali wsl2 一键设置脚本</h1>
+<h2 id="说明">说明</h2>
+<p>本脚本仅限WSL2，请勿在其他环境中使用。</p>
+<p>这是一个个人的Kali
+wsl2的一键设置脚本，稳定性和安全性未知，如介意请勿使用。</p>
+<p>理论上本脚本可以简单替换两个sources.list并注释掉install.sh中的“sudo
+chmod u+s /usr/bin/ping”一行在其他Debian系系统上使用。</p>
+<p>脚本包含内容如下： 1.
+设置vim和zsh样式，zsh使用powerlevel10k主题，并将历史记录保存到~/.zsh_history中
+2. 设置apt中国源，已经添加了<a
+href="https://mirrors.hit.edu.cn/">哈工大</a>，<a
+href="https://mirrors.ustc.edu.cn/">中科大</a>，<a
+href="https://mirrors.tuna.tsinghua.edu.cn/">清华</a>的源，你也可以自己添加合适的源到sources-http.list和sources-https.list，请注意sources-https.list是最后生效的apt源文件
+3. 安装vim, git, zsh, htop, apt-transport-https, psmisc, genie等软件 4.
+安装antigen来管理zsh的插件 5. 切换默认shell为zsh 6.
+安装一些启动脚本，包含获取windows的IP和wsl的IP；设置DISPLAY环境变量；设置ALL_PROXY进行代理；设置fcitx输入法的环境变量；开机进入systemd环境</p>
+<p><a
+href="https://github.com/nidwbin/script-for-kali-wsl2">仓库链接</a>:https://github.com/nidwbin/script-for-kali-wsl2</p>
+<h4 id="软件说明">软件说明</h4>
+<p>vim, git,
+zsh是本安装脚本主要配置的软件，apt-transport-https是apt使用https源所需的软件，psmisc主要为了安装pstree用于验证是否进入systemd，genie是启动systemd所需的软件，antigen是管理zsh插件所需软件
+## 使用方法 1.
+下载本仓库的zip文件并解压到windows任意路径（这里以C:/script/)为例 2.
+进入kali-wsl环境 3. 在home目录下运行 <pre class="line-numbers language-none"><code class="language-none">cp -r &#x2F;mnt&#x2F;c&#x2F;script ~
 cd ~&#x2F;script
-bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li>等脚本完成后退出并重新进入wsl即可</li>
-<li>如果开机脚本出现问题，你可以在用户home目录下新建文件.disable来关闭开机脚本，具体可以在windows资源管理器下新建文本文档并重命名或在wsl用户home目录下运行<pre class="line-numbers language-none"><code class="language-none">touch ~&#x2F;.disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<h2 id="已知问题"><a href="#已知问题" class="headerlink" title="已知问题"></a>已知问题</h2><p>genie会在启动systemd时替换PATH为一个较为安全的PATH，这会导致systemd环境下无法查找到windows的程序，这里提供的解决方法为在脚本运行完后修改&#x2F;etc&#x2F;genie.ini文件，将clone_path设置为true，然后使用&#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;enable-systemd.sh.bak替换&#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;enable-systemd.sh。即在修改完&#x2F;etc&#x2F;genie.ini文件的clone_path后运行如下代码</p>
+bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> 4.
+等脚本完成后退出并重新进入wsl即可 5.
+如果开机脚本出现问题，你可以在用户home目录下新建文件.disable来关闭开机脚本，具体可以在windows资源管理器下新建文本文档并重命名或在wsl用户home目录下运行
+<pre class="line-numbers language-none"><code class="language-none">touch ~&#x2F;.disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<h2 id="已知问题">已知问题</h2>
+<p>genie会在启动systemd时替换PATH为一个较为安全的PATH，这会导致systemd环境下无法查找到windows的程序，这里提供的解决方法为在脚本运行完后修改/etc/genie.ini文件，将clone_path设置为true，然后使用/etc/profile.d/.init.d/enable-systemd.sh.bak替换/etc/profile.d/.init.d/enable-systemd.sh。即在修改完/etc/genie.ini文件的clone_path后运行如下代码
 <pre class="line-numbers language-none"><code class="language-none">cd &#x2F;etc&#x2F;profile.d&#x2F;.init.d
-sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>genie可能会出现无限等待情况，请将&#x2F;etc&#x2F;genie.ini中的systemd-timeout设置为较短时间即可解决，此问题只会出现在wsl2开机的时候。</p>
-<p>Ubuntu wsl2在替换zsh后会出现bug，即不会运行&#x2F;etc&#x2F;profile，可以将如下代码添加到.zshrc文件尾来修复</p>
+sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+<p>genie可能会出现无限等待情况，请将/etc/genie.ini中的systemd-timeout设置为较短时间即可解决，此问题只会出现在wsl2开机的时候。</p>
+<p>Ubuntu
+wsl2在替换zsh后会出现bug，即不会运行/etc/profile，可以将如下代码添加到.zshrc文件尾来修复
 <pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>DISPLAY变量与xrdp（kex-win的ESM模式）不兼容，使用如下命令修复</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo rm &#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;display.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="鸣谢"><a href="#鸣谢" class="headerlink" title="鸣谢"></a>鸣谢</h2><p><a href="https://github.com/zsh-users/antigen">antigen</a></p>
-<p><a href="https://github.com/arkane-systems/genie">systemd-genie</a></p>
-<p><a href="https://www.cnblogs.com/zsmumu/p/archlinux-wsl2.html">hyuuko的配置记录</a></p>
+DISPLAY变量与xrdp（kex-win的ESM模式）不兼容，使用如下命令修复
+<pre class="line-numbers language-none"><code class="language-none">sudo rm &#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;display.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> ## 鸣谢 <a
+href="https://github.com/zsh-users/antigen">antigen</a></p>
+<p><a
+href="https://github.com/arkane-systems/genie">systemd-genie</a></p>
+<p><a
+href="https://www.cnblogs.com/zsmumu/p/archlinux-wsl2.html">hyuuko的配置记录</a></p>
 ]]></content>
       <categories>
         <category>折腾</category>

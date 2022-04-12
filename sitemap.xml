@@ -2,16 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://blog.nidwbin.xyz/post/3412/</loc>
-    
-    <lastmod>2022-04-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.nidwbin.xyz/post/47162/</loc>
+    <loc>https://blog.nidwbin.xyz/post/48332/</loc>
     
     <lastmod>2022-04-12</lastmod>
     
@@ -29,16 +20,25 @@
   </url>
   
   <url>
-    <loc>https://blog.nidwbin.xyz/post/42313/</loc>
+    <loc>https://blog.nidwbin.xyz/post/47162/</loc>
     
-    <lastmod>2022-04-09</lastmod>
+    <lastmod>2022-04-12</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://blog.nidwbin.xyz/post/48332/</loc>
+    <loc>https://blog.nidwbin.xyz/post/3412/</loc>
+    
+    <lastmod>2022-04-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.nidwbin.xyz/post/42313/</loc>
     
     <lastmod>2022-04-09</lastmod>
     

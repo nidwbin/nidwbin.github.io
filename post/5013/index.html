@@ -30,7 +30,7 @@
 <meta property="og:description" content="使用VMware安装docker的骚操作">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-09-13T05:35:24.000Z">
-<meta property="article:modified_time" content="2022-04-12T09:01:01.077Z">
+<meta property="article:modified_time" content="2022-04-12T13:31:38.842Z">
 <meta property="article:author" content="霖">
 <meta property="article:tag" content="docker">
 <meta property="article:tag" content="VMware">
@@ -151,8 +151,8 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B4%E6%9B%B4%E6%96%B0"><span class="nav-number">1.</span> <span class="nav-text">2022年更新</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C"><span class="nav-number">1.1.</span> <span class="nav-text">一些操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Edocker-toolbox"><span class="nav-number">1.2.</span> <span class="nav-text">关于docker toolbox</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%8D%B8%E8%BD%BDvisual-box%E6%88%96vmware"><span class="nav-number">3.</span> <span class="nav-text">第一步：卸载Visual
-box或VMware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E7%A7%BB%E5%8A%A8vmware%E9%A9%B1%E5%8A%A8"><span class="nav-number">4.</span> <span class="nav-text">第二步：移动VMware驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E5%A4%8D%E5%88%B6boot2docker.iso"><span class="nav-number">5.</span> <span class="nav-text">第三步：复制boot2docker.iso</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E5%BB%BA%E7%AB%8B%E5%85%B6%E4%BB%96%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">6.</span> <span class="nav-text">第四步：建立其他文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">7.</span> <span class="nav-text">第五步：修改环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5%E5%BB%BA%E7%AB%8Bdocker%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">8.</span> <span class="nav-text">第六步：建立docker虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E6%AD%A5%E6%9F%A5%E7%9C%8Bdocker%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BF%A1%E6%81%AF"><span class="nav-number">9.</span> <span class="nav-text">第七步：查看docker虚拟机信息</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B4%E6%9B%B4%E6%96%B0"><span class="nav-number">1.</span> <span class="nav-text">2022年更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2"><span class="nav-number">2.</span> <span class="nav-text">写在前面</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E6%93%8D%E4%BD%9C"><span class="nav-number">2.1.</span> <span class="nav-text">一些操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Edocker-toolbox"><span class="nav-number">2.2.</span> <span class="nav-text">关于docker toolbox</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">3.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%8D%B8%E8%BD%BDvisual-box%E6%88%96vmware"><span class="nav-number">4.</span> <span class="nav-text">第一步：卸载Visual
+box或VMware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%E7%A7%BB%E5%8A%A8vmware%E9%A9%B1%E5%8A%A8"><span class="nav-number">5.</span> <span class="nav-text">第二步：移动VMware驱动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%E5%A4%8D%E5%88%B6boot2docker.iso"><span class="nav-number">6.</span> <span class="nav-text">第三步：复制boot2docker.iso</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%E5%BB%BA%E7%AB%8B%E5%85%B6%E4%BB%96%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">7.</span> <span class="nav-text">第四步：建立其他文件夹</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%E4%BF%AE%E6%94%B9%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">8.</span> <span class="nav-text">第五步：修改环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5%E5%BB%BA%E7%AB%8Bdocker%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="nav-number">9.</span> <span class="nav-text">第六步：建立docker虚拟机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%83%E6%AD%A5%E6%9F%A5%E7%9C%8Bdocker%E8%99%9A%E6%8B%9F%E6%9C%BA%E4%BF%A1%E6%81%AF"><span class="nav-number">10.</span> <span class="nav-text">第七步：查看docker虚拟机信息</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -268,7 +268,7 @@ box或VMware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2022-04-12 17:01:01" itemprop="dateModified" datetime="2022-04-12T17:01:01+08:00">2022-04-12</time>
+      <time title="修改时间：2022-04-12 21:31:38" itemprop="dateModified" datetime="2022-04-12T21:31:38+08:00">2022-04-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -308,9 +308,10 @@ box或VMware</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"
     <div class="post-body" itemprop="articleBody">
         <h2 id="年更新">2022年更新</h2>
 <p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了
-<del>(申遗)</del>。 wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！
-## 写在前面
-由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
+<del>(申遗)</del>。
+wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！</p>
+<h2 id="写在前面">写在前面</h2>
+<p>由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
 <h3 id="一些操作">一些操作</h3>
 <ul>
 <li>购买windows10专业版，<del>土豪请出门右转，谢谢</del></li>
@@ -449,7 +450,7 @@ ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印�
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15 分钟</span>
+    <span title="站点阅读时长">14 分钟</span>
   </span>
 </div>
 
