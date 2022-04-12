@@ -6,7 +6,7 @@
   <link href="https://blog.nidwbin.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.nidwbin.xyz/"/>
-  <updated>2022-04-12T09:38:42.518Z</updated>
+  <updated>2022-04-12T14:44:07.284Z</updated>
   <id>https://blog.nidwbin.xyz/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.nidwbin.xyz/post/3412/"/>
     <id>https://blog.nidwbin.xyz/post/3412/</id>
     <published>2022-04-12T08:55:52.000Z</published>
-    <updated>2022-04-12T09:38:42.518Z</updated>
+    <updated>2022-04-12T14:44:07.284Z</updated>
     
     
     <summary type="html">2022年食用Hexo和Next的正确方法。记录本站一年一度的版本更新(一年管一次)。</summary>
@@ -42,7 +42,7 @@
     <link href="https://blog.nidwbin.xyz/post/48332/"/>
     <id>https://blog.nidwbin.xyz/post/48332/</id>
     <published>2022-04-08T13:59:27.000Z</published>
-    <updated>2022-04-12T13:31:40.092Z</updated>
+    <updated>2022-04-12T14:00:12.717Z</updated>
     
     
     <summary type="html">一个自己写的在wsl2上快速配置kali的脚本，包含systemd的设置。仓库链接：https://github.com/nidwbin/script-for-kali-wsl2</summary>
@@ -59,7 +59,7 @@
     <link href="https://blog.nidwbin.xyz/post/42313/"/>
     <id>https://blog.nidwbin.xyz/post/42313/</id>
     <published>2022-04-07T06:40:50.000Z</published>
-    <updated>2022-04-09T13:25:07.606Z</updated>
+    <updated>2022-04-12T15:03:02.668Z</updated>
     
     
     <summary type="html">阅读论文&quot;ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification&quot;的简单记录</summary>
@@ -78,7 +78,7 @@
     <link href="https://blog.nidwbin.xyz/post/61813/"/>
     <id>https://blog.nidwbin.xyz/post/61813/</id>
     <published>2022-04-06T08:58:36.000Z</published>
-    <updated>2022-04-09T11:32:14.315Z</updated>
+    <updated>2022-04-12T15:03:33.065Z</updated>
     
     
     <summary type="html">阅读论文SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING的简单记录</summary>
@@ -162,7 +162,7 @@
     <link href="https://blog.nidwbin.xyz/post/5013/"/>
     <id>https://blog.nidwbin.xyz/post/5013/</id>
     <published>2019-09-13T05:35:24.000Z</published>
-    <updated>2022-04-12T13:31:38.842Z</updated>
+    <updated>2022-04-12T14:00:33.611Z</updated>
     
     
     <summary type="html">使用VMware安装docker的骚操作</summary>

@@ -10,7 +10,8 @@
   journal&#x3D;&#123;arXiv preprint arXiv:2005.07143&#125;,
   year&#x3D;&#123;2020&#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 发表时间: 2020<br />
-发表期刊：INTERSPEECH 被引用数：155
+发表期刊：INTERSPEECH<br />
+被引用数：155<br />
 论文链接：https://arxiv.org/abs/2005.07143</p>
 <h2 id="模型和方法">模型和方法</h2>
 <h3 id="通道上下文相关的统计池化">通道上下文相关的统计池化</h3>
@@ -77,17 +78,82 @@ class="math inline">\(x_2\)</span>是输出求和后做卷积然后传到下一�
 <p>在进行注意力统计池化之前，ECAPA-TDNN会先将前面几层的网络输出聚合起来作为注意力统计池化的输入，可以提高注意力层的表现。而多层特征求和是对于每个SE-Res2Block，将之前每层网络的输出求和作为SE-Res2Block的输入。
 <img data-src="/post/42313/6.png" class=""></p>
 <h2 id="实验">实验</h2>
-<p>实验设置如表。 |选项 | 设置| |-|-| |训练数据集| VoxCeleb2的开发部分|
-|验证数据集| VoxCeleb2开发部分采样2% | |测试数据集|
-VoxCeleb1，VoxCeleb1-E，VoxCeleb1-H，VoxSRC19| |数据增强|
-MUSAN(噪声)、RIR(混响)、SoX(节奏变化)、FFmpeg、语谱图| |网络输入特征|
-80维MFCC，窗长25ms，窗移10ms，随机裁2秒| |语谱图增强|
-随机遮蔽0～5帧，0～10通道| |学习率| triangular2循环调度<span
-class="math inline">\(10^{-8}\sim 10^{-3}\)</span>| |优化器| Adam|
-|损失函数| AAM-softmax(ARC-Face)| |防止过拟合|
-AAM-softmax权重矩阵减2e-4，其他减2e-5| |Batch大小| 128| |通道大小|
-SE和注意力统计池化中间层为128，总体为512或1024| |Res2Block分割数| 8|
-|输出| 192维| |后端模型|余弦相似度| |度量方式|EER，minDCF|</p>
+<p>实验设置如表。</p>
+<table>
+<thead>
+<tr class="header">
+<th>选项</th>
+<th>设置</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>训练数据集</td>
+<td>VoxCeleb2的开发部分</td>
+</tr>
+<tr class="even">
+<td>验证数据集</td>
+<td>VoxCeleb2开发部分采样2%</td>
+</tr>
+<tr class="odd">
+<td>测试数据集</td>
+<td>VoxCeleb1，VoxCeleb1-E，VoxCeleb1-H，VoxSRC19</td>
+</tr>
+<tr class="even">
+<td>数据增强</td>
+<td>MUSAN(噪声)、RIR(混响)、SoX(节奏变化)、FFmpeg、语谱图</td>
+</tr>
+<tr class="odd">
+<td>网络输入特征</td>
+<td>80维MFCC，窗长25ms，窗移10ms，随机裁2秒</td>
+</tr>
+<tr class="even">
+<td>语谱图增强</td>
+<td>随机遮蔽0～5帧，0～10通道</td>
+</tr>
+<tr class="odd">
+<td>学习率</td>
+<td>triangular2循环调度<span class="math inline">\(10^{-8}\sim
+10^{-3}\)</span></td>
+</tr>
+<tr class="even">
+<td>优化器</td>
+<td>Adam</td>
+</tr>
+<tr class="odd">
+<td>损失函数</td>
+<td>AAM-softmax(ARC-Face)</td>
+</tr>
+<tr class="even">
+<td>防止过拟合</td>
+<td>AAM-softmax权重矩阵减2e-4，其他减2e-5</td>
+</tr>
+<tr class="odd">
+<td>Batch大小</td>
+<td>128</td>
+</tr>
+<tr class="even">
+<td>通道大小</td>
+<td>SE和注意力统计池化中间层为128，总体为512或1024</td>
+</tr>
+<tr class="odd">
+<td>Res2Block分割数</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>输出</td>
+<td>192维</td>
+</tr>
+<tr class="odd">
+<td>后端模型</td>
+<td>余弦相似度</td>
+</tr>
+<tr class="even">
+<td>度量方式</td>
+<td>EER，minDCF</td>
+</tr>
+</tbody>
+</table>
 <h2 id="结果">结果</h2>
 <p>实验结果。 <img data-src="/post/42313/2022-04-09-19-48-20.png" class=""> 消融实验。 <img data-src="/post/42313/2022-04-09-19-48-46.png" class=""> 大图，来自b站up主<a
 href="https://www.bilibili.com/video/BV1fQ4y1Y75w">可能叫做小黑</a>，他的代码复现<a
@@ -100,53 +166,157 @@ href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。
       </categories>
   </entry>
   <entry>
+    <title>Hexo 版本升级</title>
+    <url>/post/3412/</url>
+    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
+<p>2022年了，Hexo好像要<s>凉了</s>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？<br>
+所以版本升级搞起（指重新配置)。</p>
+<h2 id="Hexo部分">Hexo部分</h2>
+<p>还是先卸载Hexo，然后装船新版本。目前我已经用上<s>开源手扶拖拉机</s>ArchLinux了，所以这部分就直接命令行。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装NodeJs后用npm安装Hexo。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>跑到某个文件夹下新建博客。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后把旧博客的source下的文件全部复制到新博客的source下。<br>
+再安装旧的依赖。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes \
+            hexo-generator-sitemap hexo-theme-next prism-theme hexo-word-counter --save
+npm uninstall hexo-renderer-marked
+npm install hexo-renderer-pandoc --save &#x2F;&#x2F;为了支持mathjax换了默认编译器 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>顺便新增了个readpaper模板用了记录论文阅读。</p>
+<img data-src="/post/3412/2022-04-12-17-23-47.png" class="">
+<h2 id="Next部分">Next部分</h2>
+<p>就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。<br>
+然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。<br>
+最后在github上新开个仓库，写个404.html绑定第2个域名，完事。</p>
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">var</span> domain <span class="token operator">=</span> <span class="token string">"blog.nidwbin.xyz"</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> src <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
+<span class="token keyword">var</span> prtc <span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> src<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> target <span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>src<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> src<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> prtc <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span> domain <span class="token operator">+</span> target<span class="token punctuation">;</span>
+location<span class="token punctuation">.</span>href<span class="token operator">=</span>prtc <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span> domain <span class="token operator">+</span> target<span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="vscode部分">vscode部分</h2>
+<p>我写博客一直用的都是vscode，但ArchLinux上粘贴图片不方便了，就另外配置了下。安装了Paste Image和Markdown Preview Enhanced两个拓展。配置了Markdown Preview Enhanced的解析拓展。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> vscode <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"vscode"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">onWillParseMarkdown</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">markdown</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      markdown <span class="token operator">=</span> markdown<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>
+        <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\&#123;%\s*asset_img\s*(\S+) \s*\S*\s*%\&#125;</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token parameter">whole<span class="token punctuation">,</span> content</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          abs_filename <span class="token operator">=</span> vscode<span class="token punctuation">.</span>window<span class="token punctuation">.</span>activeTextEditor<span class="token punctuation">.</span>document<span class="token punctuation">.</span>fileName<span class="token punctuation">;</span>
+          filename <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>abs_filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          filename <span class="token operator">=</span> filename<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>filename<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">![](</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>filename <span class="token operator">+</span> <span class="token string">"/"</span><span class="token operator">+</span> content<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">)</span>
+      <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>markdown<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onDidParseMarkdown</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">html<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>cheerio<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onWillTransformMarkdown</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">markdown</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>markdown<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onDidTransformMarkdown</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">markdown</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>markdown<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>然后配置工作区的Paste Image设置。</p>
+<pre class="line-numbers language-Json" data-language="Json"><code class="language-Json">&#123;
+    &quot;pasteImage.path&quot;: &quot;$&#123;currentFileNameWithoutExt&#125;&#x2F;&quot;,
+    &quot;pasteImage.insertPattern&quot;: &quot;&#123; % asset_img $&#123;imageFileName&#125; %&#125;&quot;,
+    &quot;markdown-preview-enhanced.mathRenderingOption&quot;: &quot;MathJax&quot;,   
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+      <categories>
+        <category>小站风云</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING</title>
     <url>/post/61813/</url>
-    <content><![CDATA[<h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>引用Bibtex</p>
-<pre class="line-numbers language-bibtex" data-language="bibtex"><code class="language-bibtex">@inproceedings&#123;xia2021self,
+    <content><![CDATA[<h2 id="基本信息">基本信息</h2>
+<p>引用Bibtex <pre class="line-numbers language-bibtex" data-language="bibtex"><code class="language-bibtex">@inproceedings&#123;xia2021self,
   title&#x3D;&#123;Self-supervised text-independent speaker verification using prototypical momentum contrastive learning&#125;,
   author&#x3D;&#123;Xia, Wei and Zhang, Chunlei and Weng, Chao and Yu, Meng and Yu, Dong&#125;,
   booktitle&#x3D;&#123;ICASSP 2021-2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)&#125;,
   pages&#x3D;&#123;6723--6727&#125;,
   year&#x3D;&#123;2021&#125;,
   organization&#x3D;&#123;IEEE&#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>发表时间：2021<br>发表期刊：ICASSP<br>被引用数：15<br>论文链接：<a href="https://ieeexplore.ieee.org/abstract/document/9414973">https://ieeexplore.ieee.org/abstract/document/9414973</a></p>
-<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><p>SimCLR的框架和MoCo的框架。MoCo的框架是修改后的，使用队列让K值达到1000。</p>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 发表时间：2021<br />
+发表期刊：ICASSP<br />
+被引用数：15<br />
+论文链接：https://ieeexplore.ieee.org/abstract/document/9414973</p>
+<h2 id="方法">方法</h2>
+<p>SimCLR的框架和MoCo的框架。MoCo的框架是修改后的，使用队列让K值达到1000。
 <img data-src="/post/61813/2022-04-06-21-51-14.png" class="">
-<p>论文框架，用到了原型记忆库，在每个epoch都对整个数据集做M聚类，把样本中心（原型）加入记忆库。</p>
-<img data-src="/post/61813/2022-04-06-22-09-58.png" class="">
-<p>把MoCo的loss推广到半监督学习，使用到所有有标签数据。</p>
-<img data-src="/post/61813/2022-04-06-22-15-40.png" class="">
-<img data-src="/post/61813/2022-04-06-22-16-42.png" class="">
-<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p>标准的TDNN</p>
-<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><table>
+论文框架，用到了原型记忆库，在每个epoch都对整个数据集做M聚类，把样本中心（原型）加入记忆库。
+<img data-src="/post/61813/2022-04-06-22-09-58.png" class=""> 把MoCo的loss推广到半监督学习，使用到所有有标签数据。
+<img data-src="/post/61813/2022-04-06-22-15-40.png" class=""> <img data-src="/post/61813/2022-04-06-22-16-42.png" class=""></p>
+<h2 id="模型">模型</h2>
+<p>标准的TDNN</p>
+<h2 id="实验">实验</h2>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>项目</th>
 <th>设置</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>数据集</td>
 <td>VoxCeleb2训练，VoxCeleb1测试</td>
 </tr>
-<tr>
+<tr class="even">
 <td>测试标准</td>
 <td>EER和minDCF</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>特征</td>
-<td>30MFCC，25ms&#x2F;10ms，VAD</td>
+<td>30MFCC，25ms/10ms，VAD</td>
 </tr>
-<tr>
+<tr class="even">
 <td>数据增强</td>
 <td>WavAug的progressive对自监督有效：reverb-augmentation+MUSAN上再增强。SpecAug用时间扭曲和频率masking。</td>
 </tr>
-</tbody></table>
-<h2 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h2><img data-src="/post/61813/2022-04-06-22-40-59.png" class="">
+</tbody>
+</table>
+<h2 id="结果">结果</h2>
+<img data-src="/post/61813/2022-04-06-22-40-59.png" class="">
 <img data-src="/post/61813/2022-04-06-22-41-19.png" class="">
-<img data-src="/post/61813/2022-04-06-22-41-36.png" class="">]]></content>
+<img data-src="/post/61813/2022-04-06-22-41-36.png" class="">
+]]></content>
       <categories>
         <category>论文阅读笔记</category>
         <category>简易笔记</category>
@@ -155,19 +325,30 @@ href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。
   <entry>
     <title>Scoop使用体验</title>
     <url>/post/55364/</url>
-    <content><![CDATA[<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>太久没更新了，过来水水博客。这次的话就讲讲Scoop的简单使用体验吧吧。</p>
-<h2 id="Scoop介绍"><a href="#Scoop介绍" class="headerlink" title="Scoop介绍"></a>Scoop介绍</h2><p>我的笔记本的Bios被锁了大部分功能，没办法装Linux。<br>那么为了在Windows下获得比较舒服的使用体验，除了要注意文件管理外，还要一个合适的软件管理器来管理软件。（别说控制面板，太难用了，还要自己挨个更新。）<br>Scoop就是一个比较好用的软件管理器，类似Linux的包管理器。类似的还有<a href="https://chocolatey.org/">Chocolatey</a>和<a href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/">Winget</a>。<br>有一说一，微软拥抱开源后确实开了些好坑，不过能不能填好就不知道了（&#x3D;。&#x3D;）。</p>
-<h2 id="安装体验"><a href="#安装体验" class="headerlink" title="安装体验"></a>安装体验</h2><p>Scoop本身的安装还是挺友好的，就是要配置好文件目录。对于热门软件来说，比如Jetbrains全家桶（Jetbrains打钱），Git，GCC，7zip等等，甚至对于大部分开源软件都是好用的。但对于比较冷门的软件就不太行，当然，有版权的绝大部分不行。<br>然后就是安装速度，github用爱发电是真的难顶，推荐搭配科学上网食用。</p>
-<h2 id="版本控制"><a href="#版本控制" class="headerlink" title="版本控制"></a>版本控制</h2><p>Scoop默认会把安装过的版本都保存下来方便回滚，甚至安装包都会缓存下，所以需要不定时清理下缓存，不过不是什么大事，使用体验还可以。</p>
-<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>软件更新就一行命令</p>
+    <content><![CDATA[<h2 id="写在前面的-2">写在前面的</h2>
+<p>太久没更新了，过来水水博客。这次的话就讲讲Scoop的简单使用体验吧吧。</p>
+<h2 id="Scoop介绍">Scoop介绍</h2>
+<p>我的笔记本的Bios被锁了大部分功能，没办法装Linux。<br>
+那么为了在Windows下获得比较舒服的使用体验，除了要注意文件管理外，还要一个合适的软件管理器来管理软件。（别说控制面板，太难用了，还要自己挨个更新。）<br>
+Scoop就是一个比较好用的软件管理器，类似Linux的包管理器。类似的还有<a href="https://chocolatey.org/">Chocolatey</a>和<a href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/">Winget</a>。<br>
+有一说一，微软拥抱开源后确实开了些好坑，不过能不能填好就不知道了（=。=）。</p>
+<h2 id="安装体验">安装体验</h2>
+<p>Scoop本身的安装还是挺友好的，就是要配置好文件目录。对于热门软件来说，比如Jetbrains全家桶（Jetbrains打钱），Git，GCC，7zip等等，甚至对于大部分开源软件都是好用的。但对于比较冷门的软件就不太行，当然，有版权的绝大部分不行。<br>
+然后就是安装速度，github用爱发电是真的难顶，推荐搭配科学上网食用。</p>
+<h2 id="版本控制">版本控制</h2>
+<p>Scoop默认会把安装过的版本都保存下来方便回滚，甚至安装包都会缓存下，所以需要不定时清理下缓存，不过不是什么大事，使用体验还可以。</p>
+<h2 id="更新">更新</h2>
+<p>软件更新就一行命令</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">scoop update *<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>对于全局软件</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> scoop update * -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>这里sudo是使用<a href="https://github.com/gerardog/gsudo">gsudo</a>带来的管理员运行体验，赞美大神。大家可以支持一波<a href="https://github.com/gerardog/gsudo">gsudo</a>，点个star什么的。</p>
-<h2 id="备份与恢复"><a href="#备份与恢复" class="headerlink" title="备份与恢复"></a>备份与恢复</h2><p>备份和pip一样，都是导出一个txt文件，然后网络下载，这倒是挺方便的。命令如下</p>
+<h2 id="备份与恢复">备份与恢复</h2>
+<p>备份和pip一样，都是导出一个txt文件，然后网络下载，这倒是挺方便的。命令如下</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">scoop <span class="token builtin class-name">export</span> <span class="token operator">></span> <span class="token string">"scoop.txt"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>至于恢复。。。开发中。。。有导出总比没有好。。。</p>
-<h2 id="吐槽"><a href="#吐槽" class="headerlink" title="吐槽"></a>吐槽</h2><p>除了这个智障的恢复功能外，其他好像没什么问题，aria2的bug也修好了👍，就是输出有点多。不过毕竟用爱发电，能做到这一步已经很不错了，希望Scoop越来越好吧。</p>
+<h2 id="吐槽">吐槽</h2>
+<p>除了这个智障的恢复功能外，其他好像没什么问题，aria2的bug也修好了👍，就是输出有点多。不过毕竟用爱发电，能做到这一步已经很不错了，希望Scoop越来越好吧。</p>
 ]]></content>
       <categories>
         <category>折腾</category>
@@ -180,72 +361,86 @@ href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。
   <entry>
     <title>WIN10家庭版docker+VMware安装</title>
     <url>/post/5013/</url>
-    <content><![CDATA[<h2 id="年更新">2022年更新</h2>
-<p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了
-<del>(申遗)</del>。
+    <content><![CDATA[<h2 id="2022年更新">2022年更新</h2>
+<p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了 <s>(申遗)</s>。<br>
 wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！</p>
 <h2 id="写在前面">写在前面</h2>
 <p>由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
 <h3 id="一些操作">一些操作</h3>
 <ul>
-<li>购买windows10专业版，<del>土豪请出门右转，谢谢</del></li>
+<li>购买windows10专业版，<s>土豪请出门右转，谢谢</s></li>
 <li>弃坑windows，投入mac or linux的怀抱</li>
 <li>手工开启hyper-v，不是正版，影响更新，hyper-v的性能。。。</li>
 <li>使用docker toolbox安装</li>
 </ul>
 <h3 id="关于docker-toolbox">关于docker toolbox</h3>
-<p>docker toolbox的原理是使用Visual
-box来代替hyper-v，从而实现docker的运行，因此docker
-toolbox没有VMware也是可以运行的，但如果你已经安装了VMware，那么Visual
-box和VMware之间的战争便愉快的开始了</p>
+<p>docker toolbox的原理是使用Visual box来代替hyper-v，从而实现docker的运行，因此docker toolbox没有VMware也是可以运行的，但如果你已经安装了VMware，那么Visual box和VMware之间的战争便愉快的开始了</p>
 <h2 id="准备工作">准备工作</h2>
 <ul>
-<li>开启电脑的虚拟化(<a
-href="https://jingyan.baidu.com/article/574c52195b675c6c8d9dc138.html">百度经验</a>)</li>
-<li>安装并激活<a
-href="https://communities.vmware.com/thread/598748">VMware</a>(一个<a
-href="https://jingyan.baidu.com/article/3f16e00321bbb12591c10304.html">百度经验</a>的密钥：CG392-4PX5J-H816Z-HYZNG-PQRG2)</li>
-<li>安装<a
-href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/">docker
-toolbox</a>，推荐装在D盘</li>
-<li>下载docker的<a
-href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/">VMware驱动程序</a>，不安装</li>
+<li>开启电脑的虚拟化(<a href="https://jingyan.baidu.com/article/574c52195b675c6c8d9dc138.html">百度经验</a>)</li>
+<li>安装并激活<a href="https://communities.vmware.com/thread/598748">VMware</a>(一个<a href="https://jingyan.baidu.com/article/3f16e00321bbb12591c10304.html">百度经验</a>的密钥：CG392-4PX5J-H816Z-HYZNG-PQRG2)</li>
+<li>安装<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/">docker toolbox</a>，推荐装在D盘</li>
+<li>下载docker的<a href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/">VMware驱动程序</a>，不安装</li>
 </ul>
-<h2 id="第一步卸载visual-box或vmware">第一步：卸载Visual
-box或VMware</h2>
-<p>如果你选择的是卸载VMware，那么docker到这里就已经可用了，当然这不是本篇blog的目的，相信也不是你的目的，所以，卸载Visual
-box</p>
-<h2 id="第二步移动vmware驱动">第二步：移动VMware驱动</h2>
-<p>将之前下载的VMware驱动移动到docker
-toolbox的安装目录下，即与docker.exe处于同一目录</p>
-<h2 id="第三步复制boot2docker.iso">第三步：复制boot2docker.iso</h2>
+<h2 id="第一步：卸载Visual-box或VMware">第一步：卸载Visual box或VMware</h2>
+<p>如果你选择的是卸载VMware，那么docker到这里就已经可用了，当然这不是本篇blog的目的，相信也不是你的目的，所以，卸载Visual box</p>
+<h2 id="第二步：移动VMware驱动">第二步：移动VMware驱动</h2>
+<p>将之前下载的VMware驱动移动到docker toolbox的安装目录下，即与docker.exe处于同一目录</p>
+<h2 id="第三步：复制boot2docker-iso">第三步：复制boot2docker.iso</h2>
 <ul>
 <li>复制boot2docker.iso</li>
 <li>在当前目录下建立machine文件夹，进入machine文件夹后建立cache文件夹</li>
 <li>将boot2docker.iso复制到cache文件夹内</li>
 <li>ps: machine文件夹可以任意命名，cache文件夹不能任意</li>
 </ul>
-<h2 id="第四步建立其他文件夹">第四步：建立其他文件夹</h2>
-<p>docker默认是将镜像和虚拟机往C盘里存，<del>都惦记着我的C盘，你看它多么的弱小，无助。。。</del>，所以我们要改一下
-+ 在machine文件夹内（与cache同级）建立machines文件夹用于保存虚拟机 +
-进入machines文件夹，建立dev文件夹，dev是你虚拟机的名字 +
-将machine整个文件夹搬到你想要的位置 + ps：machines文件夹可任意命名</p>
-<h2 id="第五步修改环境变量">第五步：修改环境变量</h2>
+<h2 id="第四步：建立其他文件夹">第四步：建立其他文件夹</h2>
+<p>docker默认是将镜像和虚拟机往C盘里存，<s>都惦记着我的C盘，你看它多么的弱小，无助。。。</s>，所以我们要改一下</p>
+<ul>
+<li>在machine文件夹内（与cache同级）建立machines文件夹用于保存虚拟机</li>
+<li>进入machines文件夹，建立dev文件夹，dev是你虚拟机的名字</li>
+<li>将machine整个文件夹搬到你想要的位置</li>
+<li>ps：machines文件夹可任意命名</li>
+</ul>
+<h2 id="第五步：修改环境变量">第五步：修改环境变量</h2>
 <ul>
 <li>资源管理器&gt;此电脑右键&gt;属性&gt;高级系统设置&gt;环境变量</li>
 <li>添加或修改如下环境变量</li>
-<li>ps:machine、machines、dev与之前你命的名相对应 |变量名|变量值| |-|-|
-|DOCKER_CERT_PATH|你将machine搬到的位置（如D:）|
-|DOCKER_MACHINE_NAME|dev| |DOCKER_TOOLBOX_INSTALL_PATH|docker
-toolbox安装目录|
-|MACHINE_STORAGE_PATH|你将machine搬到的位置（如D:）|</li>
+<li>ps:machine、machines、dev与之前你命的名相对应</li>
 </ul>
-<h2 id="第六步建立docker虚拟机">第六步：建立docker虚拟机</h2>
-<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine create --driver<span class="token operator">=</span>vmwareworkstation dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-ps:dev与之前你命的名相对应</p>
-<h2 id="第七步查看docker虚拟机信息">第七步：查看docker虚拟机信息</h2>
-<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
-<p>至此，你的docker已经可以安装好了，推荐配合git bash食用<br />
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>变量值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DOCKER_CERT_PATH</td>
+<td>你将machine搬到的位置（如D:）\machine\machines\dev</td>
+</tr>
+<tr>
+<td>DOCKER_MACHINE_NAME</td>
+<td>dev</td>
+</tr>
+<tr>
+<td>DOCKER_TOOLBOX_INSTALL_PATH</td>
+<td>docker toolbox安装目录</td>
+</tr>
+<tr>
+<td>MACHINE_STORAGE_PATH</td>
+<td>你将machine搬到的位置（如D:）\machine</td>
+</tr>
+</tbody>
+</table>
+<h2 id="第六步：建立docker虚拟机">第六步：建立docker虚拟机</h2>
+<p>打开powershell，输入如下命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine create --driver<span class="token operator">=</span>vmwareworkstation dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>ps:dev与之前你命的名相对应</p>
+<h2 id="第七步：查看docker虚拟机信息">第七步：查看docker虚拟机信息</h2>
+<p>打开powershell，输入如下命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>至此，你的docker已经可以安装好了，推荐配合git bash食用<br>
 ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印机，编辑&gt;首选项(ctrl+p)&gt;设备&gt;启用虚拟打印机</p>
 ]]></content>
       <categories>
@@ -257,46 +452,148 @@ ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印�
       </tags>
   </entry>
   <entry>
+    <title>WIN10+docker+VMware安装MySQL8.0</title>
+    <url>/post/47162/</url>
+    <content><![CDATA[<h2 id="2022更新">2022更新</h2>
+<p>wsl2来了，大人，时代变了！以下教程只能参考，可靠性未知。</p>
+<h2 id="写在前面的-3">写在前面的</h2>
+<p>docker对windows真的很不友好，所以早日脱坑，linux大法好<br>
+如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual box，那么推荐阅读我的<a href="https://nidwbin.xyz/post/5013/">这篇博文</a></p>
+<h2 id="建立MySQL数据文件夹">建立MySQL数据文件夹</h2>
+<p>在电脑里选一块风水宝地，建立一个文件夹用于保存MySQL的数据，名字最好是英文的，我建立了MySQL文件夹</p>
+<img data-src="/post/47162/2.png" class="">
+<p>然后在文件夹里建立三个文件夹如下，如果你自己命名，请注意之后的bash命令也要做相应修改</p>
+<img data-src="/post/47162/3.png" class="">
+<p>文件夹作用如下</p>
+<table>
+<thead>
+<tr>
+<th>文件夹名</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conf</td>
+<td>保存自己的一些设置，比如加密规则</td>
+</tr>
+<tr>
+<td>data</td>
+<td>保存数据库数据</td>
+</tr>
+<tr>
+<td>logs</td>
+<td>保存数据库日志(好像有点问题)</td>
+</tr>
+</tbody>
+</table>
+<p>然后在conf文件夹里建立my.cnf文件，内容如下(MySQL8的默认加密方式改变了，所以要修改下)</p>
+<pre class="line-numbers language-none"><code class="language-none">[mysqld]  
+lower_case_table_names&#x3D;1  
+default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h2 id="Vmware的设置">Vmware的设置</h2>
+<p>打开VMware&gt;打开docker虚拟机&gt;编辑虚拟机设置&gt;选项&gt;共享文件夹&gt;添加</p>
+<img data-src="/post/47162/1.png" class="">
+<p>将MySQL数据希望保存的位置添加进去共享给虚拟机(即之前的MySQL文件夹)</p>
+<h2 id="建立MySQL实例">建立MySQL实例</h2>
+<p>打开git bash(<strong>不要用powershell和cmd！不要用powershell和cmd！不要用powershell和cmd！</strong>)，输入如下命令运行docker</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine start *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img data-src="/post/47162/4.png" class="" title="开启docker">
+<p>激活</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">env</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<img data-src="/post/47162/5.png" class="">
+<p>这时，系统会提示你用另一个命令来激活，copy后输入回车即可，我这里是</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">    <span class="token variable">$eval</span> <span class="token variable"><span class="token variable">$(</span>"D:<span class="token punctuation">\</span>Program Files<span class="token punctuation">\</span>Docker Toolbox<span class="token punctuation">\</span>docker-machine.exe" <span class="token function">env</span> dev<span class="token variable">)</span></span>``<span class="token variable"><span class="token variable">`</span>
+
+下载MySQL<span class="token punctuation">(</span>*下载慢的宝宝请先换源*<span class="token punctuation">)</span>
+<span class="token variable">`</span></span>``bash
+    <span class="token function">docker</span> pull mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>我这里已经下载好了，不演示了</p>
+<p>建立实例</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token punctuation">\</span>
+-p <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>*你的root密码* <span class="token punctuation">\</span>
+-v //mnt/hgfs/ProgramData/MySQL/data:/var/lib/mysql:rw <span class="token punctuation">\</span>
+-v //mnt/hgfs/ProgramData/MySQL/logs:/var/log/mysql:rw <span class="token punctuation">\</span>
+-v //mnt/hgfs/ProgramData/MySQL/conf/my.cnf:/etc/mysql/conf.d/my.cnf:rw <span class="token punctuation">\</span>
+--name mysql <span class="token punctuation">\</span>
+--restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
+-d mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>重点来了</strong>，这些命令的冒号左边是你电脑的实际接口和路径，右边是docker虚拟机的接口和路径，你电脑的共享文件夹被挂载到了虚拟机的//mnt/hgfs/下(双斜杠不能丢，不然git bash会将路径转译导致虚拟机不识别)，所以你只要修改//mnt/hgfs到MySQL(如果你没改名)之间的内容为你的电脑上MySQL文件夹的绝对路径即可(<strong>去掉盘符和MySQL</strong>)，比如，我的MySQL文件夹的绝对路径是D:\ProgramData\MySQL，将盘符和MySQL去掉是\ProgramData\，然后将\改为/填进去就可以了。<br>
+如果你很不幸，共享文件夹没有挂载到//mnt/hgfs/下，那么请ssh登录虚拟机，用whereis命令找出来即可了。<br>
+如果你的MySQL启动不了，请将my.cnf的文件映射去掉，可能是我的配置文件的锅，请自己写一下。</p>
+<h2 id="ssh登录使用">ssh登录使用</h2>
+<p>输入命令登录</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ssh</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>输入命令进入MySQL环境</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysql <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>修改加密方式和root密码</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="token string">'*你的root密码*'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>退出ctrl+d，输入</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">logout</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>到这里，你的mysql8.0就可以愉快的使用了。</p>
+]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>VMware</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo+NexT个人博客升级遇到的坑</title>
     <url>/post/38257/</url>
-    <content><![CDATA[<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>你们可爱的博主大人又回来继续更新博客了，中间才3个月没有更新，在正常不过了，毕竟我可是要成为年更区、与作者比命长分舵的一只鸽子（大误）。好了，言归正传，本次带来的是我的个人博客的更新以及遇到的各种坑，为了防止我以后再次踩坑<del>（虽然这是必定的）</del>，所以特此留念。</p>
-<h2 id="更新内容"><a href="#更新内容" class="headerlink" title="更新内容"></a>更新内容</h2><p>为了让没有经历过本博客黑暗时代的童鞋们对本站有所了解，所以这里将更新或添加的内容列举一下下。</p>
+    <content><![CDATA[<h2 id="写在前面的-4">写在前面的</h2>
+<p>你们可爱的博主大人又回来继续更新博客了，中间才3个月没有更新，在正常不过了，毕竟我可是要成为年更区、与作者比命长分舵的一只鸽子（大误）。好了，言归正传，本次带来的是我的个人博客的更新以及遇到的各种坑，为了防止我以后再次踩坑~~（虽然这是必定的）~~，所以特此留念。</p>
+<h2 id="更新内容">更新内容</h2>
+<p>为了让没有经历过本博客黑暗时代的童鞋们对本站有所了解，所以这里将更新或添加的内容列举一下下。</p>
 <ol>
 <li>Hexo版本更新为最新版</li>
 <li>NexT主题更新为最新版</li>
 <li>添加头像旋转</li>
 <li>添加Valine评论</li>
-<li>将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息</li>
+<li>将自定义~~（抄袭）~~的版权信息修改为官方的版权信息</li>
 <li>为官方的版权信息添加地址复制按钮</li>
 <li>换用靠谱的阅读人数统计</li>
 <li>踩坑&amp;填坑😭</li>
 </ol>
-<p>好吧，这和从头捣鼓一遍好像差不多。。。  </p>
-<h2 id="Hexo版本更新为最新版"><a href="#Hexo版本更新为最新版" class="headerlink" title="Hexo版本更新为最新版"></a>Hexo版本更新为最新版</h2><p>万恶之源就是这一步，如果不是我想更新Hexo，后面也不会由这么多事，更新很简单,直接到<a href="https://hexo.io/">Hexo官网</a>找最新版安装教程即可。nodejs安装命令如下：</p>
+<p>好吧，这和从头捣鼓一遍好像差不多。。。</p>
+<h2 id="Hexo版本更新为最新版">Hexo版本更新为最新版</h2>
+<p>万恶之源就是这一步，如果不是我想更新Hexo，后面也不会由这么多事，更新很简单,直接到<a href="https://hexo.io/">Hexo官网</a>找最新版安装教程即可。nodejs安装命令如下：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后坑就来了，Windows10下无法配置Hexo的环境变量，直接敲Hexo会显示如下错误：  </p>
+<p>然后坑就来了，Windows10下无法配置Hexo的环境变量，直接敲Hexo会显示如下错误：</p>
 <img data-src="/post/38257/1.png" class="">  
 <p>神奇Windows禁止运行脚本，网上有解除这个限制的方法，但我懒得弄了，所以每次使用Hexo需要先敲npx，用npx来调用Hexo。Linux和Mac似乎没有这个坑。。。</p>
-<h2 id="NexT主题更新为最新版"><a href="#NexT主题更新为最新版" class="headerlink" title="NexT主题更新为最新版"></a>NexT主题更新为最新版</h2><p>Hexo升级了，主题当然也要升级，我用的NexT，所以区官网找安装方法，如下图：  </p>
+<h2 id="NexT主题更新为最新版">NexT主题更新为最新版</h2>
+<p>Hexo升级了，主题当然也要升级，我用的NexT，所以区官网找安装方法，如下图：</p>
 <img data-src="/post/38257/2.png" class="">  
-<p>然后，你会发现NexT依旧是6.0.0版本，为什么呢？去这个github仓库看看就知道了，如下图：  </p>
+<p>然后，你会发现NexT依旧是6.0.0版本，为什么呢？去这个github仓库看看就知道了，如下图：</p>
 <img data-src="/post/38257/3.png" class="">
-<p>对，NexT仓库搬迁了，然而中文官网的地址并没有更新，我之前配了半小时的内容又作废了。。。<br>最新版的安装命令如下（在Hexo的目录下运行）：</p>
+<p>对，NexT仓库搬迁了，然而中文官网的地址并没有更新，我之前配了半小时的内容又作废了。。。<br>
+最新版的安装命令如下（在Hexo的目录下运行）：</p>
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="添加头像旋转"><a href="#添加头像旋转" class="headerlink" title="添加头像旋转"></a>添加头像旋转</h2><p>最新版NexT已经支持头像旋转了，直接在<strong>主题配置文件</strong>中搜索<em>avatar</em>即可找到头像设置</p>
+<h2 id="添加头像旋转">添加头像旋转</h2>
+<p>最新版NexT已经支持头像旋转了，直接在<strong>主题配置文件</strong>中搜索<em>avatar</em>即可找到头像设置</p>
 <img data-src="/post/38257/4.png" class="">
 <p>当然老版那种自立门户的方法也是可以的，百度一搜都是，这里不粘贴了</p>
-<h2 id="添加Valine评论"><a href="#添加Valine评论" class="headerlink" title="添加Valine评论"></a>添加Valine评论</h2><p>最新版NexT评论的添加方法也有所不同，需要先在<strong>主题配置文件</strong>中搜索<em>comments</em>，在<em>active</em>里填上<em>valine</em>，如下图：</p>
+<h2 id="添加Valine评论">添加Valine评论</h2>
+<p>最新版NexT评论的添加方法也有所不同，需要先在<strong>主题配置文件</strong>中搜索<em>comments</em>，在<em>active</em>里填上<em>valine</em>，如下图：</p>
 <img data-src="/post/38257/5.png" class="">
 <p>然后再搜索<em>valine</em>把LeanCloud上的app_id和app_key填上，<em>enable</em>设为true，剩下的就是设置了，我的设置如下：</p>
 <img data-src="/post/38257/6.png" class="">
-<p><strong>注意：</strong>LeanCloud上的安全域名记得填上自己的博客地址，不然评论只有localhost发的能记到LeadCloud上。。。别问我是怎么知道的</p>
-<h2 id="将自定义（抄袭）的版权信息修改为官方的版权信息"><a href="#将自定义（抄袭）的版权信息修改为官方的版权信息" class="headerlink" title="将自定义（抄袭）的版权信息修改为官方的版权信息"></a>将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息</h2><p>以前的版权信息是从一位大佬那<del>抄</del>借来的，但最新版NexT自带了版权信息，所以现在又改成NexT的版权信息了，毕竟东西不要借（chao)太(tai)久(duo)，现在的版权信息如下：</p>
+<p>**注意：**LeanCloud上的安全域名记得填上自己的博客地址，不然评论只有localhost发的能记到LeadCloud上。。。别问我是怎么知道的</p>
+<h2 id="将自定义-（抄袭）-的版权信息修改为官方的版权信息">将自定义~~（抄袭）~~的版权信息修改为官方的版权信息</h2>
+<p>以前的版权信息是从一位大佬那<s>抄</s>借来的，但最新版NexT自带了版权信息，所以现在又改成NexT的版权信息了，毕竟东西不要借（chao)太(tai)久(duo)，现在的版权信息如下：</p>
 <img data-src="/post/38257/7.png" class="">
-<p>这个设置简单，直接在<strong>主题配置文件</strong>中搜索<em>creative_commons</em>自己调。<br>你问我那个复制按钮哪来的，当然是<del>抄</del>借鉴官方的源代码自己添的了。  </p>
-<h2 id="为官方的版权信息添加地址复制按钮"><a href="#为官方的版权信息添加地址复制按钮" class="headerlink" title="为官方的版权信息添加地址复制按钮"></a>为官方的版权信息添加地址复制按钮</h2><p>嘿嘿，<del>读书人</del>程序员的事，怎么能叫抄呢，应该叫借鉴~~借鉴~~<br>NexT官方支持代码复制按钮了，所以为了风格统一，需要给我的Copyright也加上复制按钮，这个配置比较麻烦，步骤如下：</p>
-<h3 id="第一步-新建按钮样式"><a href="#第一步-新建按钮样式" class="headerlink" title="第一步 新建按钮样式"></a>第一步 新建按钮样式</h3><p>先在themes\next\source\css下新建_custom文件夹，然后在文件夹里新建custom.styl文件，这个文件里的内容如下：</p>
+<p>这个设置简单，直接在<strong>主题配置文件</strong>中搜索<em>creative_commons</em>自己调。<br>
+你问我那个复制按钮哪来的，当然是<s>抄</s>借鉴官方的源代码自己添的了。</p>
+<h2 id="为官方的版权信息添加地址复制按钮">为官方的版权信息添加地址复制按钮</h2>
+<p>嘿嘿，<s>读书人</s>程序员的事，怎么能叫抄呢，应该叫借鉴~~借鉴~~<br>
+NexT官方支持代码复制按钮了，所以为了风格统一，需要给我的Copyright也加上复制按钮，这个配置比较麻烦，步骤如下：</p>
+<h3 id="第一步-新建按钮样式">第一步 新建按钮样式</h3>
+<p>先在themes\next\source\css下新建_custom文件夹，然后在文件夹里新建custom.styl文件，这个文件里的内容如下：</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.copy-link-btn</span> <span class="token punctuation">&#123;</span>
     <span class="token property">color</span><span class="token punctuation">:</span> $black-dim<span class="token punctuation">;</span>
     <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
@@ -333,12 +630,14 @@ ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印�
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>官方CSS里借鉴的~~，当然如果你要自定义主题颜色什么的可以在这个文件里自己加</p>
-<h3 id="第二步-导入这个文件"><a href="#第二步-导入这个文件" class="headerlink" title="第二步 导入这个文件"></a>第二步 导入这个文件</h3><p>在themes\next\source\css\main.styl文件（_custom文件夹那层）最后添加这几行代码让custom.styl导入：</p>
+<h3 id="第二步-导入这个文件">第二步 导入这个文件</h3>
+<p>在themes\next\source\css\main.styl文件（_custom文件夹那层）最后添加这几行代码让custom.styl导入：</p>
 <pre class="line-numbers language-css" data-language="css"><code class="language-css">// Add Custom Layer
 // --------------------------------------------------
 <span class="token atrule"><span class="token rule">@import</span> <span class="token string">"_custom/custom.styl"</span> if <span class="token punctuation">(</span><span class="token function">hexo-config</span><span class="token punctuation">(</span><span class="token string">'custom.css'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 <p>喜欢自己起名的宝宝们注意这里的路径要写对哟</p>
-<h3 id="第三步-编辑JS"><a href="#第三步-编辑JS" class="headerlink" title="第三步 编辑JS"></a>第三步 编辑JS</h3><p>先在themes\next\source\js下新建custom.js文件，内容如下：</p>
+<h3 id="第三步-编辑JS">第三步 编辑JS</h3>
+<p>先在themes\next\source\js下新建custom.js文件，内容如下：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">var</span> link <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'li.post-copyright-link'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     link<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'beforeend'</span><span class="token punctuation">,</span> <span class="token string">'&lt;div class="copy-link-btn">&lt;i class="fa fa-clipboard">&lt;/i>&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -372,8 +671,11 @@ ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印�
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>官方JS里借鉴的~~<br>注意这里插入按钮的CSS样式名字要与之前custom.styl里的CSS样式名字统一</p>
-<h3 id="第四步-导入JS"><a href="#第四步-导入JS" class="headerlink" title="第四步 导入JS"></a>第四步 导入JS</h3><p>我选择的导入方式比较麻烦，不过我喜欢~~~<br>在themes\next\layout下新建custom-scripts.swig文件，内容如下</p>
+<p>官方JS里借鉴的~~<br>
+注意这里插入按钮的CSS样式名字要与之前custom.styl里的CSS样式名字统一</p>
+<h3 id="第四步-导入JS">第四步 导入JS</h3>
+<p>我选择的导入方式比较麻烦，不过我喜欢~~~<br>
+在themes\next\layout下新建custom-scripts.swig文件，内容如下</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/js/custom.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>然后再在themes\next\layout_layout.swig的最后<strong>body和html结束标记之前</strong>添加代码如下：</p>
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>Add<span class="token operator">--</span><span class="token operator">></span>
@@ -386,9 +688,11 @@ ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印�
 custom<span class="token operator">:</span>
   css<span class="token operator">:</span> <span class="token boolean">true</span> 
   javascript<span class="token operator">:</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>弄完收工。<br>具体代码功能就是将运行custom-scripts.swig给控制接口暴露出来，然后设置为true，使custom-scripts.swig运行，而custom-scripts.swig的功能就是将custom.js添加到html的body里。</p>
+<p>弄完收工。<br>
+具体代码功能就是将运行custom-scripts.swig给控制接口暴露出来，然后设置为true，使custom-scripts.swig运行，而custom-scripts.swig的功能就是将custom.js添加到html的body里。</p>
 <p>这样配置的好处是可以自己编辑CSS和Javascript然后导入，可玩性更高，不过要自己注意避免冲突哟~~~</p>
-<h2 id="换用靠谱的阅读人数统计"><a href="#换用靠谱的阅读人数统计" class="headerlink" title="换用靠谱的阅读人数统计"></a>换用靠谱的阅读人数统计</h2><p>这个简单，使用Valine自带的人数统计，然后没了。。。</p>
+<h2 id="换用靠谱的阅读人数统计">换用靠谱的阅读人数统计</h2>
+<p>这个简单，使用Valine自带的人数统计，然后没了。。。</p>
 ]]></content>
       <categories>
         <category>小站风云</category>
@@ -396,211 +700,56 @@ custom<span class="token operator">:</span>
       <tags>
         <tag>Hexo</tag>
         <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>WIN10+docker+VMware安装MySQL8.0</title>
-    <url>/post/47162/</url>
-    <content><![CDATA[<h2 id="更新">2022更新</h2>
-<p>wsl2来了，大人，时代变了！以下教程只能参考，可靠性未知。</p>
-<h2 id="写在前面的">写在前面的</h2>
-<p>docker对windows真的很不友好，所以早日脱坑，linux大法好
-如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual
-box，那么推荐阅读我的<a
-href="https://nidwbin.xyz/post/5013/">这篇博文</a></p>
-<h2 id="建立mysql数据文件夹">建立MySQL数据文件夹</h2>
-<p>在电脑里选一块风水宝地，建立一个文件夹用于保存MySQL的数据，名字最好是英文的，我建立了MySQL文件夹
-<img data-src="/post/47162/2.png" class=""></p>
-<p>然后在文件夹里建立三个文件夹如下，如果你自己命名，请注意之后的bash命令也要做相应修改
-<img data-src="/post/47162/3.png" class=""></p>
-<p>文件夹作用如下 |文件夹名|作用| |-|-|
-|conf|保存自己的一些设置，比如加密规则| |data|保存数据库数据|
-|logs|保存数据库日志(好像有点问题)|</p>
-<p>然后在conf文件夹里建立my.cnf文件，内容如下(MySQL8的默认加密方式改变了，所以要修改下)
-<pre class="line-numbers language-none"><code class="language-none">[mysqld]  
-lower_case_table_names&#x3D;1  
-default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
-<h2 id="vmware的设置">Vmware的设置</h2>
-<p>打开VMware&gt;打开docker虚拟机&gt;编辑虚拟机设置&gt;选项&gt;共享文件夹&gt;添加<br />
-<img data-src="/post/47162/1.png" class="">
-将MySQL数据希望保存的位置添加进去共享给虚拟机(即之前的MySQL文件夹)</p>
-<h2 id="建立mysql实例">建立MySQL实例</h2>
-<p>打开git
-bash(<strong>不要用powershell和cmd！不要用powershell和cmd！不要用powershell和cmd！</strong>)，输入如下命令运行docker
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine start *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> <img data-src="/post/47162/4.png" class="" title="开启docker"></p>
-<p>激活 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">env</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> <img data-src="/post/47162/5.png" class="">
-这时，系统会提示你用另一个命令来激活，copy后输入回车即可，我这里是
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">    <span class="token variable">$eval</span> <span class="token variable"><span class="token variable">$(</span>"D:<span class="token punctuation">\</span>Program Files<span class="token punctuation">\</span>Docker Toolbox<span class="token punctuation">\</span>docker-machine.exe" <span class="token function">env</span> dev<span class="token variable">)</span></span>``<span class="token variable"><span class="token variable">`</span>
-
-下载MySQL<span class="token punctuation">(</span>*下载慢的宝宝请先换源*<span class="token punctuation">)</span>
-<span class="token variable">`</span></span>``bash
-    <span class="token function">docker</span> pull mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre> 我这里已经下载好了，不演示了</p>
-<p>建立实例 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token punctuation">\</span>
--p <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
--e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>*你的root密码* <span class="token punctuation">\</span>
--v //mnt/hgfs/ProgramData/MySQL/data:/var/lib/mysql:rw <span class="token punctuation">\</span>
--v //mnt/hgfs/ProgramData/MySQL/logs:/var/log/mysql:rw <span class="token punctuation">\</span>
--v //mnt/hgfs/ProgramData/MySQL/conf/my.cnf:/etc/mysql/conf.d/my.cnf:rw <span class="token punctuation">\</span>
---name mysql <span class="token punctuation">\</span>
---restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
--d mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<strong>重点来了</strong>，这些命令的冒号左边是你电脑的实际接口和路径，右边是docker虚拟机的接口和路径，你电脑的共享文件夹被挂载到了虚拟机的//mnt/hgfs/下(双斜杠不能丢，不然git
-bash会将路径转译导致虚拟机不识别)，所以你只要修改//mnt/hgfs到MySQL(如果你没改名)之间的内容为你的电脑上MySQL文件夹的绝对路径即可(<strong>去掉盘符和MySQL</strong>)，比如，我的MySQL文件夹的绝对路径是D:，将盘符和MySQL去掉是，然后将/填进去就可以了。<br />
-如果你很不幸，共享文件夹没有挂载到//mnt/hgfs/下，那么请ssh登录虚拟机，用whereis命令找出来即可了。<br />
-如果你的MySQL启动不了，请将my.cnf的文件映射去掉，可能是我的配置文件的锅，请自己写一下。</p>
-<h2 id="ssh登录使用">ssh登录使用</h2>
-<p>输入命令登录 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ssh</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
-<p>输入命令进入MySQL环境 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysql <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
-<p>修改加密方式和root密码 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="token string">'*你的root密码*'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
-<p>退出ctrl+d，输入 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">logout</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
-<p>到这里，你的mysql8.0就可以愉快的使用了。</p>
-]]></content>
-      <categories>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>VMware</tag>
-        <tag>MySQL</tag>
       </tags>
   </entry>
   <entry>
     <title>wsl2 kali 一键脚本</title>
     <url>/post/48332/</url>
-    <content><![CDATA[<h1 id="kali-wsl2-一键设置脚本">Kali wsl2 一键设置脚本</h1>
+    <content><![CDATA[<h1>Kali wsl2 一键设置脚本</h1>
 <h2 id="说明">说明</h2>
 <p>本脚本仅限WSL2，请勿在其他环境中使用。</p>
-<p>这是一个个人的Kali
-wsl2的一键设置脚本，稳定性和安全性未知，如介意请勿使用。</p>
-<p>理论上本脚本可以简单替换两个sources.list并注释掉install.sh中的“sudo
-chmod u+s /usr/bin/ping”一行在其他Debian系系统上使用。</p>
-<p>脚本包含内容如下： 1.
-设置vim和zsh样式，zsh使用powerlevel10k主题，并将历史记录保存到~/.zsh_history中
-2. 设置apt中国源，已经添加了<a
-href="https://mirrors.hit.edu.cn/">哈工大</a>，<a
-href="https://mirrors.ustc.edu.cn/">中科大</a>，<a
-href="https://mirrors.tuna.tsinghua.edu.cn/">清华</a>的源，你也可以自己添加合适的源到sources-http.list和sources-https.list，请注意sources-https.list是最后生效的apt源文件
-3. 安装vim, git, zsh, htop, apt-transport-https, psmisc, genie等软件 4.
-安装antigen来管理zsh的插件 5. 切换默认shell为zsh 6.
-安装一些启动脚本，包含获取windows的IP和wsl的IP；设置DISPLAY环境变量；设置ALL_PROXY进行代理；设置fcitx输入法的环境变量；开机进入systemd环境</p>
-<p><a
-href="https://github.com/nidwbin/script-for-kali-wsl2">仓库链接</a>:https://github.com/nidwbin/script-for-kali-wsl2</p>
+<p>这是一个个人的Kali wsl2的一键设置脚本，稳定性和安全性未知，如介意请勿使用。</p>
+<p>理论上本脚本可以简单替换两个sources.list并注释掉install.sh中的“sudo chmod u+s /usr/bin/ping”一行在其他Debian系系统上使用。</p>
+<p>脚本包含内容如下：</p>
+<ol>
+<li>设置vim和zsh样式，zsh使用powerlevel10k主题，并将历史记录保存到~/.zsh_history中</li>
+<li>设置apt中国源，已经添加了<a href="https://mirrors.hit.edu.cn/">哈工大</a>，<a href="https://mirrors.ustc.edu.cn/">中科大</a>，<a href="https://mirrors.tuna.tsinghua.edu.cn/">清华</a>的源，你也可以自己添加合适的源到sources-http.list和sources-https.list，请注意sources-https.list是最后生效的apt源文件</li>
+<li>安装vim, git, zsh, htop, apt-transport-https, psmisc, genie等软件</li>
+<li>安装antigen来管理zsh的插件</li>
+<li>切换默认shell为zsh</li>
+<li>安装一些启动脚本，包含获取windows的IP和wsl的IP；设置DISPLAY环境变量；设置ALL_PROXY进行代理；设置fcitx输入法的环境变量；开机进入systemd环境</li>
+</ol>
+<p><a href="https://github.com/nidwbin/script-for-kali-wsl2">仓库链接</a>:<a href="https://github.com/nidwbin/script-for-kali-wsl2">https://github.com/nidwbin/script-for-kali-wsl2</a></p>
 <h4 id="软件说明">软件说明</h4>
-<p>vim, git,
-zsh是本安装脚本主要配置的软件，apt-transport-https是apt使用https源所需的软件，psmisc主要为了安装pstree用于验证是否进入systemd，genie是启动systemd所需的软件，antigen是管理zsh插件所需软件
-## 使用方法 1.
-下载本仓库的zip文件并解压到windows任意路径（这里以C:/script/)为例 2.
-进入kali-wsl环境 3. 在home目录下运行 <pre class="line-numbers language-none"><code class="language-none">cp -r &#x2F;mnt&#x2F;c&#x2F;script ~
+<p>vim, git, zsh是本安装脚本主要配置的软件，apt-transport-https是apt使用https源所需的软件，psmisc主要为了安装pstree用于验证是否进入systemd，genie是启动systemd所需的软件，antigen是管理zsh插件所需软件</p>
+<h2 id="使用方法">使用方法</h2>
+<ol>
+<li>下载本仓库的zip文件并解压到windows任意路径（这里以C:/script/)为例</li>
+<li>进入kali-wsl环境</li>
+<li>在home目录下运行<pre class="line-numbers language-none"><code class="language-none">cp -r &#x2F;mnt&#x2F;c&#x2F;script ~
 cd ~&#x2F;script
-bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> 4.
-等脚本完成后退出并重新进入wsl即可 5.
-如果开机脚本出现问题，你可以在用户home目录下新建文件.disable来关闭开机脚本，具体可以在windows资源管理器下新建文本文档并重命名或在wsl用户home目录下运行
-<pre class="line-numbers language-none"><code class="language-none">touch ~&#x2F;.disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+</li>
+<li>等脚本完成后退出并重新进入wsl即可</li>
+<li>如果开机脚本出现问题，你可以在用户home目录下新建文件.disable来关闭开机脚本，具体可以在windows资源管理器下新建文本文档并重命名或在wsl用户home目录下运行<pre class="line-numbers language-none"><code class="language-none">touch ~&#x2F;.disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+</ol>
 <h2 id="已知问题">已知问题</h2>
-<p>genie会在启动systemd时替换PATH为一个较为安全的PATH，这会导致systemd环境下无法查找到windows的程序，这里提供的解决方法为在脚本运行完后修改/etc/genie.ini文件，将clone_path设置为true，然后使用/etc/profile.d/.init.d/enable-systemd.sh.bak替换/etc/profile.d/.init.d/enable-systemd.sh。即在修改完/etc/genie.ini文件的clone_path后运行如下代码
+<p>genie会在启动systemd时替换PATH为一个较为安全的PATH，这会导致systemd环境下无法查找到windows的程序，这里提供的解决方法为在脚本运行完后修改/etc/genie.ini文件，将clone_path设置为true，然后使用/etc/profile.d/.init.d/enable-systemd.sh.bak替换/etc/profile.d/.init.d/enable-systemd.sh。即在修改完/etc/genie.ini文件的clone_path后运行如下代码</p>
 <pre class="line-numbers language-none"><code class="language-none">cd &#x2F;etc&#x2F;profile.d&#x2F;.init.d
-sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
+sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 <p>genie可能会出现无限等待情况，请将/etc/genie.ini中的systemd-timeout设置为较短时间即可解决，此问题只会出现在wsl2开机的时候。</p>
-<p>Ubuntu
-wsl2在替换zsh后会出现bug，即不会运行/etc/profile，可以将如下代码添加到.zshrc文件尾来修复
+<p>Ubuntu wsl2在替换zsh后会出现bug，即不会运行/etc/profile，可以将如下代码添加到.zshrc文件尾来修复</p>
 <pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-DISPLAY变量与xrdp（kex-win的ESM模式）不兼容，使用如下命令修复
-<pre class="line-numbers language-none"><code class="language-none">sudo rm &#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;display.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> ## 鸣谢 <a
-href="https://github.com/zsh-users/antigen">antigen</a></p>
-<p><a
-href="https://github.com/arkane-systems/genie">systemd-genie</a></p>
-<p><a
-href="https://www.cnblogs.com/zsmumu/p/archlinux-wsl2.html">hyuuko的配置记录</a></p>
+<p>DISPLAY变量与xrdp（kex-win的ESM模式）不兼容，使用如下命令修复</p>
+<pre class="line-numbers language-none"><code class="language-none">sudo rm &#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;display.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="鸣谢">鸣谢</h2>
+<p><a href="https://github.com/zsh-users/antigen">antigen</a></p>
+<p><a href="https://github.com/arkane-systems/genie">systemd-genie</a></p>
+<p><a href="https://www.cnblogs.com/zsmumu/p/archlinux-wsl2.html">hyuuko的配置记录</a></p>
 ]]></content>
       <categories>
         <category>折腾</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Hexo 版本升级</title>
-    <url>/post/3412/</url>
-    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
-<p>2022年了，Hexo好像要<del>凉了</del>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？
-所以版本升级搞起（指重新配置)。</p>
-<h2 id="hexo部分">Hexo部分</h2>
-<p>还是先卸载Hexo，然后装船新版本。目前我已经用上<del>开源手扶拖拉机</del>ArchLinux了，所以这部分就直接命令行。
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 安装NodeJs后用npm安装Hexo。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-跑到某个文件夹下新建博客。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-然后把旧博客的source下的文件全部复制到新博客的source下。
-再安装旧的依赖。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes \
-            hexo-generator-sitemap hexo-theme-next prism-theme hexo-word-counter --save
-npm uninstall hexo-renderer-marked
-npm install hexo-renderer-pandoc --save &#x2F;&#x2F;为了支持mathjax换了默认编译器 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-顺便新增了个readpaper模板用了记录论文阅读。 <img data-src="/post/3412/2022-04-12-17-23-47.png" class=""> ## Next部分
-就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。
-然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。
-最后在github上新开个仓库，写个404.html绑定第2个域名，完事。
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
- <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
-<span class="token keyword">var</span> domain <span class="token operator">=</span> <span class="token string">"blog.nidwbin.xyz"</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> src <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
-<span class="token keyword">var</span> prtc <span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> src<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">var</span> target <span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>src<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> src<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> prtc <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span> domain <span class="token operator">+</span> target<span class="token punctuation">;</span>
-location<span class="token punctuation">.</span>href<span class="token operator">=</span>prtc <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span> domain <span class="token operator">+</span> target<span class="token punctuation">;</span>
-</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ## vscode部分
-我写博客一直用的都是vscode，但ArchLinux上粘贴图片不方便了，就另外配置了下。安装了Paste
-Image和Markdown Preview Enhanced两个拓展。配置了Markdown Preview
-Enhanced的解析拓展。 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">var path &#x3D; require(&quot;path&quot;);
-var vscode &#x3D; require(&quot;vscode&quot;);
-
-module.exports &#x3D; &#123;
-  onWillParseMarkdown: function(markdown) &#123;
-    return new Promise((resolve, reject)&#x3D;&gt; &#123;
-      markdown &#x3D; markdown.replace(
-        &#x2F;\&#123;%\s*asset_img\s*(\S+) \s*\S*\s*%\&#125;&#x2F;g,
-        (whole, content) &#x3D;&gt; &#123;
-          abs_filename &#x3D; vscode.window.activeTextEditor.document.fileName;
-          filename &#x3D; path.basename(abs_filename);
-          filename &#x3D; filename.substring(0,filename.indexOf(&#39;.&#39;))
-          return &#96;![]($&#123;filename + &quot;&#x2F;&quot;+ content&#125;)&#96;;
-        &#125;
-      )
-      return resolve(markdown)
-    &#125;)
-  &#125;,
-  onDidParseMarkdown: function(html, &#123;cheerio&#125;) &#123;
-    return new Promise((resolve, reject)&#x3D;&gt; &#123;
-      return resolve(html)
-    &#125;)
-  &#125;,
-  onWillTransformMarkdown: function (markdown) &#123;
-        return new Promise((resolve, reject) &#x3D;&gt; &#123;
-            return resolve(markdown);
-        &#125;);
-    &#125;,
-  onDidTransformMarkdown: function (markdown) &#123;
-      return new Promise((resolve, reject) &#x3D;&gt; &#123;
-          return resolve(markdown);
-      &#125;);
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 然后配置工作区的Paste Image设置。
-<pre class="line-numbers language-Json" data-language="Json"><code class="language-Json">&#123;
-    &quot;pasteImage.path&quot;: &quot;$&#123;currentFileNameWithoutExt&#125;&#x2F;&quot;,
-    &quot;pasteImage.insertPattern&quot;: &quot;&#123; % asset_img $&#123;imageFileName&#125; %&#125;&quot;,
-    &quot;markdown-preview-enhanced.mathRenderingOption&quot;: &quot;MathJax&quot;,   
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
-]]></content>
-      <categories>
-        <category>小站风云</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>NexT</tag>
-      </tags>
   </entry>
 </search>

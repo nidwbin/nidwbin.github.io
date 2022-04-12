@@ -31,7 +31,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.nidwbin.xyz/post/3412/2022-04-12-17-23-47.png">
 <meta property="article:published_time" content="2022-04-12T08:55:52.000Z">
-<meta property="article:modified_time" content="2022-04-12T09:38:42.518Z">
+<meta property="article:modified_time" content="2022-04-12T14:44:07.284Z">
 <meta property="article:author" content="霖">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="NexT">
@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">写在前面的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E9%83%A8%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">Hexo部分</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">写在前面的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo%E9%83%A8%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">Hexo部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next%E9%83%A8%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">Next部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode%E9%83%A8%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">vscode部分</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -263,7 +263,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-04-12 16:55:52 / 修改时间：17:38:42" itemprop="dateCreated datePublished" datetime="2022-04-12T16:55:52+08:00">2022-04-12</time>
+      <time title="创建时间：2022-04-12 16:55:52 / 修改时间：22:44:07" itemprop="dateCreated datePublished" datetime="2022-04-12T16:55:52+08:00">2022-04-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -282,7 +282,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.6k</span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -302,21 +302,27 @@
     
     <div class="post-body" itemprop="articleBody">
         <h2 id="写在前面的">写在前面的</h2>
-<p>2022年了，Hexo好像要<del>凉了</del>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？
+<p>2022年了，Hexo好像要<s>凉了</s>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？<br>
 所以版本升级搞起（指重新配置)。</p>
-<h2 id="hexo部分">Hexo部分</h2>
-<p>还是先卸载Hexo，然后装船新版本。目前我已经用上<del>开源手扶拖拉机</del>ArchLinux了，所以这部分就直接命令行。
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 安装NodeJs后用npm安装Hexo。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-跑到某个文件夹下新建博客。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-然后把旧博客的source下的文件全部复制到新博客的source下。
-再安装旧的依赖。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes \
+<h2 id="Hexo部分">Hexo部分</h2>
+<p>还是先卸载Hexo，然后装船新版本。目前我已经用上<s>开源手扶拖拉机</s>ArchLinux了，所以这部分就直接命令行。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>安装NodeJs后用npm安装Hexo。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>跑到某个文件夹下新建博客。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后把旧博客的source下的文件全部复制到新博客的source下。<br>
+再安装旧的依赖。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes \
             hexo-generator-sitemap hexo-theme-next prism-theme hexo-word-counter --save
 npm uninstall hexo-renderer-marked
 npm install hexo-renderer-pandoc --save &#x2F;&#x2F;为了支持mathjax换了默认编译器 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-顺便新增了个readpaper模板用了记录论文阅读。 <img data-src="/post/3412/2022-04-12-17-23-47.png" class=""> ## Next部分
-就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。
-然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。
-最后在github上新开个仓库，写个404.html绑定第2个域名，完事。
+<p>顺便新增了个readpaper模板用了记录论文阅读。</p>
+<img data-src="/post/3412/2022-04-12-17-23-47.png" class="">
+<h2 id="Next部分">Next部分</h2>
+<p>就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。<br>
+然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。<br>
+最后在github上新开个仓库，写个404.html绑定第2个域名，完事。</p>
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -334,49 +340,49 @@ location<span class="token punctuation">.</span>href<span class="token operator"
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ## vscode部分
-我写博客一直用的都是vscode，但ArchLinux上粘贴图片不方便了，就另外配置了下。安装了Paste
-Image和Markdown Preview Enhanced两个拓展。配置了Markdown Preview
-Enhanced的解析拓展。 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">var path &#x3D; require(&quot;path&quot;);
-var vscode &#x3D; require(&quot;vscode&quot;);
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="vscode部分">vscode部分</h2>
+<p>我写博客一直用的都是vscode，但ArchLinux上粘贴图片不方便了，就另外配置了下。安装了Paste Image和Markdown Preview Enhanced两个拓展。配置了Markdown Preview Enhanced的解析拓展。</p>
+<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> vscode <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"vscode"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-module.exports &#x3D; &#123;
-  onWillParseMarkdown: function(markdown) &#123;
-    return new Promise((resolve, reject)&#x3D;&gt; &#123;
-      markdown &#x3D; markdown.replace(
-        &#x2F;\&#123;%\s*asset_img\s*(\S+) \s*\S*\s*%\&#125;&#x2F;g,
-        (whole, content) &#x3D;&gt; &#123;
-          abs_filename &#x3D; vscode.window.activeTextEditor.document.fileName;
-          filename &#x3D; path.basename(abs_filename);
-          filename &#x3D; filename.substring(0,filename.indexOf(&#39;.&#39;))
-          return &#96;![]($&#123;filename + &quot;&#x2F;&quot;+ content&#125;)&#96;;
-        &#125;
-      )
-      return resolve(markdown)
-    &#125;)
-  &#125;,
-  onDidParseMarkdown: function(html, &#123;cheerio&#125;) &#123;
-    return new Promise((resolve, reject)&#x3D;&gt; &#123;
-      return resolve(html)
-    &#125;)
-  &#125;,
-  onWillTransformMarkdown: function (markdown) &#123;
-        return new Promise((resolve, reject) &#x3D;&gt; &#123;
-            return resolve(markdown);
-        &#125;);
-    &#125;,
-  onDidTransformMarkdown: function (markdown) &#123;
-      return new Promise((resolve, reject) &#x3D;&gt; &#123;
-          return resolve(markdown);
-      &#125;);
-  &#125;
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 然后配置工作区的Paste Image设置。
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+  <span class="token function-variable function">onWillParseMarkdown</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">markdown</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      markdown <span class="token operator">=</span> markdown<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span>
+        <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">\&#123;%\s*asset_img\s*(\S+) \s*\S*\s*%\&#125;</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token parameter">whole<span class="token punctuation">,</span> content</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          abs_filename <span class="token operator">=</span> vscode<span class="token punctuation">.</span>window<span class="token punctuation">.</span>activeTextEditor<span class="token punctuation">.</span>document<span class="token punctuation">.</span>fileName<span class="token punctuation">;</span>
+          filename <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">basename</span><span class="token punctuation">(</span>abs_filename<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          filename <span class="token operator">=</span> filename<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>filename<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'.'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+          <span class="token keyword">return</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">![](</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">$&#123;</span>filename <span class="token operator">+</span> <span class="token string">"/"</span><span class="token operator">+</span> content<span class="token interpolation-punctuation punctuation">&#125;</span></span><span class="token string">)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">)</span>
+      <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>markdown<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onDidParseMarkdown</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">html<span class="token punctuation">,</span> <span class="token punctuation">&#123;</span>cheerio<span class="token punctuation">&#125;</span></span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span><span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onWillTransformMarkdown</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">markdown</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>markdown<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function-variable function">onDidTransformMarkdown</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">markdown</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">resolve<span class="token punctuation">,</span> reject</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+          <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>markdown<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>然后配置工作区的Paste Image设置。</p>
 <pre class="line-numbers language-Json" data-language="Json"><code class="language-Json">&#123;
     &quot;pasteImage.path&quot;: &quot;$&#123;currentFileNameWithoutExt&#125;&#x2F;&quot;,
     &quot;pasteImage.insertPattern&quot;: &quot;&#123; % asset_img $&#123;imageFileName&#125; %&#125;&quot;,
     &quot;markdown-preview-enhanced.mathRenderingOption&quot;: &quot;MathJax&quot;,   
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
-
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
     </div>
 
     
