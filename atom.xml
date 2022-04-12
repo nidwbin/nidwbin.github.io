@@ -6,7 +6,7 @@
   <link href="https://blog.nidwbin.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.nidwbin.xyz/"/>
-  <updated>2022-04-09T11:34:34.498Z</updated>
+  <updated>2022-04-12T09:32:34.862Z</updated>
   <id>https://blog.nidwbin.xyz/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo 版本升级</title>
+    <link href="https://blog.nidwbin.xyz/post/3412/"/>
+    <id>https://blog.nidwbin.xyz/post/3412/</id>
+    <published>2022-04-12T08:55:52.000Z</published>
+    <updated>2022-04-12T09:32:34.862Z</updated>
+    
+    
+    <summary type="html">2022年食用Hexo和Next的正确方法。记录本站一年一度的版本更新~~（一年管一次）~~。</summary>
+    
+    
+    
+    <category term="小站风云" scheme="https://blog.nidwbin.xyz/categories/%E5%B0%8F%E7%AB%99%E9%A3%8E%E4%BA%91/"/>
+    
+    
+    <category term="Hexo" scheme="https://blog.nidwbin.xyz/tags/Hexo/"/>
+    
+    <category term="NexT" scheme="https://blog.nidwbin.xyz/tags/NexT/"/>
+    
+  </entry>
   
   <entry>
     <title>wsl2 kali 一键脚本</title>
@@ -118,7 +139,7 @@
     <link href="https://blog.nidwbin.xyz/post/47162/"/>
     <id>https://blog.nidwbin.xyz/post/47162/</id>
     <published>2019-09-14T07:09:34.000Z</published>
-    <updated>2022-04-07T05:54:59.251Z</updated>
+    <updated>2022-04-12T09:02:43.440Z</updated>
     
     
     <summary type="html">使用VMware上docker安装MySQL</summary>
@@ -141,7 +162,7 @@
     <link href="https://blog.nidwbin.xyz/post/5013/"/>
     <id>https://blog.nidwbin.xyz/post/5013/</id>
     <published>2019-09-13T05:35:24.000Z</published>
-    <updated>2022-04-07T04:14:07.912Z</updated>
+    <updated>2022-04-12T09:01:01.077Z</updated>
     
     
     <summary type="html">使用VMware安装docker的骚操作</summary>

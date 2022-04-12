@@ -180,71 +180,72 @@ href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。
   <entry>
     <title>WIN10家庭版docker+VMware安装</title>
     <url>/post/5013/</url>
-    <content><![CDATA[<h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
-<h3 id="一些操作"><a href="#一些操作" class="headerlink" title="一些操作"></a>一些操作</h3><ul>
+    <content><![CDATA[<h2 id="年更新">2022年更新</h2>
+<p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了
+<del>(申遗)</del>。 wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！
+## 写在前面
+由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
+<h3 id="一些操作">一些操作</h3>
+<ul>
 <li>购买windows10专业版，<del>土豪请出门右转，谢谢</del></li>
 <li>弃坑windows，投入mac or linux的怀抱</li>
 <li>手工开启hyper-v，不是正版，影响更新，hyper-v的性能。。。</li>
 <li>使用docker toolbox安装</li>
 </ul>
-<h3 id="关于docker-toolbox"><a href="#关于docker-toolbox" class="headerlink" title="关于docker toolbox"></a>关于docker toolbox</h3><p>docker toolbox的原理是使用Visual box来代替hyper-v，从而实现docker的运行，因此docker toolbox没有VMware也是可以运行的，但如果你已经安装了VMware，那么Visual box和VMware之间的战争便愉快的开始了</p>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul>
-<li>开启电脑的虚拟化(<a href="https://jingyan.baidu.com/article/574c52195b675c6c8d9dc138.html">百度经验</a>)</li>
-<li>安装并激活<a href="https://communities.vmware.com/thread/598748">VMware</a>(一个<a href="https://jingyan.baidu.com/article/3f16e00321bbb12591c10304.html">百度经验</a>的密钥：CG392-4PX5J-H816Z-HYZNG-PQRG2)</li>
-<li>安装<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/">docker toolbox</a>，推荐装在D盘</li>
-<li>下载docker的<a href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/">VMware驱动程序</a>，不安装</li>
+<h3 id="关于docker-toolbox">关于docker toolbox</h3>
+<p>docker toolbox的原理是使用Visual
+box来代替hyper-v，从而实现docker的运行，因此docker
+toolbox没有VMware也是可以运行的，但如果你已经安装了VMware，那么Visual
+box和VMware之间的战争便愉快的开始了</p>
+<h2 id="准备工作">准备工作</h2>
+<ul>
+<li>开启电脑的虚拟化(<a
+href="https://jingyan.baidu.com/article/574c52195b675c6c8d9dc138.html">百度经验</a>)</li>
+<li>安装并激活<a
+href="https://communities.vmware.com/thread/598748">VMware</a>(一个<a
+href="https://jingyan.baidu.com/article/3f16e00321bbb12591c10304.html">百度经验</a>的密钥：CG392-4PX5J-H816Z-HYZNG-PQRG2)</li>
+<li>安装<a
+href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/">docker
+toolbox</a>，推荐装在D盘</li>
+<li>下载docker的<a
+href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/">VMware驱动程序</a>，不安装</li>
 </ul>
-<h2 id="第一步：卸载Visual-box或VMware"><a href="#第一步：卸载Visual-box或VMware" class="headerlink" title="第一步：卸载Visual box或VMware"></a>第一步：卸载Visual box或VMware</h2><p>如果你选择的是卸载VMware，那么docker到这里就已经可用了，当然这不是本篇blog的目的，相信也不是你的目的，所以，卸载Visual box</p>
-<h2 id="第二步：移动VMware驱动"><a href="#第二步：移动VMware驱动" class="headerlink" title="第二步：移动VMware驱动"></a>第二步：移动VMware驱动</h2><p>将之前下载的VMware驱动移动到docker toolbox的安装目录下，即与docker.exe处于同一目录</p>
-<h2 id="第三步：复制boot2docker-iso"><a href="#第三步：复制boot2docker-iso" class="headerlink" title="第三步：复制boot2docker.iso"></a>第三步：复制boot2docker.iso</h2><ul>
+<h2 id="第一步卸载visual-box或vmware">第一步：卸载Visual
+box或VMware</h2>
+<p>如果你选择的是卸载VMware，那么docker到这里就已经可用了，当然这不是本篇blog的目的，相信也不是你的目的，所以，卸载Visual
+box</p>
+<h2 id="第二步移动vmware驱动">第二步：移动VMware驱动</h2>
+<p>将之前下载的VMware驱动移动到docker
+toolbox的安装目录下，即与docker.exe处于同一目录</p>
+<h2 id="第三步复制boot2docker.iso">第三步：复制boot2docker.iso</h2>
+<ul>
 <li>复制boot2docker.iso</li>
 <li>在当前目录下建立machine文件夹，进入machine文件夹后建立cache文件夹</li>
 <li>将boot2docker.iso复制到cache文件夹内</li>
 <li>ps: machine文件夹可以任意命名，cache文件夹不能任意</li>
 </ul>
-<h2 id="第四步：建立其他文件夹"><a href="#第四步：建立其他文件夹" class="headerlink" title="第四步：建立其他文件夹"></a>第四步：建立其他文件夹</h2><p>docker默认是将镜像和虚拟机往C盘里存，<del>都惦记着我的C盘，你看它多么的弱小，无助。。。</del>，所以我们要改一下</p>
+<h2 id="第四步建立其他文件夹">第四步：建立其他文件夹</h2>
+<p>docker默认是将镜像和虚拟机往C盘里存，<del>都惦记着我的C盘，你看它多么的弱小，无助。。。</del>，所以我们要改一下
++ 在machine文件夹内（与cache同级）建立machines文件夹用于保存虚拟机 +
+进入machines文件夹，建立dev文件夹，dev是你虚拟机的名字 +
+将machine整个文件夹搬到你想要的位置 + ps：machines文件夹可任意命名</p>
+<h2 id="第五步修改环境变量">第五步：修改环境变量</h2>
 <ul>
-<li>在machine文件夹内（与cache同级）建立machines文件夹用于保存虚拟机</li>
-<li>进入machines文件夹，建立dev文件夹，dev是你虚拟机的名字</li>
-<li>将machine整个文件夹搬到你想要的位置</li>
-<li>ps：machines文件夹可任意命名</li>
-</ul>
-<h2 id="第五步：修改环境变量"><a href="#第五步：修改环境变量" class="headerlink" title="第五步：修改环境变量"></a>第五步：修改环境变量</h2><ul>
 <li>资源管理器&gt;此电脑右键&gt;属性&gt;高级系统设置&gt;环境变量</li>
 <li>添加或修改如下环境变量</li>
-<li>ps:machine、machines、dev与之前你命的名相对应<table>
-<thead>
-<tr>
-<th>变量名</th>
-<th>变量值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>DOCKER_CERT_PATH</td>
-<td>你将machine搬到的位置（如D:）\machine\machines\dev</td>
-</tr>
-<tr>
-<td>DOCKER_MACHINE_NAME</td>
-<td>dev</td>
-</tr>
-<tr>
-<td>DOCKER_TOOLBOX_INSTALL_PATH</td>
-<td>docker toolbox安装目录</td>
-</tr>
-<tr>
-<td>MACHINE_STORAGE_PATH</td>
-<td>你将machine搬到的位置（如D:）\machine</td>
-</tr>
-</tbody></table>
-</li>
+<li>ps:machine、machines、dev与之前你命的名相对应 |变量名|变量值| |-|-|
+|DOCKER_CERT_PATH|你将machine搬到的位置（如D:）|
+|DOCKER_MACHINE_NAME|dev| |DOCKER_TOOLBOX_INSTALL_PATH|docker
+toolbox安装目录|
+|MACHINE_STORAGE_PATH|你将machine搬到的位置（如D:）|</li>
 </ul>
-<h2 id="第六步：建立docker虚拟机"><a href="#第六步：建立docker虚拟机" class="headerlink" title="第六步：建立docker虚拟机"></a>第六步：建立docker虚拟机</h2><p>打开powershell，输入如下命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine create --driver<span class="token operator">=</span>vmwareworkstation dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>ps:dev与之前你命的名相对应</p>
-<h2 id="第七步：查看docker虚拟机信息"><a href="#第七步：查看docker虚拟机信息" class="headerlink" title="第七步：查看docker虚拟机信息"></a>第七步：查看docker虚拟机信息</h2><p>打开powershell，输入如下命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>至此，你的docker已经可以安装好了，推荐配合git bash食用<br>ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印机，编辑&gt;首选项(ctrl+p)&gt;设备&gt;启用虚拟打印机</p>
+<h2 id="第六步建立docker虚拟机">第六步：建立docker虚拟机</h2>
+<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine create --driver<span class="token operator">=</span>vmwareworkstation dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ps:dev与之前你命的名相对应</p>
+<h2 id="第七步查看docker虚拟机信息">第七步：查看docker虚拟机信息</h2>
+<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>至此，你的docker已经可以安装好了，推荐配合git bash食用<br />
+ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印机，编辑&gt;首选项(ctrl+p)&gt;设备&gt;启用虚拟打印机</p>
 ]]></content>
       <categories>
         <category>折腾</category>
@@ -399,58 +400,40 @@ custom<span class="token operator">:</span>
   <entry>
     <title>WIN10+docker+VMware安装MySQL8.0</title>
     <url>/post/47162/</url>
-    <content><![CDATA[<h2 id="写在前面的"><a href="#写在前面的" class="headerlink" title="写在前面的"></a>写在前面的</h2><p>docker对windows真的很不友好，所以早日脱坑，linux大法好<br>如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual box，那么推荐阅读我的<a href="https://nidwbin.xyz/post/5013/">这篇博文</a></p>
-<h2 id="建立MySQL数据文件夹"><a href="#建立MySQL数据文件夹" class="headerlink" title="建立MySQL数据文件夹"></a>建立MySQL数据文件夹</h2><p>在电脑里选一块风水宝地，建立一个文件夹用于保存MySQL的数据，名字最好是英文的，我建立了MySQL文件夹 </p>
-<img data-src="/post/47162/2.png" class="">
-
-<p>然后在文件夹里建立三个文件夹如下，如果你自己命名，请注意之后的bash命令也要做相应修改</p>
-<img data-src="/post/47162/3.png" class="">
-
-<p>文件夹作用如下</p>
-<table>
-<thead>
-<tr>
-<th>文件夹名</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>conf</td>
-<td>保存自己的一些设置，比如加密规则</td>
-</tr>
-<tr>
-<td>data</td>
-<td>保存数据库数据</td>
-</tr>
-<tr>
-<td>logs</td>
-<td>保存数据库日志(好像有点问题)</td>
-</tr>
-</tbody></table>
-<p>然后在conf文件夹里建立my.cnf文件，内容如下(MySQL8的默认加密方式改变了，所以要修改下)</p>
+    <content><![CDATA[<h2 id="更新">2022更新</h2>
+<p>wsl2来了，大人，时代变了！以下教程只能参考，可靠性未知。 ##
+写在前面的 docker对windows真的很不友好，所以早日脱坑，linux大法好
+如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual
+box，那么推荐阅读我的<a
+href="https://nidwbin.xyz/post/5013/">这篇博文</a></p>
+<h2 id="建立mysql数据文件夹">建立MySQL数据文件夹</h2>
+<p>在电脑里选一块风水宝地，建立一个文件夹用于保存MySQL的数据，名字最好是英文的，我建立了MySQL文件夹
+<img data-src="/post/47162/2.png" class=""></p>
+<p>然后在文件夹里建立三个文件夹如下，如果你自己命名，请注意之后的bash命令也要做相应修改
+<img data-src="/post/47162/3.png" class=""></p>
+<p>文件夹作用如下 |文件夹名|作用| |-|-|
+|conf|保存自己的一些设置，比如加密规则| |data|保存数据库数据|
+|logs|保存数据库日志(好像有点问题)|</p>
+<p>然后在conf文件夹里建立my.cnf文件，内容如下(MySQL8的默认加密方式改变了，所以要修改下)
 <pre class="line-numbers language-none"><code class="language-none">[mysqld]  
 lower_case_table_names&#x3D;1  
-default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Vmware的设置"><a href="#Vmware的设置" class="headerlink" title="Vmware的设置"></a>Vmware的设置</h2><p>打开VMware&gt;打开docker虚拟机&gt;编辑虚拟机设置&gt;选项&gt;共享文件夹&gt;添加  </p>
+default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
+<h2 id="vmware的设置">Vmware的设置</h2>
+<p>打开VMware&gt;打开docker虚拟机&gt;编辑虚拟机设置&gt;选项&gt;共享文件夹&gt;添加<br />
 <img data-src="/post/47162/1.png" class="">
-<p>将MySQL数据希望保存的位置添加进去共享给虚拟机(即之前的MySQL文件夹)</p>
-<h2 id="建立MySQL实例"><a href="#建立MySQL实例" class="headerlink" title="建立MySQL实例"></a>建立MySQL实例</h2><p>打开git bash(<strong>不要用powershell和cmd！不要用powershell和cmd！不要用powershell和cmd！</strong>)，输入如下命令运行docker</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine start *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/47162/4.png" class="" title="开启docker">
-
-<p>激活</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">env</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/47162/5.png" class="">
-<p>这时，系统会提示你用另一个命令来激活，copy后输入回车即可，我这里是</p>
+将MySQL数据希望保存的位置添加进去共享给虚拟机(即之前的MySQL文件夹)</p>
+<h2 id="建立mysql实例">建立MySQL实例</h2>
+<p>打开git
+bash(<strong>不要用powershell和cmd！不要用powershell和cmd！不要用powershell和cmd！</strong>)，输入如下命令运行docker
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine start *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> <img data-src="/post/47162/4.png" class="" title="开启docker"></p>
+<p>激活 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">env</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> <img data-src="/post/47162/5.png" class="">
+这时，系统会提示你用另一个命令来激活，copy后输入回车即可，我这里是
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">    <span class="token variable">$eval</span> <span class="token variable"><span class="token variable">$(</span>"D:<span class="token punctuation">\</span>Program Files<span class="token punctuation">\</span>Docker Toolbox<span class="token punctuation">\</span>docker-machine.exe" <span class="token function">env</span> dev<span class="token variable">)</span></span>``<span class="token variable"><span class="token variable">`</span>
 
 下载MySQL<span class="token punctuation">(</span>*下载慢的宝宝请先换源*<span class="token punctuation">)</span>
 <span class="token variable">`</span></span>``bash
-    <span class="token function">docker</span> pull mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>我这里已经下载好了，不演示了</p>
-<p>建立实例</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token punctuation">\</span>
+    <span class="token function">docker</span> pull mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre> 我这里已经下载好了，不演示了</p>
+<p>建立实例 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token punctuation">\</span>
 -p <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
 -e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>*你的root密码* <span class="token punctuation">\</span>
 -v //mnt/hgfs/ProgramData/MySQL/data:/var/lib/mysql:rw <span class="token punctuation">\</span>
@@ -459,19 +442,15 @@ default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true
 --name mysql <span class="token punctuation">\</span>
 --restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
 -d mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>重点来了</strong>，这些命令的冒号左边是你电脑的实际接口和路径，右边是docker虚拟机的接口和路径，你电脑的共享文件夹被挂载到了虚拟机的&#x2F;&#x2F;mnt&#x2F;hgfs&#x2F;下(双斜杠不能丢，不然git bash会将路径转译导致虚拟机不识别)，所以你只要修改&#x2F;&#x2F;mnt&#x2F;hgfs到MySQL(如果你没改名)之间的内容为你的电脑上MySQL文件夹的绝对路径即可(<strong>去掉盘符和MySQL</strong>)，比如，我的MySQL文件夹的绝对路径是D:\ProgramData\MySQL，将盘符和MySQL去掉是\ProgramData\，然后将\改为&#x2F;填进去就可以了。<br>如果你很不幸，共享文件夹没有挂载到&#x2F;&#x2F;mnt&#x2F;hgfs&#x2F;下，那么请ssh登录虚拟机，用whereis命令找出来即可了。<br>如果你的MySQL启动不了，请将my.cnf的文件映射去掉，可能是我的配置文件的锅，请自己写一下。</p>
-<h2 id="ssh登录使用"><a href="#ssh登录使用" class="headerlink" title="ssh登录使用"></a>ssh登录使用</h2><p>输入命令登录</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ssh</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>输入命令进入MySQL环境</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysql <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>修改加密方式和root密码</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="token string">'*你的root密码*'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>退出ctrl+d，输入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">logout</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<strong>重点来了</strong>，这些命令的冒号左边是你电脑的实际接口和路径，右边是docker虚拟机的接口和路径，你电脑的共享文件夹被挂载到了虚拟机的//mnt/hgfs/下(双斜杠不能丢，不然git
+bash会将路径转译导致虚拟机不识别)，所以你只要修改//mnt/hgfs到MySQL(如果你没改名)之间的内容为你的电脑上MySQL文件夹的绝对路径即可(<strong>去掉盘符和MySQL</strong>)，比如，我的MySQL文件夹的绝对路径是D:，将盘符和MySQL去掉是，然后将/填进去就可以了。<br />
+如果你很不幸，共享文件夹没有挂载到//mnt/hgfs/下，那么请ssh登录虚拟机，用whereis命令找出来即可了。<br />
+如果你的MySQL启动不了，请将my.cnf的文件映射去掉，可能是我的配置文件的锅，请自己写一下。</p>
+<h2 id="ssh登录使用">ssh登录使用</h2>
+<p>输入命令登录 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ssh</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>输入命令进入MySQL环境 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysql <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>修改加密方式和root密码 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="token string">'*你的root密码*'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>退出ctrl+d，输入 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">logout</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 <p>到这里，你的mysql8.0就可以愉快的使用了。</p>
 ]]></content>
       <categories>
@@ -525,5 +504,92 @@ sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="l
       <categories>
         <category>折腾</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Hexo 版本升级</title>
+    <url>/post/3412/</url>
+    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
+<p>2022年了，Hexo好像要<del>凉了</del>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？
+所以版本升级搞起（指重新配置)。</p>
+<h2 id="hexo部分">Hexo部分</h2>
+<p>还是先卸载Hexo，然后装船新版本。目前我已经用上<del>开源手扶拖拉机</del>ArchLinux了，所以这部分就直接命令行。
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 安装NodeJs后用npm安装Hexo。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+跑到某个文件夹下新建博客。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+然后把旧博客的source下的文件全部复制到新博客的source下。
+再安装旧的依赖。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes <span class="token punctuation">\</span>
+            hexo-generator-sitemap hexo-theme-next prism-theme hexo-word-counter --save
+<span class="token function">npm</span> uninstall hexo-renderer-marked
+<span class="token function">npm</span> <span class="token function">install</span> hexo-renderer-pandoc --save //为了支持mathjax换了默认编译器 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+顺便新增了个readpaper模板用了记录论文阅读。 <img data-src="/post/null/2022-04-12-17-23-47.png" class=""> ## Next部分
+就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。
+然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。
+最后在github上新开个仓库，写个404.html绑定第2个域名，完事。
+<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+ <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">language</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>javascript<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">var</span> domain <span class="token operator">=</span> <span class="token string">"blog.nidwbin.xyz"</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> src <span class="token operator">=</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href<span class="token punctuation">;</span>
+<span class="token keyword">var</span> prtc <span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> src<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> target <span class="token operator">=</span> src<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>src<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">'/'</span><span class="token punctuation">,</span> src<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span><span class="token string">':'</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href <span class="token operator">=</span> prtc <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span> domain <span class="token operator">+</span> target<span class="token punctuation">;</span>
+location<span class="token punctuation">.</span>href<span class="token operator">=</span>prtc <span class="token operator">+</span> <span class="token string">"://"</span> <span class="token operator">+</span> domain <span class="token operator">+</span> target<span class="token punctuation">;</span>
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ## vscode部分
+我写博客一直用的都是vscode，但ArchLinux上粘贴图片不方便了，就另外配置了下。安装了Paste
+Image和Markdown Preview Enhanced两个拓展。配置了Markdown Preview
+Enhanced的解析拓展。 <pre class="line-numbers language-JavaScript" data-language="JavaScript"><code class="language-JavaScript">var path &#x3D; require(&quot;path&quot;);
+var vscode &#x3D; require(&quot;vscode&quot;);
+
+module.exports &#x3D; &#123;
+  onWillParseMarkdown: function(markdown) &#123;
+    return new Promise((resolve, reject)&#x3D;&gt; &#123;
+      markdown &#x3D; markdown.replace(
+        &#x2F;\&#123;%\s*asset_img\s*(\S+) \s*\S*\s*%\&#125;&#x2F;g,
+        (whole, content) &#x3D;&gt; &#123;
+          abs_filename &#x3D; vscode.window.activeTextEditor.document.fileName;
+          filename &#x3D; path.basename(abs_filename);
+          filename &#x3D; filename.substring(0,filename.indexOf(&#39;.&#39;))
+          return &#96;![]($&#123;filename + &quot;&#x2F;&quot;+ content&#125;)&#96;;
+        &#125;
+      )
+      return resolve(markdown)
+    &#125;)
+  &#125;,
+  onDidParseMarkdown: function(html, &#123;cheerio&#125;) &#123;
+    return new Promise((resolve, reject)&#x3D;&gt; &#123;
+      return resolve(html)
+    &#125;)
+  &#125;,
+  onWillTransformMarkdown: function (markdown) &#123;
+        return new Promise((resolve, reject) &#x3D;&gt; &#123;
+            return resolve(markdown);
+        &#125;);
+    &#125;,
+  onDidTransformMarkdown: function (markdown) &#123;
+      return new Promise((resolve, reject) &#x3D;&gt; &#123;
+          return resolve(markdown);
+      &#125;);
+  &#125;
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 然后配置工作区的Paste Image设置。
+<pre class="line-numbers language-Json" data-language="Json"><code class="language-Json">&#123;
+    &quot;pasteImage.path&quot;: &quot;$&#123;currentFileNameWithoutExt&#125;&#x2F;&quot;,
+    &quot;pasteImage.insertPattern&quot;: &quot;&#123; % asset_img $&#123;imageFileName&#125; %&#125;&quot;,
+    &quot;markdown-preview-enhanced.mathRenderingOption&quot;: &quot;MathJax&quot;,   
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+]]></content>
+      <categories>
+        <category>小站风云</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+      </tags>
   </entry>
 </search>
