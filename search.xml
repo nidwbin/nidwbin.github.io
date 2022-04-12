@@ -513,14 +513,14 @@ sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="l
 所以版本升级搞起（指重新配置)。</p>
 <h2 id="hexo部分">Hexo部分</h2>
 <p>还是先卸载Hexo，然后装船新版本。目前我已经用上<del>开源手扶拖拉机</del>ArchLinux了，所以这部分就直接命令行。
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 安装NodeJs后用npm安装Hexo。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">sudo</span> <span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 安装NodeJs后用npm安装Hexo。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 跑到某个文件夹下新建博客。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 然后把旧博客的source下的文件全部复制到新博客的source下。
-再安装旧的依赖。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">npm</span> <span class="token function">install</span> hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes <span class="token punctuation">\</span>
+再安装旧的依赖。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes \
             hexo-generator-sitemap hexo-theme-next prism-theme hexo-word-counter --save
-<span class="token function">npm</span> uninstall hexo-renderer-marked
-<span class="token function">npm</span> <span class="token function">install</span> hexo-renderer-pandoc --save //为了支持mathjax换了默认编译器 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-顺便新增了个readpaper模板用了记录论文阅读。 <img data-src="/post/null/2022-04-12-17-23-47.png" class=""> ## Next部分
+npm uninstall hexo-renderer-marked
+npm install hexo-renderer-pandoc --save &#x2F;&#x2F;为了支持mathjax换了默认编译器 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+顺便新增了个readpaper模板用了记录论文阅读。 <img data-src="/post/3412/2022-04-12-17-23-47.png" class=""> ## Next部分
 就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。
 然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。
 最后在github上新开个仓库，写个404.html绑定第2个域名，完事。
