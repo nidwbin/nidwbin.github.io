@@ -153,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">写在前面的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo%E9%83%A8%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">Hexo部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Next%E9%83%A8%E5%88%86"><span class="nav-number">3.</span> <span class="nav-text">Next部分</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vscode%E9%83%A8%E5%88%86"><span class="nav-number">4.</span> <span class="nav-text">vscode部分</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">写在前面的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E9%83%A8%E5%88%86"><span class="nav-number">2.</span> <span class="nav-text">Hexo部分</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,7 +168,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-count">9</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -302,27 +302,21 @@
     
     <div class="post-body" itemprop="articleBody">
         <h2 id="写在前面的">写在前面的</h2>
-<p>2022年了，Hexo好像要<s>凉了</s>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？<br>
+<p>2022年了，Hexo好像要<del>凉了</del>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？
 所以版本升级搞起（指重新配置)。</p>
-<h2 id="Hexo部分">Hexo部分</h2>
-<p>还是先卸载Hexo，然后装船新版本。目前我已经用上<s>开源手扶拖拉机</s>ArchLinux了，所以这部分就直接命令行。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>安装NodeJs后用npm安装Hexo。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>跑到某个文件夹下新建博客。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后把旧博客的source下的文件全部复制到新博客的source下。<br>
-再安装旧的依赖。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes \
+<h2 id="hexo部分">Hexo部分</h2>
+<p>还是先卸载Hexo，然后装船新版本。目前我已经用上<del>开源手扶拖拉机</del>ArchLinux了，所以这部分就直接命令行。
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 安装NodeJs后用npm安装Hexo。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+跑到某个文件夹下新建博客。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+然后把旧博客的source下的文件全部复制到新博客的source下。
+再安装旧的依赖。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes \
             hexo-generator-sitemap hexo-theme-next prism-theme hexo-word-counter --save
 npm uninstall hexo-renderer-marked
 npm install hexo-renderer-pandoc --save &#x2F;&#x2F;为了支持mathjax换了默认编译器 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>顺便新增了个readpaper模板用了记录论文阅读。</p>
-<img data-src="/post/3412/2022-04-12-17-23-47.png" class="">
-<h2 id="Next部分">Next部分</h2>
-<p>就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。<br>
-然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。<br>
-最后在github上新开个仓库，写个404.html绑定第2个域名，完事。</p>
+顺便新增了个readpaper模板用了记录论文阅读。 <img data-src="/post/3412/2022-04-12-17-23-47.png" class=""> ## Next部分
+就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。
+然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。
+最后在github上新开个仓库，写个404.html绑定第2个域名，完事。
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -340,10 +334,10 @@ location<span class="token punctuation">.</span>href<span class="token operator"
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="vscode部分">vscode部分</h2>
-<p>我写博客一直用的都是vscode，但ArchLinux上粘贴图片不方便了，就另外配置了下。安装了Paste Image和Markdown Preview Enhanced两个拓展。配置了Markdown Preview Enhanced的解析拓展。</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ## vscode部分
+我写博客一直用的都是vscode，但ArchLinux上粘贴图片不方便了，就另外配置了下。安装了Paste
+Image和Markdown Preview Enhanced两个拓展。配置了Markdown Preview
+Enhanced的解析拓展。 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> vscode <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"vscode"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
@@ -376,13 +370,13 @@ module<span class="token punctuation">.</span>exports <span class="token operato
           <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>markdown<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后配置工作区的Paste Image设置。</p>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 然后配置工作区的Paste Image设置。
 <pre class="line-numbers language-Json" data-language="Json"><code class="language-Json">&#123;
     &quot;pasteImage.path&quot;: &quot;$&#123;currentFileNameWithoutExt&#125;&#x2F;&quot;,
     &quot;pasteImage.insertPattern&quot;: &quot;&#123; % asset_img $&#123;imageFileName&#125; %&#125;&quot;,
     &quot;markdown-preview-enhanced.mathRenderingOption&quot;: &quot;MathJax&quot;,   
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+
     </div>
 
     
@@ -421,6 +415,9 @@ module<span class="token punctuation">.</span>exports <span class="token operato
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/post/6167/" rel="next" title="VoxSRC 2022 Track3 Technical reports">
+                  VoxSRC 2022 Track3 Technical reports <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -453,13 +450,13 @@ module<span class="token punctuation">.</span>exports <span class="token operato
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">16k</span>
+    <span title="站点总字数">20k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14 分钟</span>
+    <span title="站点阅读时长">18 分钟</span>
   </span>
 </div>
 

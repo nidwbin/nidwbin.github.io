@@ -169,27 +169,21 @@ href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。
     <title>Hexo 版本升级</title>
     <url>/post/3412/</url>
     <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
-<p>2022年了，Hexo好像要<s>凉了</s>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？<br>
+<p>2022年了，Hexo好像要<del>凉了</del>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？
 所以版本升级搞起（指重新配置)。</p>
-<h2 id="Hexo部分">Hexo部分</h2>
-<p>还是先卸载Hexo，然后装船新版本。目前我已经用上<s>开源手扶拖拉机</s>ArchLinux了，所以这部分就直接命令行。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>安装NodeJs后用npm安装Hexo。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>跑到某个文件夹下新建博客。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后把旧博客的source下的文件全部复制到新博客的source下。<br>
-再安装旧的依赖。</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes \
+<h2 id="hexo部分">Hexo部分</h2>
+<p>还是先卸载Hexo，然后装船新版本。目前我已经用上<del>开源手扶拖拉机</del>ArchLinux了，所以这部分就直接命令行。
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo pacman -S nodejs<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 安装NodeJs后用npm安装Hexo。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">sudo npm install hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+跑到某个文件夹下新建博客。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo init blog<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+然后把旧博客的source下的文件全部复制到新博客的source下。
+再安装旧的依赖。 <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install hexo hexo-deployer-git hexo-abbrlink hexo-generator-searchdb prism-themes \
             hexo-generator-sitemap hexo-theme-next prism-theme hexo-word-counter --save
 npm uninstall hexo-renderer-marked
 npm install hexo-renderer-pandoc --save &#x2F;&#x2F;为了支持mathjax换了默认编译器 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>顺便新增了个readpaper模板用了记录论文阅读。</p>
-<img data-src="/post/3412/2022-04-12-17-23-47.png" class="">
-<h2 id="Next部分">Next部分</h2>
-<p>就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。<br>
-然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。<br>
-最后在github上新开个仓库，写个404.html绑定第2个域名，完事。</p>
+顺便新增了个readpaper模板用了记录论文阅读。 <img data-src="/post/3412/2022-04-12-17-23-47.png" class=""> ## Next部分
+就平行升级，把hexo-theme-next里的_config.xml复制到博客根目录下重命名为_config.next.xml，再把旧博客的配置一一对应修改就行。
+然后按需求换了评论系统变成gitalk，按谷歌SEO要求换了背景的格式变成webp。
+最后在github上新开个仓库，写个404.html绑定第2个域名，完事。
 <pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token doctype"><span class="token punctuation">&lt;!</span><span class="token doctype-tag">DOCTYPE</span> <span class="token name">html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
@@ -207,10 +201,10 @@ location<span class="token punctuation">.</span>href<span class="token operator"
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="vscode部分">vscode部分</h2>
-<p>我写博客一直用的都是vscode，但ArchLinux上粘贴图片不方便了，就另外配置了下。安装了Paste Image和Markdown Preview Enhanced两个拓展。配置了Markdown Preview Enhanced的解析拓展。</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ## vscode部分
+我写博客一直用的都是vscode，但ArchLinux上粘贴图片不方便了，就另外配置了下。安装了Paste
+Image和Markdown Preview Enhanced两个拓展。配置了Markdown Preview
+Enhanced的解析拓展。 <pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"path"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> vscode <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"vscode"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
@@ -243,13 +237,13 @@ module<span class="token punctuation">.</span>exports <span class="token operato
           <span class="token keyword">return</span> <span class="token function">resolve</span><span class="token punctuation">(</span>markdown<span class="token punctuation">)</span><span class="token punctuation">;</span>
       <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>然后配置工作区的Paste Image设置。</p>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> 然后配置工作区的Paste Image设置。
 <pre class="line-numbers language-Json" data-language="Json"><code class="language-Json">&#123;
     &quot;pasteImage.path&quot;: &quot;$&#123;currentFileNameWithoutExt&#125;&#x2F;&quot;,
     &quot;pasteImage.insertPattern&quot;: &quot;&#123; % asset_img $&#123;imageFileName&#125; %&#125;&quot;,
     &quot;markdown-preview-enhanced.mathRenderingOption&quot;: &quot;MathJax&quot;,   
-&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>]]></content>
+&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+]]></content>
       <categories>
         <category>小站风云</category>
       </categories>
@@ -325,28 +319,28 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <entry>
     <title>Scoop使用体验</title>
     <url>/post/55364/</url>
-    <content><![CDATA[<h2 id="写在前面的-2">写在前面的</h2>
+    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
 <p>太久没更新了，过来水水博客。这次的话就讲讲Scoop的简单使用体验吧吧。</p>
-<h2 id="Scoop介绍">Scoop介绍</h2>
-<p>我的笔记本的Bios被锁了大部分功能，没办法装Linux。<br>
-那么为了在Windows下获得比较舒服的使用体验，除了要注意文件管理外，还要一个合适的软件管理器来管理软件。（别说控制面板，太难用了，还要自己挨个更新。）<br>
-Scoop就是一个比较好用的软件管理器，类似Linux的包管理器。类似的还有<a href="https://chocolatey.org/">Chocolatey</a>和<a href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/">Winget</a>。<br>
+<h2 id="scoop介绍">Scoop介绍</h2>
+<p>我的笔记本的Bios被锁了大部分功能，没办法装Linux。
+那么为了在Windows下获得比较舒服的使用体验，除了要注意文件管理外，还要一个合适的软件管理器来管理软件。（别说控制面板，太难用了，还要自己挨个更新。）<br />
+Scoop就是一个比较好用的软件管理器，类似Linux的包管理器。类似的还有<a
+href="https://chocolatey.org/">Chocolatey</a>和<a
+href="https://docs.microsoft.com/zh-cn/windows/package-manager/winget/">Winget</a>。<br />
 有一说一，微软拥抱开源后确实开了些好坑，不过能不能填好就不知道了（=。=）。</p>
 <h2 id="安装体验">安装体验</h2>
-<p>Scoop本身的安装还是挺友好的，就是要配置好文件目录。对于热门软件来说，比如Jetbrains全家桶（Jetbrains打钱），Git，GCC，7zip等等，甚至对于大部分开源软件都是好用的。但对于比较冷门的软件就不太行，当然，有版权的绝大部分不行。<br>
+<p>Scoop本身的安装还是挺友好的，就是要配置好文件目录。对于热门软件来说，比如Jetbrains全家桶（Jetbrains打钱），Git，GCC，7zip等等，甚至对于大部分开源软件都是好用的。但对于比较冷门的软件就不太行，当然，有版权的绝大部分不行。<br />
 然后就是安装速度，github用爱发电是真的难顶，推荐搭配科学上网食用。</p>
 <h2 id="版本控制">版本控制</h2>
 <p>Scoop默认会把安装过的版本都保存下来方便回滚，甚至安装包都会缓存下，所以需要不定时清理下缓存，不过不是什么大事，使用体验还可以。</p>
 <h2 id="更新">更新</h2>
-<p>软件更新就一行命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">scoop update *<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>对于全局软件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> scoop update * -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这里sudo是使用<a href="https://github.com/gerardog/gsudo">gsudo</a>带来的管理员运行体验，赞美大神。大家可以支持一波<a href="https://github.com/gerardog/gsudo">gsudo</a>，点个star什么的。</p>
+<p>软件更新就一行命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">scoop update *<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 对于全局软件 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">sudo</span> scoop update * -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+这里sudo是使用<a
+href="https://github.com/gerardog/gsudo">gsudo</a>带来的管理员运行体验，赞美大神。大家可以支持一波<a
+href="https://github.com/gerardog/gsudo">gsudo</a>，点个star什么的。</p>
 <h2 id="备份与恢复">备份与恢复</h2>
-<p>备份和pip一样，都是导出一个txt文件，然后网络下载，这倒是挺方便的。命令如下</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">scoop <span class="token builtin class-name">export</span> <span class="token operator">></span> <span class="token string">"scoop.txt"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>至于恢复。。。开发中。。。有导出总比没有好。。。</p>
+<p>备份和pip一样，都是导出一个txt文件，然后网络下载，这倒是挺方便的。命令如下
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">scoop <span class="token builtin class-name">export</span> <span class="token operator">></span> <span class="token string">"scoop.txt"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 至于恢复。。。开发中。。。有导出总比没有好。。。</p>
 <h2 id="吐槽">吐槽</h2>
 <p>除了这个智障的恢复功能外，其他好像没什么问题，aria2的bug也修好了👍，就是输出有点多。不过毕竟用爱发电，能做到这一步已经很不错了，希望Scoop越来越好吧。</p>
 ]]></content>
@@ -359,49 +353,748 @@ Scoop就是一个比较好用的软件管理器，类似Linux的包管理器。�
       </tags>
   </entry>
   <entry>
+    <title>VoxSRC 2022 Track3 Technical reports</title>
+    <url>/post/6167/</url>
+    <content><![CDATA[<h2 id="基本信息">基本信息</h2>
+<p>Track3: Semi-supervised domain adaptation
+(closed)，即半监督跨域自适应说话人识别问题</p>
+<p>数据集：<br />
+源域数据集：Voxceleb1、Voxceleb2<br />
+目标域数据集：CNceleb2<br />
+目标域标记量：50人，没人20条共计1000条<br />
+目标域未标记量：&gt;1800人，具体未知，共计454946条，在去除md5重复和小于1s的数据后共计367715条</p>
+<p><a
+href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/interspeech2022.html">VoxSRC
+2022 workshop</a></p>
+<p><a
+href="https://zeus.robots.ox.ac.uk/competitions/competitions/4">CodaLab
+of Track3</a></p>
+<h2 id="结果">结果</h2>
+<h4 id="top1团队zzdddz">top1团队：zzdddz</h4>
+<p>组织：<br />
+Key Laboratory of Speech Acoustics and Content Understanding, Institute
+of Acoustics, Chinese Academy of Sciences, Beijing, China<br />
+报告链接：<a
+href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/zzdddz_report.pdf">The
+HCCL system for VoxCeleb Speaker Recognition Challenge 2022</a>
+主方法：骨干网络+聚类+微调<br />
+跨域方法：CORAL、CORAL+、CORAL++ 聚类方法：GMVPG 后处理：
+LMF、AS-Norm、QMF</p>
+<p>基础结果表</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 27%" />
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">损失</th>
+<th style="text-align: center;">训练方法</th>
+<th style="text-align: center;">未自适应前</th>
+<th style="text-align: center;">自适应后</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>se-resnet34-32</strong></td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">clean-fbank64-sgd</td>
+<td style="text-align: center;">16.86</td>
+<td style="text-align: center;">14.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cotnet</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">clean-fbank64-sgd</td>
+<td style="text-align: center;">16.65</td>
+<td style="text-align: center;">14.55</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">conformer</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">aug-fbank80-adam</td>
+<td style="text-align: center;">16.95</td>
+<td style="text-align: center;">14.14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ecapa-large</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">aug-fbank80-adam</td>
+<td style="text-align: center;">18.02</td>
+<td style="text-align: center;">14.62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>se-resnet34-32</strong></td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">aug-fbank80-adam</td>
+<td style="text-align: center;">14.06</td>
+<td style="text-align: center;">11.90</td>
+</tr>
+</tbody>
+</table>
+<p>聚类+微调结果表</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 23%" />
+<col style="width: 15%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">损失</th>
+<th style="text-align: center;">训练方法</th>
+<th style="text-align: center;">未分数校准</th>
+<th style="text-align: center;">分数校准</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Res2Net50</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">未修正聚类-sgd</td>
+<td style="text-align: center;">8.45</td>
+<td style="text-align: center;">8.20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ResNet34</strong></td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">未修正聚类-sgd</td>
+<td style="text-align: center;">8.61</td>
+<td style="text-align: center;">7.66</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ECAPA-X4</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">未修正聚类-sgd</td>
+<td style="text-align: center;">9.57</td>
+<td style="text-align: center;">8.81</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ECACP-X4</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">未修正聚类-adam</td>
+<td style="text-align: center;">10.47</td>
+<td style="text-align: center;">9.65</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ECAPA-X4</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">修正聚类-sgd</td>
+<td style="text-align: center;">8.78</td>
+<td style="text-align: center;">8.42</td>
+</tr>
+</tbody>
+</table>
+<h4 id="top2团队sixsix">top2团队：sixsix</h4>
+<p>组织：<br />
+Data Science Research Center, Duke Kunshan University, Kunshan,
+China<br />
+Tencent AI Lab, Shenzhen, China<br />
+报告链接：<a
+href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/DKU-Tencent_report.pdf">The
+DKU-Tencent System for the VoxCeleb Speaker Recognition Challenge
+2022</a> 主方法：骨干网络+聚类+微调<br />
+跨域方法：无 聚类方法：K-means 后处理： AS-Norm、QMF</p>
+<p>结果表</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">迭代次数</th>
+<th style="text-align: center;">验证EER</th>
+<th style="text-align: center;">验证mDCF</th>
+<th style="text-align: center;">测试EER</th>
+<th style="text-align: center;">测试mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>SimAM-ResNet34</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10.726</td>
+<td style="text-align: center;">0.458</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">9.735</td>
+<td style="text-align: center;">0.415</td>
+<td style="text-align: center;">9.747</td>
+<td style="text-align: center;">0.4985</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">9.290</td>
+<td style="text-align: center;">0.389</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.459</td>
+<td style="text-align: center;">0.397</td>
+<td style="text-align: center;">8.332</td>
+<td style="text-align: center;">0.449</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">10.010</td>
+<td style="text-align: center;">0.434</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet101-ASP</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.425</td>
+<td style="text-align: center;">0.385</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.275</td>
+<td style="text-align: center;">0.367</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.065</td>
+<td style="text-align: center;">0.374</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet152-Stat</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.165</td>
+<td style="text-align: center;">0.375</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7.875</td>
+<td style="text-align: center;">0.356</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7.455</td>
+<td style="text-align: center;">0.381</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet152-ASP</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.335</td>
+<td style="text-align: center;">0.369</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.020</td>
+<td style="text-align: center;">0.347</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7.730</td>
+<td style="text-align: center;">0.365</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet101-Std</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.440</td>
+<td style="text-align: center;">0.387</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.345</td>
+<td style="text-align: center;">0.362</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7.810</td>
+<td style="text-align: center;">0.390</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SE-ResNet101-ASP</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.680</td>
+<td style="text-align: center;">0.398</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.560</td>
+<td style="text-align: center;">0.375</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.345</td>
+<td style="text-align: center;">0.391</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet221-Stat</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">9.160</td>
+<td style="text-align: center;">0.376</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.810</td>
+<td style="text-align: center;">0.357</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.090</td>
+<td style="text-align: center;">0.372</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RepVGG-ASP</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.570</td>
+<td style="text-align: center;">0.382</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.445</td>
+<td style="text-align: center;">0.360</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.270</td>
+<td style="text-align: center;">0.372</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">集成</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">7.000</td>
+<td style="text-align: center;">0.326</td>
+<td style="text-align: center;">7.153</td>
+<td style="text-align: center;">0.389</td>
+</tr>
+</tbody>
+</table>
+<h4 id="top4团队meng">top4团队：meng</h4>
+<p>组织：<br />
+MoE Key Lab of Artificial Intelligence, AI Institute Department of
+Computer Science and Engineering, X-LANCE Lab, Shanghai Jiao Tong
+University<br />
+AISpeech Ltd, Suzhou China<br />
+报告链接：<a href="https://arxiv.org/pdf/2209.09076.pdf">SJTU-AISPEECH
+System for VoxCeleb Speaker Recognition Challenge 2022</a>
+主方法：骨干网络+跨域+伪标签微调<br />
+跨域方法：统计自适应(Statistic Adaptation)+联合损失+动态损失门 后处理：
+AS-Norm、分数校准(Score Calibration)<br />
+联合损失大图：<br />
+<img data-src="/post/6167/2022-10-14-20-42-58.png" class=""></p>
+<p>结果表</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">EER</th>
+<th style="text-align: center;">mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">14.60</td>
+<td style="text-align: center;">0.5302</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+Statistic Adaptation</td>
+<td style="text-align: center;">11.65</td>
+<td style="text-align: center;">0.4552</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">11.58(11.735)</td>
+<td style="text-align: center;">0.4032(0.3959)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+++Score Calibration</td>
+<td style="text-align: center;">9.950</td>
+<td style="text-align: center;">0.4290</td>
+</tr>
+</tbody>
+</table>
+<p>不同统计自适应和联合损失结果表</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">自适应方法</th>
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">EER</th>
+<th style="text-align: center;">mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Statistic Adaptation</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">9.950</td>
+<td style="text-align: center;">0.4290</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">APL</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">9.050</td>
+<td style="text-align: center;">0.4063</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TCL</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">9.320</td>
+<td style="text-align: center;">0.4254</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TCL+DLG-LC</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">9.060</td>
+<td style="text-align: center;">0.4180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">8.825</td>
+<td style="text-align: center;">0.4104</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet101-c32</td>
+<td style="text-align: center;">8.255</td>
+<td style="text-align: center;">0.3771</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet152-c32</td>
+<td style="text-align: center;">8.095</td>
+<td style="text-align: center;">0.3696</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet101-c64</td>
+<td style="text-align: center;">8.025</td>
+<td style="text-align: center;">0.3670</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet221-c32</td>
+<td style="text-align: center;">8.255</td>
+<td style="text-align: center;">0.3674</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OCL+DLG-LC</td>
+<td style="text-align: left;">ResNet152-c32</td>
+<td style="text-align: center;">7.855</td>
+<td style="text-align: center;">0.3681</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">集成</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: center;">7.135</td>
+<td style="text-align: center;">0.3290</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">集成（测试）</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: center;">8.087</td>
+<td style="text-align: center;">0.4370</td>
+</tr>
+</tbody>
+</table>
+<h4 id="top5团队royalflush">top5团队：Royalflush</h4>
+<p>组织：<br />
+Hithink RoyalFlush AI Research Institute, Zhejiang, China<br />
+报告链接：<a href="https://arxiv.org/pdf/2209.09010.pdf">The Royalflush
+System for VoxCeleb Speaker Recognition Challenge 2022</a>
+主方法：ResUnet+聚类+微调<br />
+跨域方法：先自监督+有监督，然后聚类微调 聚类方法： AHC<br />
+大图：<br />
+<img data-src="/post/6167/2022-10-14-20-41-48.png" class=""></p>
+<p>结果表 | 模型 | 迭代次数 | EER | mDCF | | :--------- | :------: |
+:---: | :----: | | ResUnet-9 | 2 | 9.24 | 0.4572 | | ResUnet-12 | 2 |
+9.18 | 0.4410 | | ResUnet-15 | 2 | 8.65 | 0.4231 | | ResUnet-18 | 2 |
+8.69 | 0.4089 | | ResUnet-21 | 2 | 8.76 | 0.3980 | | ResUnet-9 | 3 |
+9.07 | 0.4449 | | ResUnet-12 | 3 | 9.03 | 0.4358 | | ResUnet-15 | 3 |
+8.52 | 0.4107 | | ResUnet-18 | 3 | 8.60 | 0.3962 | | ResUnet-21 | 3 |
+8.70 | 0.3906 | | 集成 | - | 7.75 | 0.3517 |</p>
+<h4 id="top9团队ribotot">top9团队：Ribotot</h4>
+<p>组织：<br />
+Department of Electronic Engineering, Hanyang University, Seoul,
+Republic of Korea<br />
+报告链接：<a
+href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/HYU_report.pdf">HYU
+Submission for the VoxCeleb Speaker Recognition Challenge 2022</a>
+主方法：骨干网络+微调<br />
+跨域方法：多步微调</p>
+<p>结果表 <img data-src="/post/6167/2022-10-14-20-37-41.png" class=""></p>
+<h4 id="top13团队nsysu-cht">top13团队：NSYSU-CHT</h4>
+<p>组织：<br />
+National Sun Yat-sen University, Kaohsiung, Taiwan<br />
+Chunghwa Telecom Laboratories, Taoyuan, Taiwan<br />
+报告链接：<a
+href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/NSYSU_CHT_report.pdf">Team
+NSYSU-CHT VoxCeleb Speaker Recognition Challenge 2022 System
+Description</a> 主方法：骨干网络+Mean-teacher+微调<br />
+跨域方法：Mean-teacher</p>
+<p>验证结果表</p>
+<table>
+<colgroup>
+<col style="width: 85%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">EER</th>
+<th style="text-align: center;">mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ECAPAPLDA CNN-TDNN(RAM)</td>
+<td style="text-align: center;">12.56</td>
+<td style="text-align: center;">0.5263</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ECAPAPLDA CNN-TDNN(RAAM)</td>
+<td style="text-align: center;">12.90</td>
+<td style="text-align: center;">0.5294</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ECAPAPLDA CNN-TDNN(CBAM+RAAM)</td>
+<td style="text-align: center;">12.44</td>
+<td style="text-align: center;">0.5231</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ECAPAPLDA MFA-TDNN</td>
+<td style="text-align: center;">12.78</td>
+<td style="text-align: center;">0.5283</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ECAPAPLDA
+CNN-TDNN(CBAM+RAAM)+不同初始化模型的teacher &amp; student</td>
+<td style="text-align: center;">12.59</td>
+<td style="text-align: center;">0.5279</td>
+</tr>
+</tbody>
+</table>
+<p>测试结果表</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">模型</th>
+<th style="text-align: center;">EER</th>
+<th style="text-align: center;">mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ECAPAPLDA CNN-TDNN(CBAM+RAAM)</td>
+<td style="text-align: center;">13.65</td>
+<td style="text-align: center;">0.6936</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">集成</td>
+<td style="text-align: center;">12.36</td>
+<td style="text-align: center;">0.6165</td>
+</tr>
+</tbody>
+</table>
+]]></content>
+      <categories>
+        <category>论文阅读笔记</category>
+        <category>简易笔记</category>
+      </categories>
+  </entry>
+  <entry>
     <title>WIN10家庭版docker+VMware安装</title>
     <url>/post/5013/</url>
-    <content><![CDATA[<h2 id="2022年更新">2022年更新</h2>
-<p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了 <s>(申遗)</s>。<br>
+    <content><![CDATA[<h2 id="年更新">2022年更新</h2>
+<p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了
+<del>(申遗)</del>。
 wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！</p>
 <h2 id="写在前面">写在前面</h2>
 <p>由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
 <h3 id="一些操作">一些操作</h3>
 <ul>
-<li>购买windows10专业版，<s>土豪请出门右转，谢谢</s></li>
+<li>购买windows10专业版，<del>土豪请出门右转，谢谢</del></li>
 <li>弃坑windows，投入mac or linux的怀抱</li>
 <li>手工开启hyper-v，不是正版，影响更新，hyper-v的性能。。。</li>
 <li>使用docker toolbox安装</li>
 </ul>
 <h3 id="关于docker-toolbox">关于docker toolbox</h3>
-<p>docker toolbox的原理是使用Visual box来代替hyper-v，从而实现docker的运行，因此docker toolbox没有VMware也是可以运行的，但如果你已经安装了VMware，那么Visual box和VMware之间的战争便愉快的开始了</p>
+<p>docker toolbox的原理是使用Visual
+box来代替hyper-v，从而实现docker的运行，因此docker
+toolbox没有VMware也是可以运行的，但如果你已经安装了VMware，那么Visual
+box和VMware之间的战争便愉快的开始了</p>
 <h2 id="准备工作">准备工作</h2>
 <ul>
-<li>开启电脑的虚拟化(<a href="https://jingyan.baidu.com/article/574c52195b675c6c8d9dc138.html">百度经验</a>)</li>
-<li>安装并激活<a href="https://communities.vmware.com/thread/598748">VMware</a>(一个<a href="https://jingyan.baidu.com/article/3f16e00321bbb12591c10304.html">百度经验</a>的密钥：CG392-4PX5J-H816Z-HYZNG-PQRG2)</li>
-<li>安装<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/">docker toolbox</a>，推荐装在D盘</li>
-<li>下载docker的<a href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/">VMware驱动程序</a>，不安装</li>
+<li>开启电脑的虚拟化(<a
+href="https://jingyan.baidu.com/article/574c52195b675c6c8d9dc138.html">百度经验</a>)</li>
+<li>安装并激活<a
+href="https://communities.vmware.com/thread/598748">VMware</a>(一个<a
+href="https://jingyan.baidu.com/article/3f16e00321bbb12591c10304.html">百度经验</a>的密钥：CG392-4PX5J-H816Z-HYZNG-PQRG2)</li>
+<li>安装<a
+href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/">docker
+toolbox</a>，推荐装在D盘</li>
+<li>下载docker的<a
+href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/">VMware驱动程序</a>，不安装</li>
 </ul>
-<h2 id="第一步：卸载Visual-box或VMware">第一步：卸载Visual box或VMware</h2>
-<p>如果你选择的是卸载VMware，那么docker到这里就已经可用了，当然这不是本篇blog的目的，相信也不是你的目的，所以，卸载Visual box</p>
-<h2 id="第二步：移动VMware驱动">第二步：移动VMware驱动</h2>
-<p>将之前下载的VMware驱动移动到docker toolbox的安装目录下，即与docker.exe处于同一目录</p>
-<h2 id="第三步：复制boot2docker-iso">第三步：复制boot2docker.iso</h2>
+<h2 id="第一步卸载visual-box或vmware">第一步：卸载Visual
+box或VMware</h2>
+<p>如果你选择的是卸载VMware，那么docker到这里就已经可用了，当然这不是本篇blog的目的，相信也不是你的目的，所以，卸载Visual
+box</p>
+<h2 id="第二步移动vmware驱动">第二步：移动VMware驱动</h2>
+<p>将之前下载的VMware驱动移动到docker
+toolbox的安装目录下，即与docker.exe处于同一目录</p>
+<h2 id="第三步复制boot2docker.iso">第三步：复制boot2docker.iso</h2>
 <ul>
 <li>复制boot2docker.iso</li>
 <li>在当前目录下建立machine文件夹，进入machine文件夹后建立cache文件夹</li>
 <li>将boot2docker.iso复制到cache文件夹内</li>
 <li>ps: machine文件夹可以任意命名，cache文件夹不能任意</li>
 </ul>
-<h2 id="第四步：建立其他文件夹">第四步：建立其他文件夹</h2>
-<p>docker默认是将镜像和虚拟机往C盘里存，<s>都惦记着我的C盘，你看它多么的弱小，无助。。。</s>，所以我们要改一下</p>
-<ul>
-<li>在machine文件夹内（与cache同级）建立machines文件夹用于保存虚拟机</li>
-<li>进入machines文件夹，建立dev文件夹，dev是你虚拟机的名字</li>
-<li>将machine整个文件夹搬到你想要的位置</li>
-<li>ps：machines文件夹可任意命名</li>
-</ul>
-<h2 id="第五步：修改环境变量">第五步：修改环境变量</h2>
+<h2 id="第四步建立其他文件夹">第四步：建立其他文件夹</h2>
+<p>docker默认是将镜像和虚拟机往C盘里存，<del>都惦记着我的C盘，你看它多么的弱小，无助。。。</del>，所以我们要改一下
++ 在machine文件夹内（与cache同级）建立machines文件夹用于保存虚拟机 +
+进入machines文件夹，建立dev文件夹，dev是你虚拟机的名字 +
+将machine整个文件夹搬到你想要的位置 + ps：machines文件夹可任意命名</p>
+<h2 id="第五步修改环境变量">第五步：修改环境变量</h2>
 <ul>
 <li>资源管理器&gt;此电脑右键&gt;属性&gt;高级系统设置&gt;环境变量</li>
 <li>添加或修改如下环境变量</li>
@@ -409,38 +1102,36 @@ wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！</p>
 </ul>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>变量名</th>
 <th>变量值</th>
 </tr>
 </thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td>DOCKER_CERT_PATH</td>
-<td>你将machine搬到的位置（如D:）\machine\machines\dev</td>
+<td>你将machine搬到的位置（如D:）</td>
 </tr>
-<tr>
+<tr class="even">
 <td>DOCKER_MACHINE_NAME</td>
 <td>dev</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>DOCKER_TOOLBOX_INSTALL_PATH</td>
 <td>docker toolbox安装目录</td>
 </tr>
-<tr>
+<tr class="even">
 <td>MACHINE_STORAGE_PATH</td>
-<td>你将machine搬到的位置（如D:）\machine</td>
+<td>你将machine搬到的位置（如D:）</td>
 </tr>
 </tbody>
 </table>
-<h2 id="第六步：建立docker虚拟机">第六步：建立docker虚拟机</h2>
-<p>打开powershell，输入如下命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine create --driver<span class="token operator">=</span>vmwareworkstation dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>ps:dev与之前你命的名相对应</p>
-<h2 id="第七步：查看docker虚拟机信息">第七步：查看docker虚拟机信息</h2>
-<p>打开powershell，输入如下命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>至此，你的docker已经可以安装好了，推荐配合git bash食用<br>
+<h2 id="第六步建立docker虚拟机">第六步：建立docker虚拟机</h2>
+<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine create --driver<span class="token operator">=</span>vmwareworkstation dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ps:dev与之前你命的名相对应</p>
+<h2 id="第七步查看docker虚拟机信息">第七步：查看docker虚拟机信息</h2>
+<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>至此，你的docker已经可以安装好了，推荐配合git bash食用<br />
 ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印机，编辑&gt;首选项(ctrl+p)&gt;设备&gt;启用虚拟打印机</p>
 ]]></content>
       <categories>
@@ -452,148 +1143,54 @@ ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印�
       </tags>
   </entry>
   <entry>
-    <title>WIN10+docker+VMware安装MySQL8.0</title>
-    <url>/post/47162/</url>
-    <content><![CDATA[<h2 id="2022更新">2022更新</h2>
-<p>wsl2来了，大人，时代变了！以下教程只能参考，可靠性未知。</p>
-<h2 id="写在前面的-3">写在前面的</h2>
-<p>docker对windows真的很不友好，所以早日脱坑，linux大法好<br>
-如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual box，那么推荐阅读我的<a href="https://nidwbin.xyz/post/5013/">这篇博文</a></p>
-<h2 id="建立MySQL数据文件夹">建立MySQL数据文件夹</h2>
-<p>在电脑里选一块风水宝地，建立一个文件夹用于保存MySQL的数据，名字最好是英文的，我建立了MySQL文件夹</p>
-<img data-src="/post/47162/2.png" class="">
-<p>然后在文件夹里建立三个文件夹如下，如果你自己命名，请注意之后的bash命令也要做相应修改</p>
-<img data-src="/post/47162/3.png" class="">
-<p>文件夹作用如下</p>
-<table>
-<thead>
-<tr>
-<th>文件夹名</th>
-<th>作用</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>conf</td>
-<td>保存自己的一些设置，比如加密规则</td>
-</tr>
-<tr>
-<td>data</td>
-<td>保存数据库数据</td>
-</tr>
-<tr>
-<td>logs</td>
-<td>保存数据库日志(好像有点问题)</td>
-</tr>
-</tbody>
-</table>
-<p>然后在conf文件夹里建立my.cnf文件，内容如下(MySQL8的默认加密方式改变了，所以要修改下)</p>
-<pre class="line-numbers language-none"><code class="language-none">[mysqld]  
-lower_case_table_names&#x3D;1  
-default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h2 id="Vmware的设置">Vmware的设置</h2>
-<p>打开VMware&gt;打开docker虚拟机&gt;编辑虚拟机设置&gt;选项&gt;共享文件夹&gt;添加</p>
-<img data-src="/post/47162/1.png" class="">
-<p>将MySQL数据希望保存的位置添加进去共享给虚拟机(即之前的MySQL文件夹)</p>
-<h2 id="建立MySQL实例">建立MySQL实例</h2>
-<p>打开git bash(<strong>不要用powershell和cmd！不要用powershell和cmd！不要用powershell和cmd！</strong>)，输入如下命令运行docker</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine start *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/47162/4.png" class="" title="开启docker">
-<p>激活</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">env</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<img data-src="/post/47162/5.png" class="">
-<p>这时，系统会提示你用另一个命令来激活，copy后输入回车即可，我这里是</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">    <span class="token variable">$eval</span> <span class="token variable"><span class="token variable">$(</span>"D:<span class="token punctuation">\</span>Program Files<span class="token punctuation">\</span>Docker Toolbox<span class="token punctuation">\</span>docker-machine.exe" <span class="token function">env</span> dev<span class="token variable">)</span></span>``<span class="token variable"><span class="token variable">`</span>
-
-下载MySQL<span class="token punctuation">(</span>*下载慢的宝宝请先换源*<span class="token punctuation">)</span>
-<span class="token variable">`</span></span>``bash
-    <span class="token function">docker</span> pull mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>我这里已经下载好了，不演示了</p>
-<p>建立实例</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token punctuation">\</span>
--p <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
--e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>*你的root密码* <span class="token punctuation">\</span>
--v //mnt/hgfs/ProgramData/MySQL/data:/var/lib/mysql:rw <span class="token punctuation">\</span>
--v //mnt/hgfs/ProgramData/MySQL/logs:/var/log/mysql:rw <span class="token punctuation">\</span>
--v //mnt/hgfs/ProgramData/MySQL/conf/my.cnf:/etc/mysql/conf.d/my.cnf:rw <span class="token punctuation">\</span>
---name mysql <span class="token punctuation">\</span>
---restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
--d mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>重点来了</strong>，这些命令的冒号左边是你电脑的实际接口和路径，右边是docker虚拟机的接口和路径，你电脑的共享文件夹被挂载到了虚拟机的//mnt/hgfs/下(双斜杠不能丢，不然git bash会将路径转译导致虚拟机不识别)，所以你只要修改//mnt/hgfs到MySQL(如果你没改名)之间的内容为你的电脑上MySQL文件夹的绝对路径即可(<strong>去掉盘符和MySQL</strong>)，比如，我的MySQL文件夹的绝对路径是D:\ProgramData\MySQL，将盘符和MySQL去掉是\ProgramData\，然后将\改为/填进去就可以了。<br>
-如果你很不幸，共享文件夹没有挂载到//mnt/hgfs/下，那么请ssh登录虚拟机，用whereis命令找出来即可了。<br>
-如果你的MySQL启动不了，请将my.cnf的文件映射去掉，可能是我的配置文件的锅，请自己写一下。</p>
-<h2 id="ssh登录使用">ssh登录使用</h2>
-<p>输入命令登录</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ssh</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>输入命令进入MySQL环境</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysql <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>修改加密方式和root密码</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="token string">'*你的root密码*'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>退出ctrl+d，输入</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">logout</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>到这里，你的mysql8.0就可以愉快的使用了。</p>
-]]></content>
-      <categories>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>VMware</tag>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo+NexT个人博客升级遇到的坑</title>
     <url>/post/38257/</url>
-    <content><![CDATA[<h2 id="写在前面的-4">写在前面的</h2>
-<p>你们可爱的博主大人又回来继续更新博客了，中间才3个月没有更新，在正常不过了，毕竟我可是要成为年更区、与作者比命长分舵的一只鸽子（大误）。好了，言归正传，本次带来的是我的个人博客的更新以及遇到的各种坑，为了防止我以后再次踩坑~~（虽然这是必定的）~~，所以特此留念。</p>
+    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
+<p>你们可爱的博主大人又回来继续更新博客了，中间才3个月没有更新，在正常不过了，毕竟我可是要成为年更区、与作者比命长分舵的一只鸽子（大误）。好了，言归正传，本次带来的是我的个人博客的更新以及遇到的各种坑，为了防止我以后再次踩坑<del>（虽然这是必定的）</del>，所以特此留念。</p>
 <h2 id="更新内容">更新内容</h2>
-<p>为了让没有经历过本博客黑暗时代的童鞋们对本站有所了解，所以这里将更新或添加的内容列举一下下。</p>
-<ol>
-<li>Hexo版本更新为最新版</li>
-<li>NexT主题更新为最新版</li>
-<li>添加头像旋转</li>
-<li>添加Valine评论</li>
-<li>将自定义~~（抄袭）~~的版权信息修改为官方的版权信息</li>
-<li>为官方的版权信息添加地址复制按钮</li>
-<li>换用靠谱的阅读人数统计</li>
-<li>踩坑&amp;填坑😭</li>
-</ol>
+<p>为了让没有经历过本博客黑暗时代的童鞋们对本站有所了解，所以这里将更新或添加的内容列举一下下。
+1. Hexo版本更新为最新版 2. NexT主题更新为最新版 3. 添加头像旋转 4.
+添加Valine评论 5.
+将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息 6.
+为官方的版权信息添加地址复制按钮 7. 换用靠谱的阅读人数统计 8.
+踩坑&amp;填坑😭</p>
 <p>好吧，这和从头捣鼓一遍好像差不多。。。</p>
-<h2 id="Hexo版本更新为最新版">Hexo版本更新为最新版</h2>
-<p>万恶之源就是这一步，如果不是我想更新Hexo，后面也不会由这么多事，更新很简单,直接到<a href="https://hexo.io/">Hexo官网</a>找最新版安装教程即可。nodejs安装命令如下：</p>
+<h2 id="hexo版本更新为最新版">Hexo版本更新为最新版</h2>
+<p>万恶之源就是这一步，如果不是我想更新Hexo，后面也不会由这么多事，更新很简单,直接到<a
+href="https://hexo.io/">Hexo官网</a>找最新版安装教程即可。nodejs安装命令如下：
 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后坑就来了，Windows10下无法配置Hexo的环境变量，直接敲Hexo会显示如下错误：</p>
-<img data-src="/post/38257/1.png" class="">  
-<p>神奇Windows禁止运行脚本，网上有解除这个限制的方法，但我懒得弄了，所以每次使用Hexo需要先敲npx，用npx来调用Hexo。Linux和Mac似乎没有这个坑。。。</p>
-<h2 id="NexT主题更新为最新版">NexT主题更新为最新版</h2>
-<p>Hexo升级了，主题当然也要升级，我用的NexT，所以区官网找安装方法，如下图：</p>
-<img data-src="/post/38257/2.png" class="">  
-<p>然后，你会发现NexT依旧是6.0.0版本，为什么呢？去这个github仓库看看就知道了，如下图：</p>
+然后坑就来了，Windows10下无法配置Hexo的环境变量，直接敲Hexo会显示如下错误：<br />
+<img data-src="/post/38257/1.png" class=""><br />
+神奇Windows禁止运行脚本，网上有解除这个限制的方法，但我懒得弄了，所以每次使用Hexo需要先敲npx，用npx来调用Hexo。Linux和Mac似乎没有这个坑。。。</p>
+<h2 id="next主题更新为最新版">NexT主题更新为最新版</h2>
+<p>Hexo升级了，主题当然也要升级，我用的NexT，所以区官网找安装方法，如下图：<br />
+<img data-src="/post/38257/2.png" class=""><br />
+然后，你会发现NexT依旧是6.0.0版本，为什么呢？去这个github仓库看看就知道了，如下图：<br />
 <img data-src="/post/38257/3.png" class="">
-<p>对，NexT仓库搬迁了，然而中文官网的地址并没有更新，我之前配了半小时的内容又作废了。。。<br>
-最新版的安装命令如下（在Hexo的目录下运行）：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+对，NexT仓库搬迁了，然而中文官网的地址并没有更新，我之前配了半小时的内容又作废了。。。<br />
+最新版的安装命令如下（在Hexo的目录下运行）： <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 <h2 id="添加头像旋转">添加头像旋转</h2>
-<p>最新版NexT已经支持头像旋转了，直接在<strong>主题配置文件</strong>中搜索<em>avatar</em>即可找到头像设置</p>
+<p>最新版NexT已经支持头像旋转了，直接在<strong>主题配置文件</strong>中搜索<em>avatar</em>即可找到头像设置
 <img data-src="/post/38257/4.png" class="">
-<p>当然老版那种自立门户的方法也是可以的，百度一搜都是，这里不粘贴了</p>
-<h2 id="添加Valine评论">添加Valine评论</h2>
-<p>最新版NexT评论的添加方法也有所不同，需要先在<strong>主题配置文件</strong>中搜索<em>comments</em>，在<em>active</em>里填上<em>valine</em>，如下图：</p>
+当然老版那种自立门户的方法也是可以的，百度一搜都是，这里不粘贴了</p>
+<h2 id="添加valine评论">添加Valine评论</h2>
+<p>最新版NexT评论的添加方法也有所不同，需要先在<strong>主题配置文件</strong>中搜索<em>comments</em>，在<em>active</em>里填上<em>valine</em>，如下图：
 <img data-src="/post/38257/5.png" class="">
-<p>然后再搜索<em>valine</em>把LeanCloud上的app_id和app_key填上，<em>enable</em>设为true，剩下的就是设置了，我的设置如下：</p>
+然后再搜索<em>valine</em>把LeanCloud上的app_id和app_key填上，<em>enable</em>设为true，剩下的就是设置了，我的设置如下：
 <img data-src="/post/38257/6.png" class="">
-<p>**注意：**LeanCloud上的安全域名记得填上自己的博客地址，不然评论只有localhost发的能记到LeadCloud上。。。别问我是怎么知道的</p>
-<h2 id="将自定义-（抄袭）-的版权信息修改为官方的版权信息">将自定义~~（抄袭）~~的版权信息修改为官方的版权信息</h2>
-<p>以前的版权信息是从一位大佬那<s>抄</s>借来的，但最新版NexT自带了版权信息，所以现在又改成NexT的版权信息了，毕竟东西不要借（chao)太(tai)久(duo)，现在的版权信息如下：</p>
+<strong>注意：</strong>LeanCloud上的安全域名记得填上自己的博客地址，不然评论只有localhost发的能记到LeadCloud上。。。别问我是怎么知道的</p>
+<h2
+id="将自定义抄袭的版权信息修改为官方的版权信息">将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息</h2>
+<p>以前的版权信息是从一位大佬那<del>抄</del>借来的，但最新版NexT自带了版权信息，所以现在又改成NexT的版权信息了，毕竟东西不要借（chao)太(tai)久(duo)，现在的版权信息如下：
 <img data-src="/post/38257/7.png" class="">
-<p>这个设置简单，直接在<strong>主题配置文件</strong>中搜索<em>creative_commons</em>自己调。<br>
-你问我那个复制按钮哪来的，当然是<s>抄</s>借鉴官方的源代码自己添的了。</p>
-<h2 id="为官方的版权信息添加地址复制按钮">为官方的版权信息添加地址复制按钮</h2>
-<p>嘿嘿，<s>读书人</s>程序员的事，怎么能叫抄呢，应该叫借鉴~~借鉴~~<br>
-NexT官方支持代码复制按钮了，所以为了风格统一，需要给我的Copyright也加上复制按钮，这个配置比较麻烦，步骤如下：</p>
-<h3 id="第一步-新建按钮样式">第一步 新建按钮样式</h3>
-<p>先在themes\next\source\css下新建_custom文件夹，然后在文件夹里新建custom.styl文件，这个文件里的内容如下：</p>
+这个设置简单，直接在<strong>主题配置文件</strong>中搜索<em>creative_commons</em>自己调。<br />
+你问我那个复制按钮哪来的，当然是<del>抄</del>借鉴官方的源代码自己添的了。</p>
+<h2
+id="为官方的版权信息添加地址复制按钮">为官方的版权信息添加地址复制按钮</h2>
+<p>嘿嘿，<del>读书人</del>程序员的事，怎么能叫抄呢，应该叫借鉴~~借鉴~~<br />
+NexT官方支持代码复制按钮了，所以为了风格统一，需要给我的Copyright也加上复制按钮，这个配置比较麻烦，步骤如下：
+### 第一步 新建按钮样式
+先在themes_custom文件夹，然后在文件夹里新建custom.styl文件，这个文件里的内容如下：
 <pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.copy-link-btn</span> <span class="token punctuation">&#123;</span>
     <span class="token property">color</span><span class="token punctuation">:</span> $black-dim<span class="token punctuation">;</span>
     <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
@@ -629,16 +1226,13 @@ NexT官方支持代码复制按钮了，所以为了风格统一，需要给我�
         <span class="token property">top</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span>
 <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>官方CSS里借鉴的~~，当然如果你要自定义主题颜色什么的可以在这个文件里自己加</p>
-<h3 id="第二步-导入这个文件">第二步 导入这个文件</h3>
-<p>在themes\next\source\css\main.styl文件（_custom文件夹那层）最后添加这几行代码让custom.styl导入：</p>
+官方CSS里借鉴的~~，当然如果你要自定义主题颜色什么的可以在这个文件里自己加
+### 第二步 导入这个文件
+在themes.styl文件（_custom文件夹那层）最后添加这几行代码让custom.styl导入：
 <pre class="line-numbers language-css" data-language="css"><code class="language-css">// Add Custom Layer
 // --------------------------------------------------
-<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"_custom/custom.styl"</span> if <span class="token punctuation">(</span><span class="token function">hexo-config</span><span class="token punctuation">(</span><span class="token string">'custom.css'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>喜欢自己起名的宝宝们注意这里的路径要写对哟</p>
-<h3 id="第三步-编辑JS">第三步 编辑JS</h3>
-<p>先在themes\next\source\js下新建custom.js文件，内容如下：</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"_custom/custom.styl"</span> if <span class="token punctuation">(</span><span class="token function">hexo-config</span><span class="token punctuation">(</span><span class="token string">'custom.css'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> 喜欢自己起名的宝宝们注意这里的路径要写对哟 ### 第三步
+编辑JS 先在themes.js文件，内容如下： <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
     <span class="token keyword">var</span> link <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'li.post-copyright-link'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     link<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'beforeend'</span><span class="token punctuation">,</span> <span class="token string">'&lt;div class="copy-link-btn">&lt;i class="fa fa-clipboard">&lt;/i>&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">var</span> button <span class="token operator">=</span> link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.copy-link-btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -671,24 +1265,20 @@ NexT官方支持代码复制按钮了，所以为了风格统一，需要给我�
         <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>官方JS里借鉴的~~<br>
-注意这里插入按钮的CSS样式名字要与之前custom.styl里的CSS样式名字统一</p>
-<h3 id="第四步-导入JS">第四步 导入JS</h3>
-<p>我选择的导入方式比较麻烦，不过我喜欢~~~<br>
-在themes\next\layout下新建custom-scripts.swig文件，内容如下</p>
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/js/custom.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后再在themes\next\layout_layout.swig的最后<strong>body和html结束标记之前</strong>添加代码如下：</p>
+官方JS里借鉴的~~<br />
+注意这里插入按钮的CSS样式名字要与之前custom.styl里的CSS样式名字统一 ###
+第四步 导入JS 我选择的导入方式比较麻烦，不过我喜欢~~~<br />
+在themes-scripts.swig文件，内容如下 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/js/custom.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+然后再在themes_layout.swig的最后<strong>body和html结束标记之前</strong>添加代码如下：
 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>Add<span class="token operator">--</span><span class="token operator">></span>
 <span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token keyword">if</span> theme<span class="token punctuation">.</span>custom<span class="token punctuation">.</span>javascript <span class="token operator">%</span><span class="token punctuation">&#125;</span>
   <span class="token punctuation">&#123;</span><span class="token operator">%</span> include <span class="token string">'custom-scripts.swig'</span> <span class="token operator">%</span><span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>最后在<strong>主题配置文件</strong>最后追加代码</p>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre> 最后在<strong>主题配置文件</strong>最后追加代码
 <pre class="line-numbers language-json" data-language="json"><code class="language-json"># Add
 # Add Custom CSS &amp; JavaScript
 custom<span class="token operator">:</span>
   css<span class="token operator">:</span> <span class="token boolean">true</span> 
-  javascript<span class="token operator">:</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>弄完收工。<br>
+  javascript<span class="token operator">:</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre> 弄完收工。<br />
 具体代码功能就是将运行custom-scripts.swig给控制接口暴露出来，然后设置为true，使custom-scripts.swig运行，而custom-scripts.swig的功能就是将custom.js添加到html的body里。</p>
 <p>这样配置的好处是可以自己编辑CSS和Javascript然后导入，可玩性更高，不过要自己注意避免冲突哟~~~</p>
 <h2 id="换用靠谱的阅读人数统计">换用靠谱的阅读人数统计</h2>
@@ -703,50 +1293,122 @@ custom<span class="token operator">:</span>
       </tags>
   </entry>
   <entry>
+    <title>WIN10+docker+VMware安装MySQL8.0</title>
+    <url>/post/47162/</url>
+    <content><![CDATA[<h2 id="更新">2022更新</h2>
+<p>wsl2来了，大人，时代变了！以下教程只能参考，可靠性未知。</p>
+<h2 id="写在前面的">写在前面的</h2>
+<p>docker对windows真的很不友好，所以早日脱坑，linux大法好
+如果你还没有安装好docker，而你又刚好想用VMware来代替hyper-v或Visual
+box，那么推荐阅读我的<a
+href="https://nidwbin.xyz/post/5013/">这篇博文</a></p>
+<h2 id="建立mysql数据文件夹">建立MySQL数据文件夹</h2>
+<p>在电脑里选一块风水宝地，建立一个文件夹用于保存MySQL的数据，名字最好是英文的，我建立了MySQL文件夹
+<img data-src="/post/47162/2.png" class=""></p>
+<p>然后在文件夹里建立三个文件夹如下，如果你自己命名，请注意之后的bash命令也要做相应修改
+<img data-src="/post/47162/3.png" class=""></p>
+<p>文件夹作用如下 |文件夹名|作用| |-|-|
+|conf|保存自己的一些设置，比如加密规则| |data|保存数据库数据|
+|logs|保存数据库日志(好像有点问题)|</p>
+<p>然后在conf文件夹里建立my.cnf文件，内容如下(MySQL8的默认加密方式改变了，所以要修改下)
+<pre class="line-numbers language-none"><code class="language-none">[mysqld]  
+lower_case_table_names&#x3D;1  
+default_authentication_plugin&#x3D; mysql_native_password<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></p>
+<h2 id="vmware的设置">Vmware的设置</h2>
+<p>打开VMware&gt;打开docker虚拟机&gt;编辑虚拟机设置&gt;选项&gt;共享文件夹&gt;添加<br />
+<img data-src="/post/47162/1.png" class="">
+将MySQL数据希望保存的位置添加进去共享给虚拟机(即之前的MySQL文件夹)</p>
+<h2 id="建立mysql实例">建立MySQL实例</h2>
+<p>打开git
+bash(<strong>不要用powershell和cmd！不要用powershell和cmd！不要用powershell和cmd！</strong>)，输入如下命令运行docker
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine start *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> <img data-src="/post/47162/4.png" class="" title="开启docker"></p>
+<p>激活 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">env</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> <img data-src="/post/47162/5.png" class="">
+这时，系统会提示你用另一个命令来激活，copy后输入回车即可，我这里是
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">    <span class="token variable">$eval</span> <span class="token variable"><span class="token variable">$(</span>"D:<span class="token punctuation">\</span>Program Files<span class="token punctuation">\</span>Docker Toolbox<span class="token punctuation">\</span>docker-machine.exe" <span class="token function">env</span> dev<span class="token variable">)</span></span>``<span class="token variable"><span class="token variable">`</span>
+
+下载MySQL<span class="token punctuation">(</span>*下载慢的宝宝请先换源*<span class="token punctuation">)</span>
+<span class="token variable">`</span></span>``bash
+    <span class="token function">docker</span> pull mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre> 我这里已经下载好了，不演示了</p>
+<p>建立实例 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> run <span class="token punctuation">\</span>
+-p <span class="token number">3306</span>:3306 <span class="token punctuation">\</span>
+-e <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>*你的root密码* <span class="token punctuation">\</span>
+-v //mnt/hgfs/ProgramData/MySQL/data:/var/lib/mysql:rw <span class="token punctuation">\</span>
+-v //mnt/hgfs/ProgramData/MySQL/logs:/var/log/mysql:rw <span class="token punctuation">\</span>
+-v //mnt/hgfs/ProgramData/MySQL/conf/my.cnf:/etc/mysql/conf.d/my.cnf:rw <span class="token punctuation">\</span>
+--name mysql <span class="token punctuation">\</span>
+--restart<span class="token operator">=</span>always <span class="token punctuation">\</span>
+-d mysql<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<strong>重点来了</strong>，这些命令的冒号左边是你电脑的实际接口和路径，右边是docker虚拟机的接口和路径，你电脑的共享文件夹被挂载到了虚拟机的//mnt/hgfs/下(双斜杠不能丢，不然git
+bash会将路径转译导致虚拟机不识别)，所以你只要修改//mnt/hgfs到MySQL(如果你没改名)之间的内容为你的电脑上MySQL文件夹的绝对路径即可(<strong>去掉盘符和MySQL</strong>)，比如，我的MySQL文件夹的绝对路径是D:，将盘符和MySQL去掉是，然后将/填进去就可以了。<br />
+如果你很不幸，共享文件夹没有挂载到//mnt/hgfs/下，那么请ssh登录虚拟机，用whereis命令找出来即可了。<br />
+如果你的MySQL启动不了，请将my.cnf的文件映射去掉，可能是我的配置文件的锅，请自己写一下。</p>
+<h2 id="ssh登录使用">ssh登录使用</h2>
+<p>输入命令登录 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ssh</span> *你的虚拟机名*<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>输入命令进入MySQL环境 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">docker</span> <span class="token builtin class-name">exec</span> -it mysql <span class="token function">bash</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>修改加密方式和root密码 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">ALTER <span class="token environment constant">USER</span> <span class="token string">'root'</span>@<span class="token string">'%'</span> IDENTIFIED WITH mysql_native_password BY <span class="token string">'*你的root密码*'</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>退出ctrl+d，输入 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">logout</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>到这里，你的mysql8.0就可以愉快的使用了。</p>
+]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>VMware</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>wsl2 kali 一键脚本</title>
     <url>/post/48332/</url>
-    <content><![CDATA[<h1>Kali wsl2 一键设置脚本</h1>
+    <content><![CDATA[<h1 id="kali-wsl2-一键设置脚本">Kali wsl2 一键设置脚本</h1>
 <h2 id="说明">说明</h2>
 <p>本脚本仅限WSL2，请勿在其他环境中使用。</p>
-<p>这是一个个人的Kali wsl2的一键设置脚本，稳定性和安全性未知，如介意请勿使用。</p>
-<p>理论上本脚本可以简单替换两个sources.list并注释掉install.sh中的“sudo chmod u+s /usr/bin/ping”一行在其他Debian系系统上使用。</p>
-<p>脚本包含内容如下：</p>
-<ol>
-<li>设置vim和zsh样式，zsh使用powerlevel10k主题，并将历史记录保存到~/.zsh_history中</li>
-<li>设置apt中国源，已经添加了<a href="https://mirrors.hit.edu.cn/">哈工大</a>，<a href="https://mirrors.ustc.edu.cn/">中科大</a>，<a href="https://mirrors.tuna.tsinghua.edu.cn/">清华</a>的源，你也可以自己添加合适的源到sources-http.list和sources-https.list，请注意sources-https.list是最后生效的apt源文件</li>
-<li>安装vim, git, zsh, htop, apt-transport-https, psmisc, genie等软件</li>
-<li>安装antigen来管理zsh的插件</li>
-<li>切换默认shell为zsh</li>
-<li>安装一些启动脚本，包含获取windows的IP和wsl的IP；设置DISPLAY环境变量；设置ALL_PROXY进行代理；设置fcitx输入法的环境变量；开机进入systemd环境</li>
-</ol>
-<p><a href="https://github.com/nidwbin/script-for-kali-wsl2">仓库链接</a>:<a href="https://github.com/nidwbin/script-for-kali-wsl2">https://github.com/nidwbin/script-for-kali-wsl2</a></p>
+<p>这是一个个人的Kali
+wsl2的一键设置脚本，稳定性和安全性未知，如介意请勿使用。</p>
+<p>理论上本脚本可以简单替换两个sources.list并注释掉install.sh中的“sudo
+chmod u+s /usr/bin/ping”一行在其他Debian系系统上使用。</p>
+<p>脚本包含内容如下： 1.
+设置vim和zsh样式，zsh使用powerlevel10k主题，并将历史记录保存到~/.zsh_history中
+2. 设置apt中国源，已经添加了<a
+href="https://mirrors.hit.edu.cn/">哈工大</a>，<a
+href="https://mirrors.ustc.edu.cn/">中科大</a>，<a
+href="https://mirrors.tuna.tsinghua.edu.cn/">清华</a>的源，你也可以自己添加合适的源到sources-http.list和sources-https.list，请注意sources-https.list是最后生效的apt源文件
+3. 安装vim, git, zsh, htop, apt-transport-https, psmisc, genie等软件 4.
+安装antigen来管理zsh的插件 5. 切换默认shell为zsh 6.
+安装一些启动脚本，包含获取windows的IP和wsl的IP；设置DISPLAY环境变量；设置ALL_PROXY进行代理；设置fcitx输入法的环境变量；开机进入systemd环境</p>
+<p><a
+href="https://github.com/nidwbin/script-for-kali-wsl2">仓库链接</a>:https://github.com/nidwbin/script-for-kali-wsl2</p>
 <h4 id="软件说明">软件说明</h4>
-<p>vim, git, zsh是本安装脚本主要配置的软件，apt-transport-https是apt使用https源所需的软件，psmisc主要为了安装pstree用于验证是否进入systemd，genie是启动systemd所需的软件，antigen是管理zsh插件所需软件</p>
+<p>vim, git,
+zsh是本安装脚本主要配置的软件，apt-transport-https是apt使用https源所需的软件，psmisc主要为了安装pstree用于验证是否进入systemd，genie是启动systemd所需的软件，antigen是管理zsh插件所需软件</p>
 <h2 id="使用方法">使用方法</h2>
-<ol>
+<ol type="1">
 <li>下载本仓库的zip文件并解压到windows任意路径（这里以C:/script/)为例</li>
 <li>进入kali-wsl环境</li>
-<li>在home目录下运行<pre class="line-numbers language-none"><code class="language-none">cp -r &#x2F;mnt&#x2F;c&#x2F;script ~
+<li>在home目录下运行 <pre class="line-numbers language-none"><code class="language-none">cp -r &#x2F;mnt&#x2F;c&#x2F;script ~
 cd ~&#x2F;script
-bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-</li>
+bash install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
 <li>等脚本完成后退出并重新进入wsl即可</li>
-<li>如果开机脚本出现问题，你可以在用户home目录下新建文件.disable来关闭开机脚本，具体可以在windows资源管理器下新建文本文档并重命名或在wsl用户home目录下运行<pre class="line-numbers language-none"><code class="language-none">touch ~&#x2F;.disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
+<li>如果开机脚本出现问题，你可以在用户home目录下新建文件.disable来关闭开机脚本，具体可以在windows资源管理器下新建文本文档并重命名或在wsl用户home目录下运行
+<pre class="line-numbers language-none"><code class="language-none">touch ~&#x2F;.disable<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
 </ol>
 <h2 id="已知问题">已知问题</h2>
-<p>genie会在启动systemd时替换PATH为一个较为安全的PATH，这会导致systemd环境下无法查找到windows的程序，这里提供的解决方法为在脚本运行完后修改/etc/genie.ini文件，将clone_path设置为true，然后使用/etc/profile.d/.init.d/enable-systemd.sh.bak替换/etc/profile.d/.init.d/enable-systemd.sh。即在修改完/etc/genie.ini文件的clone_path后运行如下代码</p>
+<p>genie会在启动systemd时替换PATH为一个较为安全的PATH，这会导致systemd环境下无法查找到windows的程序，这里提供的解决方法为在脚本运行完后修改/etc/genie.ini文件，将clone_path设置为true，然后使用/etc/profile.d/.init.d/enable-systemd.sh.bak替换/etc/profile.d/.init.d/enable-systemd.sh。即在修改完/etc/genie.ini文件的clone_path后运行如下代码
 <pre class="line-numbers language-none"><code class="language-none">cd &#x2F;etc&#x2F;profile.d&#x2F;.init.d
-sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+sudo mv enable-systemd.sh.bak enable-systemd.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre></p>
 <p>genie可能会出现无限等待情况，请将/etc/genie.ini中的systemd-timeout设置为较短时间即可解决，此问题只会出现在wsl2开机的时候。</p>
-<p>Ubuntu wsl2在替换zsh后会出现bug，即不会运行/etc/profile，可以将如下代码添加到.zshrc文件尾来修复</p>
+<p>Ubuntu
+wsl2在替换zsh后会出现bug，即不会运行/etc/profile，可以将如下代码添加到.zshrc文件尾来修复
 <pre class="line-numbers language-none"><code class="language-none">source &#x2F;etc&#x2F;profile<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>DISPLAY变量与xrdp（kex-win的ESM模式）不兼容，使用如下命令修复</p>
-<pre class="line-numbers language-none"><code class="language-none">sudo rm &#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;display.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+DISPLAY变量与xrdp（kex-win的ESM模式）不兼容，使用如下命令修复
+<pre class="line-numbers language-none"><code class="language-none">sudo rm &#x2F;etc&#x2F;profile.d&#x2F;.init.d&#x2F;display.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
 <h2 id="鸣谢">鸣谢</h2>
 <p><a href="https://github.com/zsh-users/antigen">antigen</a></p>
-<p><a href="https://github.com/arkane-systems/genie">systemd-genie</a></p>
-<p><a href="https://www.cnblogs.com/zsmumu/p/archlinux-wsl2.html">hyuuko的配置记录</a></p>
+<p><a
+href="https://github.com/arkane-systems/genie">systemd-genie</a></p>
+<p><a
+href="https://www.cnblogs.com/zsmumu/p/archlinux-wsl2.html">hyuuko的配置记录</a></p>
 ]]></content>
       <categories>
         <category>折腾</category>

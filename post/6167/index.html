@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#49b1f5"><meta name="generator" content="Hexo 6.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/logo-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/logo-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#49b1f5">
+  <meta name="google-site-verification" content="8wDUkuvY7acNrSFiPrbHrvdPFd5KaUkrO56DDYXqiBM">
+  <meta name="msvalidate.01" content="C50440204EC712E5884D8DB269D9F82F">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"blog.nidwbin.xyz","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.11.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":null,"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="阅读技术报告VoxSRC 2022 Track3 Technical reports的结果汇总">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VoxSRC 2022 Track3 Technical reports">
+<meta property="og:url" content="https://blog.nidwbin.xyz/post/6167/index.html">
+<meta property="og:site_name" content="霖的博客">
+<meta property="og:description" content="阅读技术报告VoxSRC 2022 Track3 Technical reports的结果汇总">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.nidwbin.xyz/post/6167/2022-10-14-20-42-58.png">
+<meta property="og:image" content="https://blog.nidwbin.xyz/post/6167/2022-10-14-20-41-48.png">
+<meta property="og:image" content="https://blog.nidwbin.xyz/post/6167/2022-10-14-20-37-41.png">
+<meta property="article:published_time" content="2022-10-13T06:26:24.000Z">
+<meta property="article:modified_time" content="2022-10-14T12:43:48.961Z">
+<meta property="article:author" content="霖">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.nidwbin.xyz/post/6167/2022-10-14-20-42-58.png">
+
+
+<link rel="canonical" href="https://blog.nidwbin.xyz/post/6167/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://blog.nidwbin.xyz/post/6167/","path":"post/6167/","title":"VoxSRC 2022 Track3 Technical reports"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>VoxSRC 2022 Track3 Technical reports | 霖的博客</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-40PZ9N20DE"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-40PZ9N20DE","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+  <script data-pjax defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "fc712af2d8464443a72f999f975e1cf9"}'></script>
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="霖的博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">霖的博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">基本信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C"><span class="nav-number">2.</span> <span class="nav-text">结果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#top1%E5%9B%A2%E9%98%9Fzzdddz"><span class="nav-number">2.0.1.</span> <span class="nav-text">top1团队：zzdddz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top2%E5%9B%A2%E9%98%9Fsixsix"><span class="nav-number">2.0.2.</span> <span class="nav-text">top2团队：sixsix</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top4%E5%9B%A2%E9%98%9Fmeng"><span class="nav-number">2.0.3.</span> <span class="nav-text">top4团队：meng</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top5%E5%9B%A2%E9%98%9Froyalflush"><span class="nav-number">2.0.4.</span> <span class="nav-text">top5团队：Royalflush</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top9%E5%9B%A2%E9%98%9Fribotot"><span class="nav-number">2.0.5.</span> <span class="nav-text">top9团队：Ribotot</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#top13%E5%9B%A2%E9%98%9Fnsysu-cht"><span class="nav-number">2.0.6.</span> <span class="nav-text">top13团队：NSYSU-CHT</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="霖"
+      src="/images/avatar.webp">
+  <p class="site-author-name" itemprop="name">霖</p>
+  <div class="site-description" itemprop="description">生命不息，折腾不止！</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/nidwbin" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;nidwbin" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nidwbin@gmail.com" title="E-Mail → mailto:nidwbin@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://blog.nidwbin.xyz/post/6167/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.webp">
+      <meta itemprop="name" content="霖">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="霖的博客">
+      <meta itemprop="description" content="生命不息，折腾不止！">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="VoxSRC 2022 Track3 Technical reports | 霖的博客">
+      <meta itemprop="description" content="阅读技术报告VoxSRC 2022 Track3 Technical reports的结果汇总">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          VoxSRC 2022 Track3 Technical reports
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-10-13 14:26:24" itemprop="dateCreated datePublished" datetime="2022-10-13T14:26:24+08:00">2022-10-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2022-10-14 20:43:48" itemprop="dateModified" datetime="2022-10-14T20:43:48+08:00">2022-10-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">论文阅读笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">简易笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+            <div class="post-description">阅读技术报告VoxSRC 2022 Track3 Technical reports的结果汇总</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="基本信息">基本信息</h2>
+<p>Track3: Semi-supervised domain adaptation
+(closed)，即半监督跨域自适应说话人识别问题</p>
+<p>数据集：<br />
+源域数据集：Voxceleb1、Voxceleb2<br />
+目标域数据集：CNceleb2<br />
+目标域标记量：50人，没人20条共计1000条<br />
+目标域未标记量：&gt;1800人，具体未知，共计454946条，在去除md5重复和小于1s的数据后共计367715条</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/interspeech2022.html">VoxSRC
+2022 workshop</a></p>
+<p><a
+target="_blank" rel="noopener" href="https://zeus.robots.ox.ac.uk/competitions/competitions/4">CodaLab
+of Track3</a></p>
+<h2 id="结果">结果</h2>
+<h4 id="top1团队zzdddz">top1团队：zzdddz</h4>
+<p>组织：<br />
+Key Laboratory of Speech Acoustics and Content Understanding, Institute
+of Acoustics, Chinese Academy of Sciences, Beijing, China<br />
+报告链接：<a
+target="_blank" rel="noopener" href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/zzdddz_report.pdf">The
+HCCL system for VoxCeleb Speaker Recognition Challenge 2022</a>
+主方法：骨干网络+聚类+微调<br />
+跨域方法：CORAL、CORAL+、CORAL++ 聚类方法：GMVPG 后处理：
+LMF、AS-Norm、QMF</p>
+<p>基础结果表</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 24%" />
+<col style="width: 27%" />
+<col style="width: 23%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">损失</th>
+<th style="text-align: center;">训练方法</th>
+<th style="text-align: center;">未自适应前</th>
+<th style="text-align: center;">自适应后</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>se-resnet34-32</strong></td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">clean-fbank64-sgd</td>
+<td style="text-align: center;">16.86</td>
+<td style="text-align: center;">14.29</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cotnet</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">clean-fbank64-sgd</td>
+<td style="text-align: center;">16.65</td>
+<td style="text-align: center;">14.55</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">conformer</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">aug-fbank80-adam</td>
+<td style="text-align: center;">16.95</td>
+<td style="text-align: center;">14.14</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ecapa-large</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">aug-fbank80-adam</td>
+<td style="text-align: center;">18.02</td>
+<td style="text-align: center;">14.62</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>se-resnet34-32</strong></td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">aug-fbank80-adam</td>
+<td style="text-align: center;">14.06</td>
+<td style="text-align: center;">11.90</td>
+</tr>
+</tbody>
+</table>
+<p>聚类+微调结果表</p>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 30%" />
+<col style="width: 23%" />
+<col style="width: 15%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">损失</th>
+<th style="text-align: center;">训练方法</th>
+<th style="text-align: center;">未分数校准</th>
+<th style="text-align: center;">分数校准</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Res2Net50</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">未修正聚类-sgd</td>
+<td style="text-align: center;">8.45</td>
+<td style="text-align: center;">8.20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>ResNet34</strong></td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">未修正聚类-sgd</td>
+<td style="text-align: center;">8.61</td>
+<td style="text-align: center;">7.66</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ECAPA-X4</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">未修正聚类-sgd</td>
+<td style="text-align: center;">9.57</td>
+<td style="text-align: center;">8.81</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ECACP-X4</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">未修正聚类-adam</td>
+<td style="text-align: center;">10.47</td>
+<td style="text-align: center;">9.65</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ECAPA-X4</td>
+<td style="text-align: center;">SGD(2e-5)/Adam(2e-5)</td>
+<td style="text-align: center;">修正聚类-sgd</td>
+<td style="text-align: center;">8.78</td>
+<td style="text-align: center;">8.42</td>
+</tr>
+</tbody>
+</table>
+<h4 id="top2团队sixsix">top2团队：sixsix</h4>
+<p>组织：<br />
+Data Science Research Center, Duke Kunshan University, Kunshan,
+China<br />
+Tencent AI Lab, Shenzhen, China<br />
+报告链接：<a
+target="_blank" rel="noopener" href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/DKU-Tencent_report.pdf">The
+DKU-Tencent System for the VoxCeleb Speaker Recognition Challenge
+2022</a> 主方法：骨干网络+聚类+微调<br />
+跨域方法：无 聚类方法：K-means 后处理： AS-Norm、QMF</p>
+<p>结果表</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">迭代次数</th>
+<th style="text-align: center;">验证EER</th>
+<th style="text-align: center;">验证mDCF</th>
+<th style="text-align: center;">测试EER</th>
+<th style="text-align: center;">测试mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>SimAM-ResNet34</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">10.726</td>
+<td style="text-align: center;">0.458</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">9.735</td>
+<td style="text-align: center;">0.415</td>
+<td style="text-align: center;">9.747</td>
+<td style="text-align: center;">0.4985</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">9.290</td>
+<td style="text-align: center;">0.389</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.459</td>
+<td style="text-align: center;">0.397</td>
+<td style="text-align: center;">8.332</td>
+<td style="text-align: center;">0.449</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">10.010</td>
+<td style="text-align: center;">0.434</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet101-ASP</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.425</td>
+<td style="text-align: center;">0.385</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.275</td>
+<td style="text-align: center;">0.367</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.065</td>
+<td style="text-align: center;">0.374</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet152-Stat</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.165</td>
+<td style="text-align: center;">0.375</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7.875</td>
+<td style="text-align: center;">0.356</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7.455</td>
+<td style="text-align: center;">0.381</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet152-ASP</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.335</td>
+<td style="text-align: center;">0.369</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.020</td>
+<td style="text-align: center;">0.347</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7.730</td>
+<td style="text-align: center;">0.365</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet101-Std</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.440</td>
+<td style="text-align: center;">0.387</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.345</td>
+<td style="text-align: center;">0.362</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">7.810</td>
+<td style="text-align: center;">0.390</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">SE-ResNet101-ASP</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.680</td>
+<td style="text-align: center;">0.398</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.560</td>
+<td style="text-align: center;">0.375</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.345</td>
+<td style="text-align: center;">0.391</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ResNet221-Stat</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">9.160</td>
+<td style="text-align: center;">0.376</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.810</td>
+<td style="text-align: center;">0.357</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.090</td>
+<td style="text-align: center;">0.372</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">RepVGG-ASP</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+伪标签(Sub-center ArcFace)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.570</td>
+<td style="text-align: center;">0.382</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.445</td>
+<td style="text-align: center;">0.360</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">++QMF</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">8.270</td>
+<td style="text-align: center;">0.372</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">集成</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">7.000</td>
+<td style="text-align: center;">0.326</td>
+<td style="text-align: center;">7.153</td>
+<td style="text-align: center;">0.389</td>
+</tr>
+</tbody>
+</table>
+<h4 id="top4团队meng">top4团队：meng</h4>
+<p>组织：<br />
+MoE Key Lab of Artificial Intelligence, AI Institute Department of
+Computer Science and Engineering, X-LANCE Lab, Shanghai Jiao Tong
+University<br />
+AISpeech Ltd, Suzhou China<br />
+报告链接：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2209.09076.pdf">SJTU-AISPEECH
+System for VoxCeleb Speaker Recognition Challenge 2022</a>
+主方法：骨干网络+跨域+伪标签微调<br />
+跨域方法：统计自适应(Statistic Adaptation)+联合损失+动态损失门 后处理：
+AS-Norm、分数校准(Score Calibration)<br />
+联合损失大图：<br />
+<img data-src="/post/6167/2022-10-14-20-42-58.png" class=""></p>
+<p>结果表</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">EER</th>
+<th style="text-align: center;">mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">14.60</td>
+<td style="text-align: center;">0.5302</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+Statistic Adaptation</td>
+<td style="text-align: center;">11.65</td>
+<td style="text-align: center;">0.4552</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">++AS-Norm</td>
+<td style="text-align: center;">11.58(11.735)</td>
+<td style="text-align: center;">0.4032(0.3959)</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">+++Score Calibration</td>
+<td style="text-align: center;">9.950</td>
+<td style="text-align: center;">0.4290</td>
+</tr>
+</tbody>
+</table>
+<p>不同统计自适应和联合损失结果表</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">自适应方法</th>
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">EER</th>
+<th style="text-align: center;">mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Statistic Adaptation</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">9.950</td>
+<td style="text-align: center;">0.4290</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">APL</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">9.050</td>
+<td style="text-align: center;">0.4063</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TCL</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">9.320</td>
+<td style="text-align: center;">0.4254</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TCL+DLG-LC</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">9.060</td>
+<td style="text-align: center;">0.4180</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet34-c64</td>
+<td style="text-align: center;">8.825</td>
+<td style="text-align: center;">0.4104</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet101-c32</td>
+<td style="text-align: center;">8.255</td>
+<td style="text-align: center;">0.3771</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet152-c32</td>
+<td style="text-align: center;">8.095</td>
+<td style="text-align: center;">0.3696</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet101-c64</td>
+<td style="text-align: center;">8.025</td>
+<td style="text-align: center;">0.3670</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">OCL</td>
+<td style="text-align: left;">ResNet221-c32</td>
+<td style="text-align: center;">8.255</td>
+<td style="text-align: center;">0.3674</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">OCL+DLG-LC</td>
+<td style="text-align: left;">ResNet152-c32</td>
+<td style="text-align: center;">7.855</td>
+<td style="text-align: center;">0.3681</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">集成</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: center;">7.135</td>
+<td style="text-align: center;">0.3290</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">集成（测试）</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: center;">8.087</td>
+<td style="text-align: center;">0.4370</td>
+</tr>
+</tbody>
+</table>
+<h4 id="top5团队royalflush">top5团队：Royalflush</h4>
+<p>组织：<br />
+Hithink RoyalFlush AI Research Institute, Zhejiang, China<br />
+报告链接：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2209.09010.pdf">The Royalflush
+System for VoxCeleb Speaker Recognition Challenge 2022</a>
+主方法：ResUnet+聚类+微调<br />
+跨域方法：先自监督+有监督，然后聚类微调 聚类方法： AHC<br />
+大图：<br />
+<img data-src="/post/6167/2022-10-14-20-41-48.png" class=""></p>
+<p>结果表 | 模型 | 迭代次数 | EER | mDCF | | :--------- | :------: |
+:---: | :----: | | ResUnet-9 | 2 | 9.24 | 0.4572 | | ResUnet-12 | 2 |
+9.18 | 0.4410 | | ResUnet-15 | 2 | 8.65 | 0.4231 | | ResUnet-18 | 2 |
+8.69 | 0.4089 | | ResUnet-21 | 2 | 8.76 | 0.3980 | | ResUnet-9 | 3 |
+9.07 | 0.4449 | | ResUnet-12 | 3 | 9.03 | 0.4358 | | ResUnet-15 | 3 |
+8.52 | 0.4107 | | ResUnet-18 | 3 | 8.60 | 0.3962 | | ResUnet-21 | 3 |
+8.70 | 0.3906 | | 集成 | - | 7.75 | 0.3517 |</p>
+<h4 id="top9团队ribotot">top9团队：Ribotot</h4>
+<p>组织：<br />
+Department of Electronic Engineering, Hanyang University, Seoul,
+Republic of Korea<br />
+报告链接：<a
+target="_blank" rel="noopener" href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/HYU_report.pdf">HYU
+Submission for the VoxCeleb Speaker Recognition Challenge 2022</a>
+主方法：骨干网络+微调<br />
+跨域方法：多步微调</p>
+<p>结果表 <img data-src="/post/6167/2022-10-14-20-37-41.png" class=""></p>
+<h4 id="top13团队nsysu-cht">top13团队：NSYSU-CHT</h4>
+<p>组织：<br />
+National Sun Yat-sen University, Kaohsiung, Taiwan<br />
+Chunghwa Telecom Laboratories, Taoyuan, Taiwan<br />
+报告链接：<a
+target="_blank" rel="noopener" href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/NSYSU_CHT_report.pdf">Team
+NSYSU-CHT VoxCeleb Speaker Recognition Challenge 2022 System
+Description</a> 主方法：骨干网络+Mean-teacher+微调<br />
+跨域方法：Mean-teacher</p>
+<p>验证结果表</p>
+<table>
+<colgroup>
+<col style="width: 85%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">模型</th>
+<th style="text-align: center;">EER</th>
+<th style="text-align: center;">mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ECAPAPLDA CNN-TDNN(RAM)</td>
+<td style="text-align: center;">12.56</td>
+<td style="text-align: center;">0.5263</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ECAPAPLDA CNN-TDNN(RAAM)</td>
+<td style="text-align: center;">12.90</td>
+<td style="text-align: center;">0.5294</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ECAPAPLDA CNN-TDNN(CBAM+RAAM)</td>
+<td style="text-align: center;">12.44</td>
+<td style="text-align: center;">0.5231</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ECAPAPLDA MFA-TDNN</td>
+<td style="text-align: center;">12.78</td>
+<td style="text-align: center;">0.5283</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ECAPAPLDA
+CNN-TDNN(CBAM+RAAM)+不同初始化模型的teacher &amp; student</td>
+<td style="text-align: center;">12.59</td>
+<td style="text-align: center;">0.5279</td>
+</tr>
+</tbody>
+</table>
+<p>测试结果表</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">模型</th>
+<th style="text-align: center;">EER</th>
+<th style="text-align: center;">mDCF</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">ECAPAPLDA CNN-TDNN(CBAM+RAAM)</td>
+<td style="text-align: center;">13.65</td>
+<td style="text-align: center;">0.6936</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">集成</td>
+<td style="text-align: center;">12.36</td>
+<td style="text-align: center;">0.6165</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>霖
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://blog.nidwbin.xyz/post/6167/" title="VoxSRC 2022 Track3 Technical reports">https://blog.nidwbin.xyz/post/6167/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/post/3412/" rel="prev" title="Hexo 版本升级">
+                  <i class="fa fa-chevron-left"></i> Hexo 版本升级
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">霖</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">20k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">18 分钟</span>
+  </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@next-theme/pjax@0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"nidwbin","repo":"nidwbin.github.io","client_id":"f9be731bed77f32cd96a","client_secret":"3efd99a00d5ce36d427251eeb75f523821f587bf","admin_user":"nidwbin","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","js":{"url":"https://cdn.jsdelivr.net/npm/gitalk@1.7.2/dist/gitalk.min.js","integrity":"sha256-Pmj85ojLaPOWwRtlMJwmezB/Qg8BzvJp5eTzvXaYAfA="},"path_md5":"523788375a7b6a07aa0bc83bf0ed6227"}</script>
+<script src="/js/third-party/comments/gitalk.js"></script>
+<script>
+function background(){
+    document.body.style.backgroundImage = "url(/images/background/" + (Math.ceil(Math.random() * 10)) % 8 + ".webp)";
+};
+(function () {
+    background();
+})();
+</script>
+</body>
+</html>

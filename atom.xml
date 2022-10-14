@@ -6,7 +6,7 @@
   <link href="https://blog.nidwbin.xyz/atom.xml" rel="self"/>
   
   <link href="https://blog.nidwbin.xyz/"/>
-  <updated>2022-04-12T14:44:07.284Z</updated>
+  <updated>2022-10-14T12:43:48.961Z</updated>
   <id>https://blog.nidwbin.xyz/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VoxSRC 2022 Track3 Technical reports</title>
+    <link href="https://blog.nidwbin.xyz/post/6167/"/>
+    <id>https://blog.nidwbin.xyz/post/6167/</id>
+    <published>2022-10-13T06:26:24.000Z</published>
+    <updated>2022-10-14T12:43:48.961Z</updated>
+    
+    
+    <summary type="html">阅读技术报告VoxSRC 2022 Track3 Technical reports的结果汇总</summary>
+    
+    
+    
+    <category term="论文阅读笔记" scheme="https://blog.nidwbin.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="简易笔记" scheme="https://blog.nidwbin.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hexo 版本升级</title>
@@ -78,7 +97,7 @@
     <link href="https://blog.nidwbin.xyz/post/61813/"/>
     <id>https://blog.nidwbin.xyz/post/61813/</id>
     <published>2022-04-06T08:58:36.000Z</published>
-    <updated>2022-04-12T15:03:33.065Z</updated>
+    <updated>2022-04-12T15:04:54.767Z</updated>
     
     
     <summary type="html">阅读论文SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING的简单记录</summary>

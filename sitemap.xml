@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.nidwbin.xyz/post/6167/</loc>
+    
+    <lastmod>2022-10-14</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.nidwbin.xyz/post/61813/</loc>
     
     <lastmod>2022-04-12</lastmod>
@@ -121,7 +130,7 @@
 
   <url>
     <loc>https://blog.nidwbin.xyz/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -129,49 +138,49 @@
   
   <url>
     <loc>https://blog.nidwbin.xyz/tags/Hexo/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.nidwbin.xyz/tags/NexT/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.nidwbin.xyz/tags/Scoop/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.nidwbin.xyz/tags/%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.nidwbin.xyz/tags/docker/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.nidwbin.xyz/tags/VMware/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.nidwbin.xyz/tags/MySQL/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -180,28 +189,28 @@
   
   <url>
     <loc>https://blog.nidwbin.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.nidwbin.xyz/categories/%E5%B0%8F%E7%AB%99%E9%A3%8E%E4%BA%91/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.nidwbin.xyz/categories/%E6%8A%98%E8%85%BE/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://blog.nidwbin.xyz/categories/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0/%E7%AE%80%E6%98%93%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-04-12</lastmod>
+    <lastmod>2022-10-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
