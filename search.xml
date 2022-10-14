@@ -376,7 +376,7 @@ Key Laboratory of Speech Acoustics and Content Understanding, Institute
 of Acoustics, Chinese Academy of Sciences, Beijing, China<br />
 报告链接：<a
 href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/zzdddz_report.pdf">The
-HCCL system for VoxCeleb Speaker Recognition Challenge 2022</a>
+HCCL system for VoxCeleb Speaker Recognition Challenge 2022</a><br />
 主方法：骨干网络+聚类+微调<br />
 跨域方法：CORAL、CORAL+、CORAL++ 聚类方法：GMVPG 后处理：
 LMF、AS-Norm、QMF</p>
@@ -500,7 +500,8 @@ Tencent AI Lab, Shenzhen, China<br />
 报告链接：<a
 href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/DKU-Tencent_report.pdf">The
 DKU-Tencent System for the VoxCeleb Speaker Recognition Challenge
-2022</a> 主方法：骨干网络+聚类+微调<br />
+2022</a><br />
+主方法：骨干网络+聚类+微调<br />
 跨域方法：无 聚类方法：K-means 后处理： AS-Norm、QMF</p>
 <p>结果表</p>
 <table style="width:100%;">
@@ -812,7 +813,7 @@ Computer Science and Engineering, X-LANCE Lab, Shanghai Jiao Tong
 University<br />
 AISpeech Ltd, Suzhou China<br />
 报告链接：<a href="https://arxiv.org/pdf/2209.09076.pdf">SJTU-AISPEECH
-System for VoxCeleb Speaker Recognition Challenge 2022</a>
+System for VoxCeleb Speaker Recognition Challenge 2022</a><br />
 主方法：骨干网络+跨域+伪标签微调<br />
 跨域方法：统计自适应(Statistic Adaptation)+联合损失+动态损失门 后处理：
 AS-Norm、分数校准(Score Calibration)<br />
@@ -939,7 +940,7 @@ AS-Norm、分数校准(Score Calibration)<br />
 <p>组织：<br />
 Hithink RoyalFlush AI Research Institute, Zhejiang, China<br />
 报告链接：<a href="https://arxiv.org/pdf/2209.09010.pdf">The Royalflush
-System for VoxCeleb Speaker Recognition Challenge 2022</a>
+System for VoxCeleb Speaker Recognition Challenge 2022</a><br />
 主方法：ResUnet+聚类+微调<br />
 跨域方法：先自监督+有监督，然后聚类微调 聚类方法： AHC<br />
 大图：<br />
@@ -957,7 +958,7 @@ Department of Electronic Engineering, Hanyang University, Seoul,
 Republic of Korea<br />
 报告链接：<a
 href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/HYU_report.pdf">HYU
-Submission for the VoxCeleb Speaker Recognition Challenge 2022</a>
+Submission for the VoxCeleb Speaker Recognition Challenge 2022</a><br />
 主方法：骨干网络+微调<br />
 跨域方法：多步微调</p>
 <p>结果表 <img data-src="/post/6167/2022-10-14-20-37-41.png" class=""></p>
@@ -968,7 +969,8 @@ Chunghwa Telecom Laboratories, Taoyuan, Taiwan<br />
 报告链接：<a
 href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/NSYSU_CHT_report.pdf">Team
 NSYSU-CHT VoxCeleb Speaker Recognition Challenge 2022 System
-Description</a> 主方法：骨干网络+Mean-teacher+微调<br />
+Description</a><br />
+主方法：骨干网络+Mean-teacher+微调<br />
 跨域方法：Mean-teacher</p>
 <p>验证结果表</p>
 <table>
