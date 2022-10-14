@@ -3,7 +3,7 @@
   <entry>
     <title>ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification</title>
     <url>/post/42313/</url>
-    <content><![CDATA[<h2 id="基本信息">基本信息</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="基本信息">基本信息</h2>
 <p>引用Bibtex： <pre class="line-numbers language-bibtex" data-language="bibtex"><code class="language-bibtex">@article&#123;desplanques2020ecapa,
   title&#x3D;&#123;Ecapa-tdnn: Emphasized channel attention, propagation and aggregation in tdnn based speaker verification&#125;,
   author&#x3D;&#123;Desplanques, Brecht and Thienpondt, Jenthe and Demuynck, Kris&#125;,
@@ -168,7 +168,7 @@ href="https://github.com/TaoRuijie/ECAPATDNN">仓库</a>。
   <entry>
     <title>Hexo 版本升级</title>
     <url>/post/3412/</url>
-    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="写在前面的">写在前面的</h2>
 <p>2022年了，Hexo好像要<del>凉了</del>（并没有）。但本网站还是基于Hexo的，又能怎么办呢？
 所以版本升级搞起（指重新配置)。</p>
 <h2 id="hexo部分">Hexo部分</h2>
@@ -255,7 +255,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <entry>
     <title>SELF-SUPERVISED TEXT-INDEPENDENT SPEAKER VERIFICATION USING PROTOTYPICAL MOMENTUM CONTRASTIVE LEARNING</title>
     <url>/post/61813/</url>
-    <content><![CDATA[<h2 id="基本信息">基本信息</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="基本信息">基本信息</h2>
 <p>引用Bibtex <pre class="line-numbers language-bibtex" data-language="bibtex"><code class="language-bibtex">@inproceedings&#123;xia2021self,
   title&#x3D;&#123;Self-supervised text-independent speaker verification using prototypical momentum contrastive learning&#125;,
   author&#x3D;&#123;Xia, Wei and Zhang, Chunlei and Weng, Chao and Yu, Meng and Yu, Dong&#125;,
@@ -319,7 +319,7 @@ module<span class="token punctuation">.</span>exports <span class="token operato
   <entry>
     <title>Scoop使用体验</title>
     <url>/post/55364/</url>
-    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="写在前面的">写在前面的</h2>
 <p>太久没更新了，过来水水博客。这次的话就讲讲Scoop的简单使用体验吧吧。</p>
 <h2 id="scoop介绍">Scoop介绍</h2>
 <p>我的笔记本的Bios被锁了大部分功能，没办法装Linux。
@@ -355,7 +355,7 @@ href="https://github.com/gerardog/gsudo">gsudo</a>，点个star什么的。</p>
   <entry>
     <title>VoxSRC 2022 Track3 Technical reports</title>
     <url>/post/6167/</url>
-    <content><![CDATA[<h2 id="基本信息">基本信息</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="基本信息">基本信息</h2>
 <p>Track3: Semi-supervised domain adaptation
 (closed)，即半监督跨域自适应说话人识别问题</p>
 <p>数据集：<br />
@@ -1046,7 +1046,7 @@ CNN-TDNN(CBAM+RAAM)+不同初始化模型的teacher &amp; student</td>
   <entry>
     <title>WIN10家庭版docker+VMware安装</title>
     <url>/post/5013/</url>
-    <content><![CDATA[<h2 id="年更新">2022年更新</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="年更新">2022年更新</h2>
 <p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了
 <del>(申遗)</del>。
 wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！</p>
@@ -1147,7 +1147,7 @@ ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印�
   <entry>
     <title>Hexo+NexT个人博客升级遇到的坑</title>
     <url>/post/38257/</url>
-    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="写在前面的">写在前面的</h2>
 <p>你们可爱的博主大人又回来继续更新博客了，中间才3个月没有更新，在正常不过了，毕竟我可是要成为年更区、与作者比命长分舵的一只鸽子（大误）。好了，言归正传，本次带来的是我的个人博客的更新以及遇到的各种坑，为了防止我以后再次踩坑<del>（虽然这是必定的）</del>，所以特此留念。</p>
 <h2 id="更新内容">更新内容</h2>
 <p>为了让没有经历过本博客黑暗时代的童鞋们对本站有所了解，所以这里将更新或添加的内容列举一下下。
@@ -1297,7 +1297,7 @@ custom<span class="token operator">:</span>
   <entry>
     <title>WIN10+docker+VMware安装MySQL8.0</title>
     <url>/post/47162/</url>
-    <content><![CDATA[<h2 id="更新">2022更新</h2>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="更新">2022更新</h2>
 <p>wsl2来了，大人，时代变了！以下教程只能参考，可靠性未知。</p>
 <h2 id="写在前面的">写在前面的</h2>
 <p>docker对windows真的很不友好，所以早日脱坑，linux大法好
@@ -1363,7 +1363,7 @@ bash会将路径转译导致虚拟机不识别)，所以你只要修改//mnt/hgf
   <entry>
     <title>wsl2 kali 一键脚本</title>
     <url>/post/48332/</url>
-    <content><![CDATA[<h1 id="kali-wsl2-一键设置脚本">Kali wsl2 一键设置脚本</h1>
+    <content><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="kali-wsl2-一键设置脚本">Kali wsl2 一键设置脚本</h1>
 <h2 id="说明">说明</h2>
 <p>本脚本仅限WSL2，请勿在其他环境中使用。</p>
 <p>这是一个个人的Kali
