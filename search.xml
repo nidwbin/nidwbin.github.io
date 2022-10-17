@@ -353,257 +353,6 @@ href="https://github.com/gerardog/gsudo">gsudo</a>，点个star什么的。</p>
       </tags>
   </entry>
   <entry>
-    <title>WIN10家庭版docker+VMware安装</title>
-    <url>/post/5013/</url>
-    <content><![CDATA[<h2 id="年更新">2022年更新</h2>
-<p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了
-<del>(申遗)</del>。
-wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！</p>
-<h2 id="写在前面">写在前面</h2>
-<p>由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
-<h3 id="一些操作">一些操作</h3>
-<ul>
-<li>购买windows10专业版，<del>土豪请出门右转，谢谢</del></li>
-<li>弃坑windows，投入mac or linux的怀抱</li>
-<li>手工开启hyper-v，不是正版，影响更新，hyper-v的性能。。。</li>
-<li>使用docker toolbox安装</li>
-</ul>
-<h3 id="关于docker-toolbox">关于docker toolbox</h3>
-<p>docker toolbox的原理是使用Visual
-box来代替hyper-v，从而实现docker的运行，因此docker
-toolbox没有VMware也是可以运行的，但如果你已经安装了VMware，那么Visual
-box和VMware之间的战争便愉快的开始了</p>
-<h2 id="准备工作">准备工作</h2>
-<ul>
-<li>开启电脑的虚拟化(<a
-href="https://jingyan.baidu.com/article/574c52195b675c6c8d9dc138.html">百度经验</a>)</li>
-<li>安装并激活<a
-href="https://communities.vmware.com/thread/598748">VMware</a>(一个<a
-href="https://jingyan.baidu.com/article/3f16e00321bbb12591c10304.html">百度经验</a>的密钥：CG392-4PX5J-H816Z-HYZNG-PQRG2)</li>
-<li>安装<a
-href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/">docker
-toolbox</a>，推荐装在D盘</li>
-<li>下载docker的<a
-href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/">VMware驱动程序</a>，不安装</li>
-</ul>
-<h2 id="第一步卸载visual-box或vmware">第一步：卸载Visual
-box或VMware</h2>
-<p>如果你选择的是卸载VMware，那么docker到这里就已经可用了，当然这不是本篇blog的目的，相信也不是你的目的，所以，卸载Visual
-box</p>
-<h2 id="第二步移动vmware驱动">第二步：移动VMware驱动</h2>
-<p>将之前下载的VMware驱动移动到docker
-toolbox的安装目录下，即与docker.exe处于同一目录</p>
-<h2 id="第三步复制boot2docker.iso">第三步：复制boot2docker.iso</h2>
-<ul>
-<li>复制boot2docker.iso</li>
-<li>在当前目录下建立machine文件夹，进入machine文件夹后建立cache文件夹</li>
-<li>将boot2docker.iso复制到cache文件夹内</li>
-<li>ps: machine文件夹可以任意命名，cache文件夹不能任意</li>
-</ul>
-<h2 id="第四步建立其他文件夹">第四步：建立其他文件夹</h2>
-<p>docker默认是将镜像和虚拟机往C盘里存，<del>都惦记着我的C盘，你看它多么的弱小，无助。。。</del>，所以我们要改一下
-+ 在machine文件夹内（与cache同级）建立machines文件夹用于保存虚拟机 +
-进入machines文件夹，建立dev文件夹，dev是你虚拟机的名字 +
-将machine整个文件夹搬到你想要的位置 + ps：machines文件夹可任意命名</p>
-<h2 id="第五步修改环境变量">第五步：修改环境变量</h2>
-<ul>
-<li>资源管理器&gt;此电脑右键&gt;属性&gt;高级系统设置&gt;环境变量</li>
-<li>添加或修改如下环境变量</li>
-<li>ps:machine、machines、dev与之前你命的名相对应</li>
-</ul>
-<table>
-<thead>
-<tr class="header">
-<th>变量名</th>
-<th>变量值</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>DOCKER_CERT_PATH</td>
-<td>你将machine搬到的位置（如D:）</td>
-</tr>
-<tr class="even">
-<td>DOCKER_MACHINE_NAME</td>
-<td>dev</td>
-</tr>
-<tr class="odd">
-<td>DOCKER_TOOLBOX_INSTALL_PATH</td>
-<td>docker toolbox安装目录</td>
-</tr>
-<tr class="even">
-<td>MACHINE_STORAGE_PATH</td>
-<td>你将machine搬到的位置（如D:）</td>
-</tr>
-</tbody>
-</table>
-<h2 id="第六步建立docker虚拟机">第六步：建立docker虚拟机</h2>
-<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine create --driver<span class="token operator">=</span>vmwareworkstation dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-ps:dev与之前你命的名相对应</p>
-<h2 id="第七步查看docker虚拟机信息">第七步：查看docker虚拟机信息</h2>
-<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
-<p>至此，你的docker已经可以安装好了，推荐配合git bash食用<br />
-ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印机，编辑&gt;首选项(ctrl+p)&gt;设备&gt;启用虚拟打印机</p>
-]]></content>
-      <categories>
-        <category>折腾</category>
-      </categories>
-      <tags>
-        <tag>docker</tag>
-        <tag>VMware</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo+NexT个人博客升级遇到的坑</title>
-    <url>/post/38257/</url>
-    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
-<p>你们可爱的博主大人又回来继续更新博客了，中间才3个月没有更新，在正常不过了，毕竟我可是要成为年更区、与作者比命长分舵的一只鸽子（大误）。好了，言归正传，本次带来的是我的个人博客的更新以及遇到的各种坑，为了防止我以后再次踩坑<del>（虽然这是必定的）</del>，所以特此留念。</p>
-<h2 id="更新内容">更新内容</h2>
-<p>为了让没有经历过本博客黑暗时代的童鞋们对本站有所了解，所以这里将更新或添加的内容列举一下下。
-1. Hexo版本更新为最新版 2. NexT主题更新为最新版 3. 添加头像旋转 4.
-添加Valine评论 5.
-将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息 6.
-为官方的版权信息添加地址复制按钮 7. 换用靠谱的阅读人数统计 8.
-踩坑&amp;填坑😭</p>
-<p>好吧，这和从头捣鼓一遍好像差不多。。。</p>
-<h2 id="hexo版本更新为最新版">Hexo版本更新为最新版</h2>
-<p>万恶之源就是这一步，如果不是我想更新Hexo，后面也不会由这么多事，更新很简单,直接到<a
-href="https://hexo.io/">Hexo官网</a>找最新版安装教程即可。nodejs安装命令如下：
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-然后坑就来了，Windows10下无法配置Hexo的环境变量，直接敲Hexo会显示如下错误：<br />
-<img data-src="/post/38257/1.png" class=""><br />
-神奇Windows禁止运行脚本，网上有解除这个限制的方法，但我懒得弄了，所以每次使用Hexo需要先敲npx，用npx来调用Hexo。Linux和Mac似乎没有这个坑。。。</p>
-<h2 id="next主题更新为最新版">NexT主题更新为最新版</h2>
-<p>Hexo升级了，主题当然也要升级，我用的NexT，所以区官网找安装方法，如下图：<br />
-<img data-src="/post/38257/2.png" class=""><br />
-然后，你会发现NexT依旧是6.0.0版本，为什么呢？去这个github仓库看看就知道了，如下图：<br />
-<img data-src="/post/38257/3.png" class="">
-对，NexT仓库搬迁了，然而中文官网的地址并没有更新，我之前配了半小时的内容又作废了。。。<br />
-最新版的安装命令如下（在Hexo的目录下运行）： <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
-<h2 id="添加头像旋转">添加头像旋转</h2>
-<p>最新版NexT已经支持头像旋转了，直接在<strong>主题配置文件</strong>中搜索<em>avatar</em>即可找到头像设置
-<img data-src="/post/38257/4.png" class="">
-当然老版那种自立门户的方法也是可以的，百度一搜都是，这里不粘贴了</p>
-<h2 id="添加valine评论">添加Valine评论</h2>
-<p>最新版NexT评论的添加方法也有所不同，需要先在<strong>主题配置文件</strong>中搜索<em>comments</em>，在<em>active</em>里填上<em>valine</em>，如下图：
-<img data-src="/post/38257/5.png" class="">
-然后再搜索<em>valine</em>把LeanCloud上的app_id和app_key填上，<em>enable</em>设为true，剩下的就是设置了，我的设置如下：
-<img data-src="/post/38257/6.png" class="">
-<strong>注意：</strong>LeanCloud上的安全域名记得填上自己的博客地址，不然评论只有localhost发的能记到LeadCloud上。。。别问我是怎么知道的</p>
-<h2
-id="将自定义抄袭的版权信息修改为官方的版权信息">将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息</h2>
-<p>以前的版权信息是从一位大佬那<del>抄</del>借来的，但最新版NexT自带了版权信息，所以现在又改成NexT的版权信息了，毕竟东西不要借（chao)太(tai)久(duo)，现在的版权信息如下：
-<img data-src="/post/38257/7.png" class="">
-这个设置简单，直接在<strong>主题配置文件</strong>中搜索<em>creative_commons</em>自己调。<br />
-你问我那个复制按钮哪来的，当然是<del>抄</del>借鉴官方的源代码自己添的了。</p>
-<h2
-id="为官方的版权信息添加地址复制按钮">为官方的版权信息添加地址复制按钮</h2>
-<p>嘿嘿，<del>读书人</del>程序员的事，怎么能叫抄呢，应该叫借鉴~~借鉴~~<br />
-NexT官方支持代码复制按钮了，所以为了风格统一，需要给我的Copyright也加上复制按钮，这个配置比较麻烦，步骤如下：
-### 第一步 新建按钮样式
-先在themes_custom文件夹，然后在文件夹里新建custom.styl文件，这个文件里的内容如下：
-<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.copy-link-btn</span> <span class="token punctuation">&#123;</span>
-    <span class="token property">color</span><span class="token punctuation">:</span> $black-dim<span class="token punctuation">;</span>
-    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
-    <span class="token property">font-weight</span><span class="token punctuation">:</span> $font-weight-bolder<span class="token punctuation">;</span>
-    <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span>
-    <span class="token property">outline</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-    <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
-    <span class="token property">padding</span><span class="token punctuation">:</span> 2px 6px<span class="token punctuation">;</span>
-    <span class="token property">transition</span><span class="token punctuation">:</span> opacity .3s ease-in-out<span class="token punctuation">;</span>
-    <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
-    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
-    <span class="token function">disable-user-select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-    <span class="token selector">if (hexo-config('codeblock.copy_button.style') == 'flat')</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
-        <span class="token property">border</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-        <span class="token property">font-size</span><span class="token punctuation">:</span> $font-size-smaller<span class="token punctuation">;</span>
-        <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-        <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span> <span class="token selector">else if (hexo-config('codeblock.copy_button.style') == 'mac')</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
-        <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
-        <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
-        <span class="token property">top</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span> <span class="token selector">else</span> <span class="token punctuation">&#123;</span>
-        <span class="token property">background-color</span><span class="token punctuation">:</span> $gainsboro<span class="token punctuation">;</span>
-        <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#fcfcfc<span class="token punctuation">,</span> $gainsboro<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #d5d5d5<span class="token punctuation">;</span>
-        <span class="token property">border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
-        <span class="token property">font-size</span><span class="token punctuation">:</span> $font-size-smaller<span class="token punctuation">;</span>
-        <span class="token property">right</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
-        <span class="token property">top</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-官方CSS里借鉴的~~，当然如果你要自定义主题颜色什么的可以在这个文件里自己加
-### 第二步 导入这个文件
-在themes.styl文件（_custom文件夹那层）最后添加这几行代码让custom.styl导入：
-<pre class="line-numbers language-css" data-language="css"><code class="language-css">// Add Custom Layer
-// --------------------------------------------------
-<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"_custom/custom.styl"</span> if <span class="token punctuation">(</span><span class="token function">hexo-config</span><span class="token punctuation">(</span><span class="token string">'custom.css'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> 喜欢自己起名的宝宝们注意这里的路径要写对哟 ### 第三步
-编辑JS 先在themes.js文件，内容如下： <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">var</span> link <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'li.post-copyright-link'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    link<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'beforeend'</span><span class="token punctuation">,</span> <span class="token string">'&lt;div class="copy-link-btn">&lt;i class="fa fa-clipboard">&lt;/i>&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">var</span> button <span class="token operator">=</span> link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.copy-link-btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    button<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">var</span> code <span class="token operator">=</span> link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text<span class="token punctuation">;</span>
-        <span class="token keyword">var</span> ta <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'textarea'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ta<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> window<span class="token punctuation">.</span>scrollY <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span> <span class="token comment">// Prevent page scrolling</span>
-        ta<span class="token punctuation">.</span>style<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token string">'absolute'</span><span class="token punctuation">;</span>
-        ta<span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token string">'0'</span><span class="token punctuation">;</span>
-        ta<span class="token punctuation">.</span>readOnly <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
-        ta<span class="token punctuation">.</span>value <span class="token operator">=</span> code<span class="token punctuation">;</span>
-        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>ta<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">const</span> selection <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">const</span> selected <span class="token operator">=</span> selection<span class="token punctuation">.</span>rangeCount <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">?</span> selection<span class="token punctuation">.</span><span class="token function">getRangeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        ta<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ta<span class="token punctuation">.</span><span class="token function">setSelectionRange</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> code<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        ta<span class="token punctuation">.</span>readOnly <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-        <span class="token keyword">var</span> result <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">execCommand</span><span class="token punctuation">(</span><span class="token string">'copy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>className <span class="token operator">=</span> result <span class="token operator">?</span> <span class="token string">'fa fa-check'</span> <span class="token operator">:</span> <span class="token string">'fa fa-times'</span><span class="token punctuation">;</span>
-        ta<span class="token punctuation">.</span><span class="token function">blur</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// For iOS</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>selected<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            selection<span class="token punctuation">.</span><span class="token function">removeAllRanges</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            selection<span class="token punctuation">.</span><span class="token function">addRange</span><span class="token punctuation">(</span>selected<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
-        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>ta<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    button<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseleave'</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
-            event<span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'fa fa-clipboard'</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-官方JS里借鉴的~~<br />
-注意这里插入按钮的CSS样式名字要与之前custom.styl里的CSS样式名字统一 ###
-第四步 导入JS 我选择的导入方式比较麻烦，不过我喜欢~~~<br />
-在themes-scripts.swig文件，内容如下 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/js/custom.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-然后再在themes_layout.swig的最后<strong>body和html结束标记之前</strong>添加代码如下：
-<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>Add<span class="token operator">--</span><span class="token operator">></span>
-<span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token keyword">if</span> theme<span class="token punctuation">.</span>custom<span class="token punctuation">.</span>javascript <span class="token operator">%</span><span class="token punctuation">&#125;</span>
-  <span class="token punctuation">&#123;</span><span class="token operator">%</span> include <span class="token string">'custom-scripts.swig'</span> <span class="token operator">%</span><span class="token punctuation">&#125;</span>
-<span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre> 最后在<strong>主题配置文件</strong>最后追加代码
-<pre class="line-numbers language-json" data-language="json"><code class="language-json"># Add
-# Add Custom CSS &amp; JavaScript
-custom<span class="token operator">:</span>
-  css<span class="token operator">:</span> <span class="token boolean">true</span> 
-  javascript<span class="token operator">:</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre> 弄完收工。<br />
-具体代码功能就是将运行custom-scripts.swig给控制接口暴露出来，然后设置为true，使custom-scripts.swig运行，而custom-scripts.swig的功能就是将custom.js添加到html的body里。</p>
-<p>这样配置的好处是可以自己编辑CSS和Javascript然后导入，可玩性更高，不过要自己注意避免冲突哟~~~</p>
-<h2 id="换用靠谱的阅读人数统计">换用靠谱的阅读人数统计</h2>
-<p>这个简单，使用Valine自带的人数统计，然后没了。。。</p>
-]]></content>
-      <categories>
-        <category>小站风云</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>NexT</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>VoxSRC 2022 Track3 Technical reports</title>
     <url>/post/6167/</url>
     <content><![CDATA[<h2 id="基本信息">基本信息</h2>
@@ -1365,6 +1114,257 @@ CNN-TDNN(CBAM+RAAM)+不同初始化模型的teacher &amp; student</td>
         <category>论文阅读笔记</category>
         <category>简易笔记</category>
       </categories>
+  </entry>
+  <entry>
+    <title>WIN10家庭版docker+VMware安装</title>
+    <url>/post/5013/</url>
+    <content><![CDATA[<h2 id="年更新">2022年更新</h2>
+<p>wsl2来了，windows能跑linux程序了；wsl2来了，青天就有了
+<del>(申遗)</del>。
+wsl2就可以不用以下歪门邪道了，巨硬nb！vmware退钱！</p>
+<h2 id="写在前面">写在前面</h2>
+<p>由于windows10家庭版没有hyper-v,而docker需要虚拟机支持，所以正常windows10家庭版是无法使用docker安装包安装。但天无绝人之路，可以通过一些操作来实现。</p>
+<h3 id="一些操作">一些操作</h3>
+<ul>
+<li>购买windows10专业版，<del>土豪请出门右转，谢谢</del></li>
+<li>弃坑windows，投入mac or linux的怀抱</li>
+<li>手工开启hyper-v，不是正版，影响更新，hyper-v的性能。。。</li>
+<li>使用docker toolbox安装</li>
+</ul>
+<h3 id="关于docker-toolbox">关于docker toolbox</h3>
+<p>docker toolbox的原理是使用Visual
+box来代替hyper-v，从而实现docker的运行，因此docker
+toolbox没有VMware也是可以运行的，但如果你已经安装了VMware，那么Visual
+box和VMware之间的战争便愉快的开始了</p>
+<h2 id="准备工作">准备工作</h2>
+<ul>
+<li>开启电脑的虚拟化(<a
+href="https://jingyan.baidu.com/article/574c52195b675c6c8d9dc138.html">百度经验</a>)</li>
+<li>安装并激活<a
+href="https://communities.vmware.com/thread/598748">VMware</a>(一个<a
+href="https://jingyan.baidu.com/article/3f16e00321bbb12591c10304.html">百度经验</a>的密钥：CG392-4PX5J-H816Z-HYZNG-PQRG2)</li>
+<li>安装<a
+href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/">docker
+toolbox</a>，推荐装在D盘</li>
+<li>下载docker的<a
+href="https://github.com/pecigonzalo/docker-machine-vmwareworkstation/releases/">VMware驱动程序</a>，不安装</li>
+</ul>
+<h2 id="第一步卸载visual-box或vmware">第一步：卸载Visual
+box或VMware</h2>
+<p>如果你选择的是卸载VMware，那么docker到这里就已经可用了，当然这不是本篇blog的目的，相信也不是你的目的，所以，卸载Visual
+box</p>
+<h2 id="第二步移动vmware驱动">第二步：移动VMware驱动</h2>
+<p>将之前下载的VMware驱动移动到docker
+toolbox的安装目录下，即与docker.exe处于同一目录</p>
+<h2 id="第三步复制boot2docker.iso">第三步：复制boot2docker.iso</h2>
+<ul>
+<li>复制boot2docker.iso</li>
+<li>在当前目录下建立machine文件夹，进入machine文件夹后建立cache文件夹</li>
+<li>将boot2docker.iso复制到cache文件夹内</li>
+<li>ps: machine文件夹可以任意命名，cache文件夹不能任意</li>
+</ul>
+<h2 id="第四步建立其他文件夹">第四步：建立其他文件夹</h2>
+<p>docker默认是将镜像和虚拟机往C盘里存，<del>都惦记着我的C盘，你看它多么的弱小，无助。。。</del>，所以我们要改一下
++ 在machine文件夹内（与cache同级）建立machines文件夹用于保存虚拟机 +
+进入machines文件夹，建立dev文件夹，dev是你虚拟机的名字 +
+将machine整个文件夹搬到你想要的位置 + ps：machines文件夹可任意命名</p>
+<h2 id="第五步修改环境变量">第五步：修改环境变量</h2>
+<ul>
+<li>资源管理器&gt;此电脑右键&gt;属性&gt;高级系统设置&gt;环境变量</li>
+<li>添加或修改如下环境变量</li>
+<li>ps:machine、machines、dev与之前你命的名相对应</li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>变量名</th>
+<th>变量值</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>DOCKER_CERT_PATH</td>
+<td>你将machine搬到的位置（如D:）</td>
+</tr>
+<tr class="even">
+<td>DOCKER_MACHINE_NAME</td>
+<td>dev</td>
+</tr>
+<tr class="odd">
+<td>DOCKER_TOOLBOX_INSTALL_PATH</td>
+<td>docker toolbox安装目录</td>
+</tr>
+<tr class="even">
+<td>MACHINE_STORAGE_PATH</td>
+<td>你将machine搬到的位置（如D:）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="第六步建立docker虚拟机">第六步：建立docker虚拟机</h2>
+<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine create --driver<span class="token operator">=</span>vmwareworkstation dev<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+ps:dev与之前你命的名相对应</p>
+<h2 id="第七步查看docker虚拟机信息">第七步：查看docker虚拟机信息</h2>
+<p>打开powershell，输入如下命令 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker-machine <span class="token function">ls</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<p>至此，你的docker已经可以安装好了，推荐配合git bash食用<br />
+ps:如果你的VMware经常卡死、未响应，那么推荐打开虚拟打印机，编辑&gt;首选项(ctrl+p)&gt;设备&gt;启用虚拟打印机</p>
+]]></content>
+      <categories>
+        <category>折腾</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+        <tag>VMware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo+NexT个人博客升级遇到的坑</title>
+    <url>/post/38257/</url>
+    <content><![CDATA[<h2 id="写在前面的">写在前面的</h2>
+<p>你们可爱的博主大人又回来继续更新博客了，中间才3个月没有更新，在正常不过了，毕竟我可是要成为年更区、与作者比命长分舵的一只鸽子（大误）。好了，言归正传，本次带来的是我的个人博客的更新以及遇到的各种坑，为了防止我以后再次踩坑<del>（虽然这是必定的）</del>，所以特此留念。</p>
+<h2 id="更新内容">更新内容</h2>
+<p>为了让没有经历过本博客黑暗时代的童鞋们对本站有所了解，所以这里将更新或添加的内容列举一下下。
+1. Hexo版本更新为最新版 2. NexT主题更新为最新版 3. 添加头像旋转 4.
+添加Valine评论 5.
+将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息 6.
+为官方的版权信息添加地址复制按钮 7. 换用靠谱的阅读人数统计 8.
+踩坑&amp;填坑😭</p>
+<p>好吧，这和从头捣鼓一遍好像差不多。。。</p>
+<h2 id="hexo版本更新为最新版">Hexo版本更新为最新版</h2>
+<p>万恶之源就是这一步，如果不是我想更新Hexo，后面也不会由这么多事，更新很简单,直接到<a
+href="https://hexo.io/">Hexo官网</a>找最新版安装教程即可。nodejs安装命令如下：
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-cli -g<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+然后坑就来了，Windows10下无法配置Hexo的环境变量，直接敲Hexo会显示如下错误：<br />
+<img data-src="/post/38257/1.png" class=""><br />
+神奇Windows禁止运行脚本，网上有解除这个限制的方法，但我懒得弄了，所以每次使用Hexo需要先敲npx，用npx来调用Hexo。Linux和Mac似乎没有这个坑。。。</p>
+<h2 id="next主题更新为最新版">NexT主题更新为最新版</h2>
+<p>Hexo升级了，主题当然也要升级，我用的NexT，所以区官网找安装方法，如下图：<br />
+<img data-src="/post/38257/2.png" class=""><br />
+然后，你会发现NexT依旧是6.0.0版本，为什么呢？去这个github仓库看看就知道了，如下图：<br />
+<img data-src="/post/38257/3.png" class="">
+对，NexT仓库搬迁了，然而中文官网的地址并没有更新，我之前配了半小时的内容又作废了。。。<br />
+最新版的安装命令如下（在Hexo的目录下运行）： <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></p>
+<h2 id="添加头像旋转">添加头像旋转</h2>
+<p>最新版NexT已经支持头像旋转了，直接在<strong>主题配置文件</strong>中搜索<em>avatar</em>即可找到头像设置
+<img data-src="/post/38257/4.png" class="">
+当然老版那种自立门户的方法也是可以的，百度一搜都是，这里不粘贴了</p>
+<h2 id="添加valine评论">添加Valine评论</h2>
+<p>最新版NexT评论的添加方法也有所不同，需要先在<strong>主题配置文件</strong>中搜索<em>comments</em>，在<em>active</em>里填上<em>valine</em>，如下图：
+<img data-src="/post/38257/5.png" class="">
+然后再搜索<em>valine</em>把LeanCloud上的app_id和app_key填上，<em>enable</em>设为true，剩下的就是设置了，我的设置如下：
+<img data-src="/post/38257/6.png" class="">
+<strong>注意：</strong>LeanCloud上的安全域名记得填上自己的博客地址，不然评论只有localhost发的能记到LeadCloud上。。。别问我是怎么知道的</p>
+<h2
+id="将自定义抄袭的版权信息修改为官方的版权信息">将自定义<del>（抄袭）</del>的版权信息修改为官方的版权信息</h2>
+<p>以前的版权信息是从一位大佬那<del>抄</del>借来的，但最新版NexT自带了版权信息，所以现在又改成NexT的版权信息了，毕竟东西不要借（chao)太(tai)久(duo)，现在的版权信息如下：
+<img data-src="/post/38257/7.png" class="">
+这个设置简单，直接在<strong>主题配置文件</strong>中搜索<em>creative_commons</em>自己调。<br />
+你问我那个复制按钮哪来的，当然是<del>抄</del>借鉴官方的源代码自己添的了。</p>
+<h2
+id="为官方的版权信息添加地址复制按钮">为官方的版权信息添加地址复制按钮</h2>
+<p>嘿嘿，<del>读书人</del>程序员的事，怎么能叫抄呢，应该叫借鉴~~借鉴~~<br />
+NexT官方支持代码复制按钮了，所以为了风格统一，需要给我的Copyright也加上复制按钮，这个配置比较麻烦，步骤如下：
+### 第一步 新建按钮样式
+先在themes_custom文件夹，然后在文件夹里新建custom.styl文件，这个文件里的内容如下：
+<pre class="line-numbers language-css" data-language="css"><code class="language-css"><span class="token selector">.copy-link-btn</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> $black-dim<span class="token punctuation">;</span>
+    <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> inline-block<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> $font-weight-bolder<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> 1.6<span class="token punctuation">;</span>
+    <span class="token property">outline</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">opacity</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">padding</span><span class="token punctuation">:</span> 2px 6px<span class="token punctuation">;</span>
+    <span class="token property">transition</span><span class="token punctuation">:</span> opacity .3s ease-in-out<span class="token punctuation">;</span>
+    <span class="token property">vertical-align</span><span class="token punctuation">:</span> middle<span class="token punctuation">;</span>
+    <span class="token property">white-space</span><span class="token punctuation">:</span> nowrap<span class="token punctuation">;</span>
+    <span class="token function">disable-user-select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token selector">if (hexo-config('codeblock.copy_button.style') == 'flat')</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">background</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> $font-size-smaller<span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token selector">else if (hexo-config('codeblock.copy_button.style') == 'mac')</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> white<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 2px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span> <span class="token selector">else</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> $gainsboro<span class="token punctuation">;</span>
+        <span class="token property">background-image</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>#fcfcfc<span class="token punctuation">,</span> $gainsboro<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token property">border</span><span class="token punctuation">:</span> 1px solid #d5d5d5<span class="token punctuation">;</span>
+        <span class="token property">border-radius</span><span class="token punctuation">:</span> 3px<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> $font-size-smaller<span class="token punctuation">;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> 8px<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+官方CSS里借鉴的~~，当然如果你要自定义主题颜色什么的可以在这个文件里自己加
+### 第二步 导入这个文件
+在themes.styl文件（_custom文件夹那层）最后添加这几行代码让custom.styl导入：
+<pre class="line-numbers language-css" data-language="css"><code class="language-css">// Add Custom Layer
+// --------------------------------------------------
+<span class="token atrule"><span class="token rule">@import</span> <span class="token string">"_custom/custom.styl"</span> if <span class="token punctuation">(</span><span class="token function">hexo-config</span><span class="token punctuation">(</span><span class="token string">'custom.css'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre> 喜欢自己起名的宝宝们注意这里的路径要写对哟 ### 第三步
+编辑JS 先在themes.js文件，内容如下： <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">var</span> link <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'li.post-copyright-link'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    link<span class="token punctuation">.</span><span class="token function">insertAdjacentHTML</span><span class="token punctuation">(</span><span class="token string">'beforeend'</span><span class="token punctuation">,</span> <span class="token string">'&lt;div class="copy-link-btn">&lt;i class="fa fa-clipboard">&lt;/i>&lt;/div>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> button <span class="token operator">=</span> link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'.copy-link-btn'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    button<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token keyword">var</span> code <span class="token operator">=</span> link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'a'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>text<span class="token punctuation">;</span>
+        <span class="token keyword">var</span> ta <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">'textarea'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>style<span class="token punctuation">.</span>top <span class="token operator">=</span> window<span class="token punctuation">.</span>scrollY <span class="token operator">+</span> <span class="token string">'px'</span><span class="token punctuation">;</span> <span class="token comment">// Prevent page scrolling</span>
+        ta<span class="token punctuation">.</span>style<span class="token punctuation">.</span>position <span class="token operator">=</span> <span class="token string">'absolute'</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>style<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token string">'0'</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>readOnly <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>value <span class="token operator">=</span> code<span class="token punctuation">;</span>
+        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>ta<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> selection <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> selected <span class="token operator">=</span> selection<span class="token punctuation">.</span>rangeCount <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">?</span> selection<span class="token punctuation">.</span><span class="token function">getRangeAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span><span class="token function">select</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span><span class="token function">setSelectionRange</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> code<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span>readOnly <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token keyword">var</span> result <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">execCommand</span><span class="token punctuation">(</span><span class="token string">'copy'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        link<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>className <span class="token operator">=</span> result <span class="token operator">?</span> <span class="token string">'fa fa-check'</span> <span class="token operator">:</span> <span class="token string">'fa fa-times'</span><span class="token punctuation">;</span>
+        ta<span class="token punctuation">.</span><span class="token function">blur</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// For iOS</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>selected<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            selection<span class="token punctuation">.</span><span class="token function">removeAllRanges</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            selection<span class="token punctuation">.</span><span class="token function">addRange</span><span class="token punctuation">(</span>selected<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span>
+        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">removeChild</span><span class="token punctuation">(</span>ta<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    button<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'mouseleave'</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+            event<span class="token punctuation">.</span>target<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">'i'</span><span class="token punctuation">)</span><span class="token punctuation">.</span>className <span class="token operator">=</span> <span class="token string">'fa fa-clipboard'</span><span class="token punctuation">;</span>
+        <span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+官方JS里借鉴的~~<br />
+注意这里插入按钮的CSS样式名字要与之前custom.styl里的CSS样式名字统一 ###
+第四步 导入JS 我选择的导入方式比较麻烦，不过我喜欢~~~<br />
+在themes-scripts.swig文件，内容如下 <pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"text/javascript"</span> src<span class="token operator">=</span><span class="token string">"/js/custom.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+然后再在themes_layout.swig的最后<strong>body和html结束标记之前</strong>添加代码如下：
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>Add<span class="token operator">--</span><span class="token operator">></span>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token keyword">if</span> theme<span class="token punctuation">.</span>custom<span class="token punctuation">.</span>javascript <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#123;</span><span class="token operator">%</span> include <span class="token string">'custom-scripts.swig'</span> <span class="token operator">%</span><span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#123;</span><span class="token operator">%</span><span class="token operator">-</span> endif <span class="token operator">%</span><span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre> 最后在<strong>主题配置文件</strong>最后追加代码
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"># Add
+# Add Custom CSS &amp; JavaScript
+custom<span class="token operator">:</span>
+  css<span class="token operator">:</span> <span class="token boolean">true</span> 
+  javascript<span class="token operator">:</span> <span class="token boolean">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre> 弄完收工。<br />
+具体代码功能就是将运行custom-scripts.swig给控制接口暴露出来，然后设置为true，使custom-scripts.swig运行，而custom-scripts.swig的功能就是将custom.js添加到html的body里。</p>
+<p>这样配置的好处是可以自己编辑CSS和Javascript然后导入，可玩性更高，不过要自己注意避免冲突哟~~~</p>
+<h2 id="换用靠谱的阅读人数统计">换用靠谱的阅读人数统计</h2>
+<p>这个简单，使用Valine自带的人数统计，然后没了。。。</p>
+]]></content>
+      <categories>
+        <category>小站风云</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>NexT</tag>
+      </tags>
   </entry>
   <entry>
     <title>WIN10+docker+VMware安装MySQL8.0</title>
