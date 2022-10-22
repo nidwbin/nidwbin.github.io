@@ -378,8 +378,9 @@ of Acoustics, Chinese Academy of Sciences, Beijing, China<br />
 href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/zzdddz_report.pdf">The
 HCCL system for VoxCeleb Speaker Recognition Challenge 2022</a><br />
 主方法：骨干网络+聚类+微调<br />
-跨域方法：CORAL、CORAL+、CORAL++ 聚类方法：GMVPG 后处理：
-LMF、AS-Norm、QMF</p>
+跨域方法：CORAL、CORAL+、CORAL++<br />
+聚类方法：GMVPG<br />
+后处理： LMF、AS-Norm、QMF</p>
 <p>基础结果表</p>
 <table style="width:100%;">
 <colgroup>
@@ -502,7 +503,9 @@ href="https://www.robots.ox.ac.uk/~vgg/data/voxceleb/data_workshop_2022/reports/
 DKU-Tencent System for the VoxCeleb Speaker Recognition Challenge
 2022</a><br />
 主方法：骨干网络+聚类+微调<br />
-跨域方法：无 聚类方法：K-means 后处理： AS-Norm、QMF</p>
+跨域方法：无<br />
+聚类方法：K-means<br />
+后处理： AS-Norm、QMF</p>
 <p>结果表</p>
 <table style="width:100%;">
 <colgroup>
@@ -815,8 +818,8 @@ AISpeech Ltd, Suzhou China<br />
 报告链接：<a href="https://arxiv.org/pdf/2209.09076.pdf">SJTU-AISPEECH
 System for VoxCeleb Speaker Recognition Challenge 2022</a><br />
 主方法：骨干网络+跨域+伪标签微调<br />
-跨域方法：统计自适应(Statistic Adaptation)+联合损失+动态损失门 后处理：
-AS-Norm、分数校准(Score Calibration)<br />
+跨域方法：统计自适应(Statistic Adaptation)+联合损失+动态损失门<br />
+后处理： AS-Norm、分数校准(Score Calibration)<br />
 联合损失大图：<br />
 <img data-src="/post/6167/2022-10-14-20-42-58.png" class=""></p>
 <p>结果表</p>
@@ -942,7 +945,8 @@ Hithink RoyalFlush AI Research Institute, Zhejiang, China<br />
 报告链接：<a href="https://arxiv.org/pdf/2209.09010.pdf">The Royalflush
 System for VoxCeleb Speaker Recognition Challenge 2022</a><br />
 主方法：ResUnet+聚类+微调<br />
-跨域方法：先自监督+有监督，然后聚类微调 聚类方法： AHC<br />
+跨域方法：先自监督+有监督，然后聚类微调<br />
+聚类方法： AHC<br />
 大图：<br />
 <img data-src="/post/6167/2022-10-14-20-41-48.png" class=""></p>
 <p>结果表</p>
